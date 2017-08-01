@@ -1,5 +1,5 @@
 000100990202/********************************************************************/
-000200990202/* Program     : HSC731                                             */
+000200170801/* Program     : HSC731            changed                          */
 000300990202/* Purpose     : Create OPNQRYF for Voucher Control file HSLVCTLA   */
 000400990202/* System      : HSV - Voucher Tracking and Control                 */
 000500990202/* Date        : January 1999                                       */
