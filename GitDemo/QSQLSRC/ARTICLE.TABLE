@@ -1,0 +1,85 @@
+000001888888     --%CSTD===========================================================*
+000002888888     --* Application. : RWB        (DEMO)Ray Bernardi                  *
+000003888888     --* Component. . : ARTICLE                       Type: TABLE      *
+000004888888     --*===============================================================*
+000005888888     --* Sub-system . :                                                *
+000006888888     --* Function . . :                                                *
+000007888888     --* Sub-function :                                                *
+000008888888     --*%S=============================================================*
+000009888888     --* Description of functions:                                     *
+000011888888     --*                                                               *
+000012888888     --*                                                               *
+000013888888     --*                                                               *
+000014888888     --*         10 RBERNARDI  06/18/2015 14:49  V 1.00.M MR 15/   26  *
+000015888888     --*           The work to do                                      *
+000016888888     --*         09 RBERNARDI  04/27/2015 03:10  V 1.00.L MR 15/   20  *
+000017888888     --*           Change a file using RDi and ARCAD                   *
+000018888888     --*         08 RBERNARDI  04/27/2015 02:57  V 1.00.K MR 15/   20  *
+000019888888     --*           Change a file using RDi and ARCAD                   *
+000020888888     --*         07 RBERNARDI  04/10/2015 14:02  V 1.00.J MR 15/    9  *
+000021888888     --*           test                                                *
+000022888888     --*         06 RBERNARDI  02/05/2015 20:00  V 1.00.G MR 15/    5  *
+000023888888     --*           Short Desc problem                                  *
+000024888888     --*         05 RBERNARDI  02/03/2015 19:25  V 1.00.F MR 15/    4  *
+000025888888     --*           Short Desc of the issue                             *
+000026888888     --*         04 RBERNARDI  01/30/2015 17:22  V 1.00.E MR 15/    3  *
+000027888888     --*           My demonstration                                    *
+000028888888     --*         03 RBERNARDI  01/30/2015 15:39  V 1.00.D MR 15/    3  *
+000029888888     --*           My demonstration                                    *
+000030888888     --*         02 RBERNARDI  11/26/2014 18:03  V 1.00.C MR 14/   38  *
+000031888888     --*           Short desc of the work or issue                     *
+000032888888     --* CSTD==========================================================*
+000033888888     --*%E=============================================================*
+000034888888     --* AUTHOR:                          00:00                        *
+000035888888     --* MODIFS: 37 RBERNARDI  05/11/2017 22:01  V 1.02.M MR 17/   10  *
+000036888888     --*           My new task                                         *
+000037888888     --*         36 RBERNARDI  05/11/2017 19:12  V 1.02.L MR 17/    9  *
+000038888888     --*           test version                                        *
+000039888888     --*         35 RBERNARDI  05/08/2017 23:06  V 1.02.K MR 17/    6  *
+000040888888     --*           my first change                                     *
+000041888888     --*         34 RBERNARDI  05/08/2017 18:03  V 1.02.J MR 16/   56  *
+000042888888     --*           test aut                                            *
+000043888888     --*         33 RBERNARDI  05/08/2017 17:50  V 1.02.I MR 15/   52  *
+000044888888     --*           testing again                                       *
+000045888888     --*         32 RBERNARDI  05/08/2017 16:54  V 1.02.H MR 15/   40  *
+000046888888     --*           TEST2                                               *
+000047888888     --*         31 RBERNARDI  08/30/2016 19:58  V 1.02.E MR 16/   35  *
+000048888888     --*           Change a PF using ARCAD                             *
+000049888888     --*         30 RBERNARDI  08/02/2016 14:51  V 1.02.D MR 16/   35  *
+000050888888     --*         29 RBERNARDI  07/12/2016 14:46  V 1.02.C MR 15/   57  *
+000051888888     --*           Ray testing                                         *
+000052888888     --*         28 RBERNARDI  06/06/2016 16:21  V 1.02.B MR 15/   57  *
+000053888888     --%ECSTD==========================================================*
+003200141016--  Generate SQL
+003300141016--  Version:                   V7R1M0 100423
+003400141016--  Generated on:              10/16/14 00:54:43
+003500150820--  Relational Database:       B0020BFT
+003600141016--  Standards Option:          DB2 for i
+003700141016
+003701150805
+003800141016CREATE TABLE ARTICLE (
+003900141016--  SQL150B   10   REUSEDLT(*NO) in table ARTICLE in ARCAD_SMPL ignored.
+004000141016  ARTIID CHAR(6) CCSID 37 NOT NULL DEFAULT '' ,
+004100141016  ARTIDE CHAR(50) CCSID 37 NOT NULL DEFAULT '' ,
+004200141016  ARTISP DECIMAL(9, 2) NOT NULL DEFAULT 0 ,
+004300141017  ARTIFx CHAR(3) CCSID 37 NOT NULL DEFAULT '' ,
+004400141016  ARTIFA CHAR(3) CCSID 37 NOT NULL DEFAULT '' )
+004500141016
+004600141016  RCDFMT FARTI      ;
+004700141016
+004800141016LABEL ON TABLE ARTICLE
+004900141016  IS 'Article File' ;
+005000141016
+005100141016LABEL ON COLUMN ARTICLE
+005200141016( ARTIID IS 'ARTICLE ID' ,
+005300141016  ARTIDE IS 'ARTICLE DESCRPTION' ,
+005400141016  ARTISP IS 'ARTICLE PRICE' ,
+005500141016  ARTISP IS 'ARTICLE COST' ,
+005600141016  ARTIFA IS 'FAMILLY ID' ) ;
+005700141016
+005800141016LABEL ON COLUMN ARTICLE
+005900141016( ARTIID TEXT IS 'ARTICLE ID' ,
+006000141016  ARTIDE TEXT IS 'ARTICLE DESCRPTION' ,
+006100141016  ARTISP TEXT IS 'ARTICLE PRICE' ,
+006200141016  ARTIFA TEXT IS 'FAMILLY ID' ) ;
+006300141016

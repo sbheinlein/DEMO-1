@@ -1,0 +1,7 @@
+000100000714                                            REF(SMPREF)
+000200141028                R FDLVO
+000300141028                  ORDVNB    R               REFFLD(ORDENB)
+000400141028                  ORDVYR    R               REFFLD(ORDEYR)
+000500141028                  ORDVLI    R               REFFLD(ORDDLI)
+000600141028                  ORDVDL        10  0
+000700141028                  ORDVDQ        10  0
