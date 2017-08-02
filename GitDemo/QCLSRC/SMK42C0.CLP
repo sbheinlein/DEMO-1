@@ -10,6 +10,6 @@
 001000051123
 001100051123             CALL       PGM(SMK42R0) PARM(&ACTION &PCKNBR &PCK1 +
 001200051123                          &PCK2 &PCK3 &PCK4 &PCKRET)
-001300051123          /* Delete Activation Group */
+001300170801          /* Delete Activation group */
 001400051123             RCLACTGRP  ACTGRP(TEST)
 001500051123             ENDPGM
