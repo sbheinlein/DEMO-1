@@ -1,0 +1,119 @@
+@CHARSET "ISO-8859-1";
+
+.societe {
+	font-size: 20pt;;
+	font-family: arial, helvetica, sans-serif;;
+	color: #000000;;
+	font-style: normal;;
+	font-weight: bold;;
+	background-color: ;;
+	border: 0 solid #000000;
+}
+
+.slogan {
+	font-size: 14pt;;
+	font-family: arial, helvetica, sans-serif;;
+	color: #cccccc;
+	font-style: normal;;
+	font-weight: bold;;
+	background-color: ;;
+	border: 0 solid #000000;
+}
+
+.GDTitre {
+	font-size: 16pt;;
+	font-family: arial, helvetica, sans-serif;;
+	color: #ffffff;;
+	font-style: normal;;
+	font-weight: bold;;
+	background-color: 990000;;
+	border: 0 solid #000000;
+}
+
+.PTTexteHaut {
+	font-size: 10pt;;
+	font-family: arial, helvetica, sans-serif;;
+	color: #ff0000;;
+	font-style: normal;;
+	font-weight: bold;;
+	background-color: ffffff;;
+	border: 0 solid #000000;
+}
+
+.PTTexteBas {
+	font-size: 10pt;;
+	font-family: arial, helvetica, sans-serif;;
+	color: #ff0000;;
+	font-style: normal;;
+	font-weight: normal;;
+	background-color: ffffff;;
+	border: 0 solid #000000;
+}
+
+.FormLib {
+	font-size: 8pt;;
+	font-family: verdana;;
+	color: #303030;;
+	font-style: normal;;
+	font-weight: normal;;
+	background-color: ffffff;;
+	border: 0 solid #000000;
+}
+
+.FormComment {
+	font-size: 8pt;
+	font-family: Verdana, Arial, helvetica;
+	color: #777777;
+	font-style: normal;;
+	background-color: ffffff;;
+	border: 0 solid #000000;
+}
+
+.FormChamp {
+	font-size: 8pt;;
+	font-family: verdana;;
+	color: #303030;;
+	font-style: normal;;
+	font-weight: normal;;
+	background-color: ffffff;;
+	border: 1 solid #b7b7b7;
+}
+
+.FormChampSpeciaux {
+	font-size: 8pt;;
+	font-family: verdana;;
+	color: #303030;;
+	font-style: normal;;
+	font-weight: normal;;
+	background-color: ffffff;
+}
+
+.etoile {
+	font-size: 10pt;;
+	font-family: verdana;;
+	color: #ff0000;;
+	font-style: normal;;
+	font-weight: normal;;
+	background-color: ;;
+	border: 0 solid #;
+}
+
+.mini {
+	font-size: 2px;
+}
+
+.erreur {
+	font-size: 12pt;
+	font-family: verdana;
+	color: #ff0000;
+	font-style: normal;
+	font-weight: bold;
+	background-color: ;
+	border: 0 solid #;
+	text-align:center;
+}
+
+.fond_image {
+	BACKGROUND-IMAGE: url(Arcad.png);
+	BACKGROUND-REPEAT: no-repeat;
+}

@@ -1,0 +1,1 @@
+if ((!$action) or ($action == "Continue")) {
