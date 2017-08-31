@@ -1,0 +1,28 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSPINVM                                     *
+      *                                                            *
+      *  Description:  Inventory Master                            *
+      *                                                            *
+      *  Date       :  December 1998                               *
+      *                                                            *
+      **************************************************************
+     A                                      REF(*LIBL/HSPREF)
+     A          R HSFINVM
+      *  Description:  Inventory Master
+     A            DCOMP     R               REFFLD(COMP)
+     A            DWHSE     R               REFFLD(WHSE)
+     A            DPROD     R               REFFLD(PROD)
+     A            DSUBC     R               REFFLD(SUBC)
+     A            DQTYO     R               REFFLD(QTYN)
+     A                                      COLHDG('Quantity On-hand')
+     A            DQTYR     R               REFFLD(QTYN)
+     A                                      COLHDG('Quantity Alloc.')
+     A            DQTYF     R               REFFLD(QTYN)
+     A                                      COLHDG('Quantity Avail.')
+     A            DAREA     R               REFFLD(AREA)
+     A            DAISL     R               REFFLD(AISL)
+     A            DBAYR     R               REFFLD(BAYR)
+     A            DLEVL     R               REFFLD(LEVL)
+     A            DDELT     R               REFFLD(A1)
+     A                                      COLHDG('Deletion Flag')

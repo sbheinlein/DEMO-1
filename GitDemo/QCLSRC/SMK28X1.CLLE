@@ -1,0 +1,36 @@
+   /*------------------------------------------*/
+   /* Retrieve some alphanumeric system values */
+   /*------------------------------------------*/
+ 
+             PGM        PARM(&SYSVALNAM &VALUE)
+             DCL        VAR(&SYSVALNAM) TYPE(*CHAR) LEN(10)
+             DCL        VAR(&VALUE) TYPE(*CHAR) LEN(5000)
+             DCL        VAR(&VAL0006) TYPE(*CHAR) LEN(6)
+             DCL        VAR(&VAL0150) TYPE(*CHAR) LEN(150)
+             DCL        VAR(&VAL0250) TYPE(*CHAR) LEN(250)
+             DCL        VAR(&VAR100A) TYPE(*CHAR) LEN(100)
+             DCL        VAR(&VAR100B) TYPE(*CHAR) LEN(100)
+ 
+             CHGVAR     VAR(&VALUE) VALUE('??????')
+   /* Convert the name of the SysVal in UpperCase */
+             CHGVAR     VAR(&VAR100A) VALUE(&SYSVALNAM)
+             CALLPRC    PRC('STR_TOUPPER') PARM((&VAR100A)) +
+                          RTNVAL(&VAR100B)
+             CHGVAR     VAR(&SYSVALNAM) VALUE(&VAR100B)
+   /* CHAR(6) */
+             IF (&SYSVALNAM = 'QTIME' +
+             *OR &SYSVALNAM = 'QDATE') THEN(DO)
+             RTVSYSVAL  SYSVAL(&SYSVALNAM) RTNVAR(&VAL0006)
+             CHGVAR     VAR(&VALUE) VALUE(&VAL0006)
+             ENDDO
+   /* CHAR(150) */
+             IF (&SYSVALNAM = 'QSYSLIBL') THEN(DO)
+             RTVSYSVAL  SYSVAL(&SYSVALNAM) RTNVAR(&VAL0150)
+             CHGVAR     VAR(&VALUE) VALUE(&VAL0150)
+             ENDDO
+   /* CHAR(250) */
+             IF (&SYSVALNAM = 'QUSRLIBL') THEN(DO)
+             RTVSYSVAL  SYSVAL(&SYSVALNAM) RTNVAR(&VAL0250)
+             CHGVAR     VAR(&VALUE) VALUE(&VAL0250)
+             ENDDO
+       ENDPGM

@@ -1,0 +1,16 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSPSUBC                                     *
+      *                                                            *
+      *  Description:  Product Sub-codes                           *
+      *                                                            *
+      *  Date       :  December 1998                               *
+      *                                                            *
+      **************************************************************
+     A                                      REF(*LIBL/HSPREF)
+     A          R HSFSUBC
+      *  Description:  Product Sub-codes
+     A            NASUBC    R               REFFLD(SUBC)
+     A            NADESC    R               REFFLD(DESC)
+     A            NADELT    R               REFFLD(A1)
+     A                                      COLHDG('Deletion Flag')

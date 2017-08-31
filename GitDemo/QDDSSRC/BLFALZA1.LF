@@ -1,0 +1,59 @@
+     A*******************************************************
+     A*                 LOGICAL FILE                        *
+     A* log. BPFALZA : AAMMJJ LIV, APP,CNUL,CIF,NCDE,RAC    *
+     A*                                                     *
+     A*******************************************************
+     A                                      FIFO
+     A          R BLRALZA1                  PFILE(BPFALZA)
+     A                                      TEXT('log. BPFALZA : AAMMJJ LIV, A-
+     A                                      PP,CNUL,CIF,NCDE,RAC')
+     A            AZCNFE
+     A            AZCIFE
+     A            AZNCMD
+     A            AZNORD
+     A            AZCNDD
+     A            AZCIDD
+     A            AZCNDL
+     A            AZCIDL
+     A            AZAAEM
+     A            AZMMEM
+     A            AZJJEM
+     A            AZAALV
+     A            AZMMLV
+     A            AZJJLV
+     A            AZHHLV
+     A            AZMNLV
+     A            AZSPCB
+     A            AZPCB
+     A            AZEAN
+     A            AZKEAN
+     A            AZVL
+     A            AZVA
+     A            AZQT
+     A            AZPA
+     A            AZPVM
+     A            AZRAC
+     A            AZCCC
+     A            AZVPV
+     A            AZMOD
+     A            AZDES
+     A            AZEMPL
+     A            AZAACR
+     A            AZMMCR
+     A            AZJJCR
+     A            AZHHCR
+     A            AZMNCR
+     A            AZSSCR
+     A            AZRVAL
+     A            AZCAPP
+     A            AZDATA
+     A          K AZAALV
+     A          K AZMMLV
+     A          K AZJJLV
+     A          K AZCAPP
+     A          K AZCNFE
+     A          K AZCIFE
+     A          K AZNCMD
+     A          K AZRAC
+     A          K AZCCC
+     A          K AZVPV

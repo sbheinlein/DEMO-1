@@ -1,0 +1,13 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLCUSTA                                    *
+      *                                                            *
+      *  Description:  Customer Masterfile by Customer No.         *
+      *                                                            *
+      *  Date       :  January 1999                                *
+      *                                                            *
+      **************************************************************
+     A          R HSFCUST                   PFILE(HSPCUST)
+      *
+     A          K ECUST
+     A          O EDELT                     COMP(EQ 'D')

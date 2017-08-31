@@ -1,0 +1,14 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSQ342                                      *
+      *                                                            *
+      *  Description:  Open Query file for Allocations Window      *
+      *                                                            *
+      *  Date       :  March 1999                                  *
+      *                                                            *
+      **************************************************************
+     A          R FHSQ342
+     A            XPROD         13
+     A            XSERCC         3
+     A            XSERNS         9  0
+     A            XSERNE         9  0

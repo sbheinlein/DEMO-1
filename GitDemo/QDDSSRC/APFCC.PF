@@ -1,0 +1,581 @@
+     A                                      UNIQUE
+     A          R APRCC
+     A            CECRA      00010A  B
+     A
+     A                                      TEXT('VEROUILLAGE ECRAN')
+     A                                      COLHDG( +
+     A                                      'NOM ECRAN' +
+     A                                      )
+     A            CSTTS      00001A  B
+     A
+     A                                      TEXT('Status enreg 0 = INACTIF')
+     A                                      COLHDG( +
+     A                                      'ST' +
+     A                                      )
+     A            CCNUD      00003A  B
+     A
+     A                                      TEXT('CNUD   (INF:XXCNUD  )')
+     A                                      COLHDG( +
+     A                                      'CNUD' +
+     A                                      )
+     A            CCID       00005A  B
+     A
+     A                                      TEXT('CENTRE D''ACTIVITE')
+     A                                      COLHDG( +
+     A                                      'CID' +
+     A                                      )
+     A            CCIDA      00005A  B
+     A
+     A                                      TEXT('Ancien CID')
+     A                                      COLHDG( +
+     A                                      'Ancien' +
+     A                                      'CID' +
+     A                                      )
+     A            CCIDN      00005A  B
+     A
+     A                                      TEXT('Nouveau CID')
+     A                                      COLHDG( +
+     A                                      'Nouveau' +
+     A                                      'CID' +
+     A                                      )
+     A            CCAT       00001A  B
+     A
+     A                                      TEXT('CAT 1 pos: déterminé par I')
+     A                                      COLHDG( +
+     A                                      'ZCAT' +
+     A                                      )
+     A            COPTIQ     00001A  B
+     A
+     A                                      TEXT('Lect optiq cais: 0=NON 1=O')
+     A                                      COLHDG( +
+     A                                      'LECT' +
+     A                                      'OPTIQ' +
+     A                                      'CAISSE' +
+     A                                      )
+     A            CREG       00002A  B
+     A
+     A                                      TEXT('REGION GEO.  (INF: XXRGE')
+     A                                      COLHDG( +
+     A                                      'RGEO' +
+     A                                      )
+     A            CSECT      00002A  B
+     A
+     A                                      TEXT('Code secteur Magasin')
+     A                                      COLHDG( +
+     A                                      'SECT' +
+     A                                      'MAG' +
+     A                                      )
+     A            CABREV     00006A  B
+     A
+     A                                      TEXT('Abréviation')
+     A                                      COLHDG( +
+     A                                      'ABRV' +
+     A                                      )
+     A            CSIGL      00003A  B
+     A
+     A                                      TEXT('Sigle')
+     A                                      COLHDG( +
+     A                                      'SIGL' +
+     A                                      )
+     A            CTOUR      00002A  B
+     A
+     A                                      TEXT('N° tournée =======> PLANNI')
+     A                                      COLHDG( +
+     A                                      'ZTN' +
+     A                                      )
+     A            CQUAI      00003A  B
+     A
+     A                                      TEXT('N° porte   =======> PLANNI')
+     A                                      COLHDG( +
+     A                                      'PRTE' +
+     A                                      )
+     A            CULV       00001A  B
+     A
+     A                                      TEXT('Unité de livr : 1=PCB  2=U')
+     A                                      COLHDG( +
+     A                                      'UNITE' +
+     A                                      'LIVR.' +
+     A                                      )
+     A            CPLV       00001A  B
+     A
+     A                                      TEXT('Possib. livr. : 1=PAL  2=R')
+     A                                      COLHDG( +
+     A                                      'POSSIB' +
+     A                                      'LIVR.' +
+     A                                      )
+     A            CFRT       00001A  B
+     A
+     A                                      TEXT('Freinte ?  : 0=NON 1=OUI')
+     A                                      COLHDG( +
+     A                                      'FREINTE ?' +
+     A                                      )
+     A            CASS1      00001A  B
+     A
+     A                                      TEXT('Assort.ray 1. : "0" Y "9"')
+     A                                      COLHDG( +
+     A                                      'ASS' +
+     A                                      'RAY 1' +
+     A                                      )
+     A            CASS2      00001A  B
+     A
+     A                                      TEXT('Assort.ray 2. : "0" Y "9"')
+     A                                      COLHDG( +
+     A                                      'ASS' +
+     A                                      'RAY 2' +
+     A                                      )
+     A            CASS3      00001A  B
+     A
+     A                                      TEXT('Assort.ray 3. : "0" Y "9"')
+     A                                      COLHDG( +
+     A                                      'ASS' +
+     A                                      'RAY 3' +
+     A                                      )
+     A            CASS4      00001A  B
+     A
+     A                                      TEXT('Assort.ray 4. : "0" Y "9"')
+     A                                      COLHDG( +
+     A                                      'ASS' +
+     A                                      'RAY 4' +
+     A                                      )
+     A            CASS5      00001A  B
+     A
+     A                                      TEXT('Assort.ray 5. : "0" Y "9"')
+     A                                      COLHDG( +
+     A                                      'ASS' +
+     A                                      'RAY 5' +
+     A                                      )
+     A            CASS6      00001A  B
+     A
+     A                                      TEXT('Assort.ray 6. : "0" Y "9"')
+     A                                      COLHDG( +
+     A                                      'ASS' +
+     A                                      'RAY 6' +
+     A                                      )
+     A            CZP1       00001A  B
+     A
+     A                                      TEXT('ZP.ray 1: "0" Y "9" >>>>>S')
+     A                                      COLHDG( +
+     A                                      'ZP' +
+     A                                      'RAY 1' +
+     A                                      )
+     A            CZP2       00001A  B
+     A
+     A                                      TEXT('ZP.ray 2: "0" Y "9" >>>>>S')
+     A                                      COLHDG( +
+     A                                      'ZP' +
+     A                                      'RAY 2' +
+     A                                      )
+     A            CZP3       00001A  B
+     A
+     A                                      TEXT('ZP.ray 3: "0" Y "9" >>>>>S')
+     A                                      COLHDG( +
+     A                                      'ZP' +
+     A                                      'RAY 3' +
+     A                                      )
+     A            CZP4       00001A  B
+     A
+     A                                      TEXT('ZP.ray 4: "0" Y "9" >>>>>S')
+     A                                      COLHDG( +
+     A                                      'ZP' +
+     A                                      'RAY 4' +
+     A                                      )
+     A            CZP5       00001A  B
+     A
+     A                                      TEXT('ZP.ray 5: "0" Y "9" >>>>>S')
+     A                                      COLHDG( +
+     A                                      'ZP' +
+     A                                      'RAY 5' +
+     A                                      )
+     A            CZP6       00001A  B
+     A
+     A                                      TEXT('ZP.ray 6: "0" Y "9" >>>>>S')
+     A                                      COLHDG( +
+     A                                      'ZP' +
+     A                                      'RAY 6' +
+     A                                      )
+     A            CCESS      00004A  B
+     A
+     A                                      TEXT('% cess.cli.ext. >>>>>>>>>S')
+     A                                      COLHDG( +
+     A                                      '% CESS' +
+     A                                      'CLI.EXT' +
+     A                                      )
+     A            CTRPLU     00002A  B
+     A
+     A                                      TEXT('Crit transp lundi =>PLANNI')
+     A                                      COLHDG( +
+     A                                      'CRIT' +
+     A                                      'TRANSP' +
+     A                                      'LUNDI' +
+     A                                      )
+     A            CTRPMA     00002A  B
+     A
+     A                                      TEXT('Crit transp mardi =>PLANNI')
+     A                                      COLHDG( +
+     A                                      'CRIT' +
+     A                                      'TRANSP' +
+     A                                      'MARDI' +
+     A                                      )
+     A            CTRPME     00002A  B
+     A
+     A                                      TEXT('Crit transp mercre=>PLANNI')
+     A                                      COLHDG( +
+     A                                      'CRIT' +
+     A                                      'TRANSP' +
+     A                                      'MERCREDI' +
+     A                                      )
+     A            CTRPJE     00002A  B
+     A
+     A                                      TEXT('Crit transp jeudi =>PLANNI')
+     A                                      COLHDG( +
+     A                                      'CRIT' +
+     A                                      'TRANSP' +
+     A                                      'JEUDI' +
+     A                                      )
+     A            CTRPVE     00002A  B
+     A
+     A                                      TEXT('Crit transp vendre=>PLANNI')
+     A                                      COLHDG( +
+     A                                      'CRIT' +
+     A                                      'TRANSP' +
+     A                                      'VENDREDI' +
+     A                                      )
+     A            CTRPSA     00002A  B
+     A
+     A                                      TEXT('Crit transp samedi=>PLANNI')
+     A                                      COLHDG( +
+     A                                      'CRIT' +
+     A                                      'TRANSP' +
+     A                                      'SAMEDI' +
+     A                                      )
+     A            CSOCG      00002A  B
+     A
+     A                                      TEXT('Société (INF:XXSTE   )')
+     A                                      COLHDG( +
+     A                                      'STE' +
+     A                                      )
+     A            CORDI      00001A  B
+     A
+     A                                      TEXT('Ordinateur ? : 0=NON 1=OUI')
+     A                                      COLHDG( +
+     A                                      'ORDINATEUR ?' +
+     A                                      )
+     A            CENTRP     00005A  B
+     A
+     A                                      TEXT('Entrepot PGC')
+     A                                      COLHDG( +
+     A                                      'ENTREPOT' +
+     A                                      )
+     A            CNENTP     00002A  B
+     A
+     A                                      TEXT('N° entrepot PGC ctrl APFEN')
+     A                                      COLHDG( +
+     A                                      'NO' +
+     A                                      'ENT' +
+     A                                      'SEC' +
+     A                                      )
+     A            CENTRF     00005A  B
+     A
+     A                                      TEXT('Entrepot FRAIS')
+     A                                      COLHDG( +
+     A                                      'ENTREPOT' +
+     A                                      )
+     A            CNENTF     00002A  B
+     A
+     A                                      TEXT('N° entrepot FRAIS ctrl APF')
+     A                                      COLHDG( +
+     A                                      'NO' +
+     A                                      'ENT' +
+     A                                      'SEC' +
+     A                                      )
+     A            CGART      00005A  B
+     A
+     A                                      TEXT('GROUPE MAGASIN FRAIS')
+     A                                      COLHDG( +
+     A                                      'GART' +
+     A                                      )
+     A            CZPSP      00003A  B
+     A                                      DFT('***')
+     A
+     A                                      TEXT('ZP spéciale  (000 Y 030)')
+     A                                      COLHDG( +
+     A                                      'ZP' +
+     A                                      'SPEC' +
+     A                                      )
+     A            CZPLE      00002A  B
+     A                                      DFT('**')
+     A
+     A                                      TEXT('Zone de prix LE : 00 Y 15')
+     A                                      COLHDG( +
+     A                                      'ZP' +
+     A                                      )
+     A            CZPLD      00002A  B
+     A
+     A                                      TEXT('Zone de prix LD : 00 Y 15')
+     A                                      COLHDG( +
+     A                                      'ZP' +
+     A                                      )
+     A            CTRANS     00002A  B
+     A
+     A                                      TEXT('N° zone transport==>PLANNI')
+     A                                      COLHDG( +
+     A                                      'ZONE' +
+     A                                      'TRANSP' +
+     A                                      )
+     A            CETIQ      00001A  B
+     A
+     A                                      TEXT('Etiquettes ? : 0=NON 1=OUI')
+     A                                      COLHDG( +
+     A                                      'ETIQUETTE ?' +
+     A                                      )
+     A            CDOPTI     00001A  B
+     A
+     A                                      TEXT('Commande optiq : 0=NON 1=O')
+     A                                      COLHDG( +
+     A                                      'COMMANDE' +
+     A                                      'OPTIQUE' +
+     A                                      )
+     A            CTMARG     00001A  B
+     A
+     A                                      TEXT('Type fact: 1=TPL 2=CES 3=E')
+     A                                      COLHDG( +
+     A                                      'TYPE' +
+     A                                      'FACT' +
+     A                                      )
+     A            CCATT      00002A  B
+     A
+     A                                      TEXT('Catég fact (INF:ENART  TPL')
+     A                                      COLHDG( +
+     A                                      'CAPL' +
+     A                                      )
+     A            CCATM      00002A  B
+     A
+     A                                      TEXT('CAT STAT')
+     A                                      COLHDG( +
+     A                                      'CAT' +
+     A                                      'STAT' +
+     A                                      )
+     A            CHD        00002A  B
+     A
+     A                                      TEXT('Type HD : 1=HD1 2=HD2 3=HY')
+     A                                      COLHDG( +
+     A                                      'TYPE' +
+     A                                      'HD' +
+     A                                      )
+     A            CPVZP      00002A  B
+     A                                      DFT('**')
+     A
+     A                                      TEXT('JOIN PV: ZP si pas de PVS')
+     A                                      COLHDG( +
+     A                                      'ZP' +
+     A                                      )
+     A            CPVZPS     00003A  B
+     A                                      DFT('***')
+     A
+     A                                      TEXT('JOIN PV: ZPS si un PVS')
+     A                                      COLHDG( +
+     A                                      'ZP' +
+     A                                      'SPEC' +
+     A                                      )
+     A            CTEL       00015A  B
+     A
+     A                                      TEXT('Téléphone')
+     A                                      COLHDG( +
+     A                                      'TEL' +
+     A                                      )
+     A            CTLXI      00007A  B
+     A
+     A                                      TEXT('TELEX INDICATIF')
+     A                                      COLHDG( +
+     A                                      'TLXI' +
+     A                                      )
+     A            CTLXN      00006A  B
+     A
+     A                                      TEXT('TELEX NUMERO')
+     A                                      COLHDG( +
+     A                                      'TLXN' +
+     A                                      )
+     A            CAAC       00002A  B
+     A
+     A                                      TEXT('ANNEE CREATION')
+     A                                      COLHDG( +
+     A                                      'AAC' +
+     A                                      )
+     A            CMMC       00002A  B
+     A
+     A                                      TEXT('MOIS CREATION')
+     A                                      COLHDG( +
+     A                                      'MMC' +
+     A                                      )
+     A            CJJC       00002A  B
+     A
+     A                                      TEXT('JOUR CREATION')
+     A                                      COLHDG( +
+     A                                      'JJC' +
+     A                                      )
+     A            CAAM       00002A  B
+     A
+     A                                      TEXT('ANNEE MODIF')
+     A                                      COLHDG( +
+     A                                      'ANNEE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            CMMM       00002A  B
+     A
+     A                                      TEXT('MOIS MODIF')
+     A                                      COLHDG( +
+     A                                      'MOIS' +
+     A                                      'MODIF' +
+     A                                      )
+     A            CJJM       00002A  B
+     A
+     A                                      TEXT('JOUR MODIF')
+     A                                      COLHDG( +
+     A                                      'JOUR' +
+     A                                      'MODIF' +
+     A                                      )
+     A            CHHM       00002A  B
+     A
+     A                                      TEXT('HEURE MODIF')
+     A                                      COLHDG( +
+     A                                      'HEURE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            CMNM       00002A  B
+     A
+     A                                      TEXT('MINUTE MODIF')
+     A                                      COLHDG( +
+     A                                      'MINUTE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            CSSM       00002A  B
+     A
+     A                                      TEXT('SECONDE MODIF')
+     A                                      COLHDG( +
+     A                                      'SECONDE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            CAAS       00002A  B
+     A
+     A                                      TEXT('ANNEE SUPPRESS')
+     A                                      COLHDG( +
+     A                                      'AAS' +
+     A                                      )
+     A            CMMS       00002A  B
+     A
+     A                                      TEXT('MOIS SUPPRESS')
+     A                                      COLHDG( +
+     A                                      'MMS' +
+     A                                      )
+     A            CJJS       00002A  B
+     A
+     A                                      TEXT('JOUR SUPPRESS')
+     A                                      COLHDG( +
+     A                                      'JJS' +
+     A                                      )
+     A            CAAOUV     00002A  B
+     A
+     A                                      TEXT('AA OUVERT')
+     A                                      COLHDG( +
+     A                                      'AA' +
+     A                                      'OUVERT' +
+     A                                      )
+     A            CMMOUV     00002A  B
+     A
+     A                                      TEXT('MM OUVERT')
+     A                                      COLHDG( +
+     A                                      'MM' +
+     A                                      'OUVERT' +
+     A                                      )
+     A            CJJOUV     00002A  B
+     A
+     A                                      TEXT('JJ OUVERT')
+     A                                      COLHDG( +
+     A                                      'JJ' +
+     A                                      'OUVERT' +
+     A                                      )
+     A            CAAFER     00002A  B
+     A
+     A                                      TEXT('AA FERMET')
+     A                                      COLHDG( +
+     A                                      'AA' +
+     A                                      'FERMET' +
+     A                                      )
+     A            CMMFER     00002A  B
+     A
+     A                                      TEXT('MM FERMET')
+     A                                      COLHDG( +
+     A                                      'MM' +
+     A                                      'FERMET' +
+     A                                      )
+     A            CJJFER     00002A  B
+     A
+     A                                      TEXT('JJ FERMET')
+     A                                      COLHDG( +
+     A                                      'JJ' +
+     A                                      'FERMET' +
+     A                                      )
+     A            CCATST     00002A  B
+     A
+     A                                      TEXT('Catég statisti (INF: XXCAT')
+     A                                      COLHDG( +
+     A                                      'CAT' +
+     A                                      'STAT' +
+     A                                      )
+     A            CSTAT      00005A  B
+     A
+     A                                      TEXT('Regroup stat: CATxx ou n°m')
+     A                                      COLHDG( +
+     A                                      'REGROUP' +
+     A                                      'STATISTIQ' +
+     A                                      )
+     A            CRAIS      00030A  B
+     A
+     A                                      TEXT('RAISON SOCIALE')
+     A                                      COLHDG( +
+     A                                      'RAIS' +
+     A                                      )
+     A            CCRAI      00030A  B
+     A
+     A                                      TEXT('COMPLEMENT RAISON SOCIALE')
+     A                                      COLHDG( +
+     A                                      'CRAI' +
+     A                                      )
+     A            CRUE       00030A  B
+     A
+     A                                      TEXT('RUE OU LIEU-DIT')
+     A                                      COLHDG( +
+     A                                      'RUE' +
+     A                                      )
+     A            CZI        00030A  B
+     A
+     A                                      TEXT('ZONE INDUSTRIELLE')
+     A                                      COLHDG( +
+     A                                      'ZI' +
+     A                                      )
+     A            CBPOS      00030A  B
+     A
+     A                                      TEXT('BOITE POSTALE COMMUNE')
+     A                                      COLHDG( +
+     A                                      'BPOS' +
+     A                                      )
+     A            CCPOS      00005A  B
+     A
+     A                                      TEXT('CODE POSTAL')
+     A                                      COLHDG( +
+     A                                      'CPOS' +
+     A                                      )
+     A            CBDIS      00030A  B
+     A
+     A                                      TEXT('BUREAU DISTRIBUTEUR')
+     A                                      COLHDG( +
+     A                                      'BDIS' +
+     A                                      )
+     A            CTYFL      00001A  B
+     A
+     A                                      TEXT('1=PREFAC 2=POSTFAC')
+     A                                      COLHDG( +
+     A                                      'MODE' +
+     A                                      'FACT' +
+     A                                      )
+     A          K CCID

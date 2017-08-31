@@ -1,0 +1,21 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSPVXRF                                     *
+      *                                                            *
+      *  Description:  Voucher Cross-Reference                     *
+      *                                                            *
+      *  Date       :  December 1998                               *
+      *                                                            *
+      **************************************************************
+     A                                      REF(*LIBL/HSPREF)
+     A          R HSFVXRF
+      *  Description:  Voucher Cross-Reference
+     A            HCOMP     R               REFFLD(COMP)
+     A            HCATL     R               REFFLD(CATL)
+     A            HAGEN     R               REFFLD(CUST)
+     A                                      COLHDG('Agency Code')
+     A            HAGPR     R               REFFLD(PROD)
+     A                                      COLHDG('Agency Product')
+     A            HPROD     R               REFFLD(PROD)
+     A            HDELT     R               REFFLD(A1)
+     A                                      COLHDG('Deletion Flag')

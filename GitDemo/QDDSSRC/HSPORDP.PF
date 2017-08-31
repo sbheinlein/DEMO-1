@@ -1,0 +1,42 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSPORDP                                     *
+      *                                                            *
+      *  Description:  Sales Order Parameters                      *
+      *                                                            *
+      *  Date       :  December 1998                               *
+      *                                                            *
+      **************************************************************
+     A                                      REF(*LIBL/HSPREF)
+     A          R HSFORDP
+      *  Description:  Sales Order Parameters
+     A            MOTYP     R               REFFLD(TYPE)
+     A                                      COLHDG('Order Type')
+     A            MODES     R               REFFLD(DESC)
+     A                                      COLHDG('Order Description')
+     A            MSALE     R               REFFLD(A1)
+     A                                      COLHDG('Sale / Credit')
+     A            MASCG     R               REFFLD(A1)
+     A                                      COLHDG('Cash / Account')
+     A            MTTYP     R               REFFLD(TYPE)
+     A            MXREF     R               REFFLD(A1)
+     A                                      COLHDG('Cross-refer Agen')
+     A            MBAND     R               REFFLD(A1)
+     A                                      COLHDG('Banded allocation')
+     A            MMAND     R               REFFLD(A1)
+     A                                      COLHDG('Manual allocation')
+     A            MWHSE     R               REFFLD(WHSE)
+     A            MINVP     R               REFFLD(A1)
+     A                                      COLHDG('Invoice Print')
+     A            MINVC     R               REFFLD(A1)
+     A                                      COLHDG('Inv.charges only')
+     A            MUPSL     R               REFFLD(A1)
+     A                                      COLHDG('Update Sales Ledg')
+     A            MALLP     R               REFFLD(A1)
+     A                                      COLHDG('Ship to allpoints')
+     A            MMDSP     R               REFFLD(A1)
+     A                                      COLHDG('Manual dispatch')
+     A            MORDV     R               REFFLD(QTYN)
+     A                                      COLHDG('Min. Order Value')
+     A            MDELT     R               REFFLD(A1)
+     A                                      COLHDG('Deletion Flag')

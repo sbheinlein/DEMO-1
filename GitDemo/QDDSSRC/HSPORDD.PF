@@ -1,0 +1,52 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSPORDD                                     *
+      *                                                            *
+      *  Description:  Sales Order Details                         *
+      *                                                            *
+      *  Date       :  December 1998                               *
+      *                                                            *
+      **************************************************************
+     A                                      REF(*LIBL/HSPREF)
+     A          R HSFORDD
+      *  Description:  Sales Order Details
+     A            KLTYP     R               REFFLD(A1)
+     A                                      COLHDG('Line Type S/N/T')
+     A            KCOMP     R               REFFLD(COMP)
+     A            KTYPE     R               REFFLD(TYPE)
+     A                                      COLHDG('Sales Order Type')
+     A            KLINE     R               REFFLD(LINE)
+     A            KCUST     R               REFFLD(CUST)
+     A            KSORD     R               REFFLD(SORD)
+     A            KPROD     R               REFFLD(PROD)
+     A            KDESC     R               REFFLD(DESC)
+     A            KSERC     R               REFFLD(SERC)
+     A            KSERNF    R               REFFLD(SERN)
+     A                                      COLHDG('Serial No. From')
+     A            KELEMF    R               REFFLD(ELEM)
+     A                                      COLHDG('Element From')
+     A            KSERNT    R               REFFLD(SERN)
+     A                                      COLHDG('Serial No. To')
+     A            KELEMT    R               REFFLD(ELEM)
+     A                                      COLHDG('Element To')
+     A            KQTYN     R               REFFLD(QTYN)
+     A            KCOST     R               REFFLD(COST)
+     A            KPRIC     R               REFFLD(PRIC)
+     A            KVALU     R               REFFLD(PRIC)
+     A                                      COLHDG('Order Value')
+     A            KVATA     R               REFFLD(PRIC)
+     A                                      COLHDG('VAT Value')
+     A            KDISP     R               REFFLD(DISP)
+     A                                      COLHDG('Discount %')
+     A            KCRTD     R               REFFLD(DATE)
+     A                                      COLHDG('Date Created')
+     A            KCRTT     R               REFFLD(TIME)
+     A                                      COLHDG('Time Created')
+     A            KCRTS     R               REFFLD(SCRN)
+     A                                      COLHDG('Screen Id.')
+     A            KCRTU     R               REFFLD(USER)
+     A                                      COLHDG('User Id.')
+     A            KCRTP     R               REFFLD(PROG)
+     A                                      COLHDG('Program Id.')
+     A            KDELT     R               REFFLD(A1)
+     A                                      COLHDG('Deletion Flag')

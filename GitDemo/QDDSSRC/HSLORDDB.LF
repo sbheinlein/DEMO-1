@@ -1,0 +1,13 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLORDDA                                    *
+      *                                                            *
+      *  Description:  Sales Order Detail by Order No.             *
+      *                                                            *
+      *  Date       :  January 1999                                *
+      *                                                            *
+      **************************************************************
+     A          R HSFORDD                   PFILE(HSPORDD)
+      *
+     A          K KSORD
+     A          K KLINE

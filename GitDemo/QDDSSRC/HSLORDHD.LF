@@ -1,0 +1,13 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLORDHD                                    *
+      *                                                            *
+      *  Description:  Sales Order Header by Order No.             *
+      *                                                            *
+      *  Date       :  February 1999                               *
+      *                                                            *
+      **************************************************************
+     A          R HSFORDH                   PFILE(HSPORDH)
+      *
+     A          K JSORD
+     A          O JDELT                     VALUES('D')

@@ -1,0 +1,12 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLSHPOA                                    *
+      *                                                            *
+      *  Description:  Ship Only file by Customer                  *
+      *                                                            *
+      *  Date       :  January 1999                                *
+      *                                                            *
+      **************************************************************
+     A          R HSFSHPO                   PFILE(HSPSHPO)
+      *
+     A          K GCUST

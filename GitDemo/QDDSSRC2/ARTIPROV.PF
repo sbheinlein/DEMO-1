@@ -1,0 +1,9 @@
+                                            UNIQUE
+                                            REF(SMPREF)
+                R FARPR
+                  PROVID    R
+                  ARTIID    R
+                  ARTIBP    R               REFFLD(ARTIPR)
+                                            COLHDG('BUY PRICE')
+                K PROVID
+                K ARTIID

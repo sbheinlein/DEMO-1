@@ -1,0 +1,335 @@
+     H        1   Y
+      *****************************************************************
+      *                                                               *
+      *  Program Id. . : HSR220                                       *
+      *                                                               *
+      *  Description . : Invoice Print  Processing                    *
+      *                                                               *
+      *  System  . . . : High Street Vouchers Control & Tracking      *
+      *                                                               *
+      *  Author  . . . : Colin N. Jones   (Intec Systems Limited)     *
+      *                                                               *
+      *  Date Written  : January 1999                                 *
+      *                                                               *
+      *****************************************************************
+      * Indicator usage:
+      *  90 - Main Order Header read result.
+      *  91 - Order Delivery Details read result.
+      *  92 - Product Details
+      *  93 - Order Details lines read result.
+      *  94 - Customer Details read result.
+      *  95 - Sales Order Parameters chain result.
+      *
+      *****************************************************************
+      * Maintenance   :
+      * Fix/Chg Ref. Date       Description.
+      * ------------ ---------- -----------------------------------
+      *================================================================
+      *
+      * Sales Order Parameters File.
+     FHSLORDPAIF  E           K        DISK
+      *
+      * Sales Order Header File
+     FHSLORDHCUF  E           K        DISK
+      *
+      * Sales Order Detail File
+     FHSLORDDAIF  E           K        DISK
+      *
+      * Sales Order Delivery Detail File
+     FHSLODELAIF  E           K        DISK
+      *
+      * Customer Master File
+     FHSLCUSTAIF  E           K        DISK
+      *
+      * Product Master File
+     FHSLPRODAIF  E           K        DISK
+      *
+      * Sales Ledger Interface file
+     FHSLSINTAUF  E           K        DISK                      A
+      * Invoice Print
+     FHSW220  O   E                    PRINTER
+      * Interface batch report
+     FHSW220A O   E                    PRINTER
+      *
+     E                    MTH        12  3
+      *****************************************************************
+      *----------------------------------------------------------------
+      *
+     IXDATE       DS
+     I                                        1   80CYMD
+     I                                        1   20CC
+     I                                        3   80YMD
+     I                                        1   40CCYY
+     I                                        3   40YY
+     I                                        5   60MM
+     I                                        7   80DD
+      *
+     IXXXSDS     SDS                            429
+     I                                     *PROGRAM XPGMID
+     I                                      244 253 XJOBNO
+     I                                      254 263 XUSRID
+      *************************************************************
+      *  Main Line Processing
+      *************************************************************
+      *
+     C           ORDX      IFNE '*ALL'
+     C           ORDERX    SETLLHSFORDH
+     C                     ENDIF
+      *
+b1   C           *INLR     DOUEQ*ON
+      *
+     C                     READ HSFORDH                  90
+     C           ORDX      IFEQ '*ALL'
+     C                     MOVE JSORD     ORDERX
+     C                     MOVE JSORD     INVOIC
+     C                     ENDIF
+      *
+      * If Order number not found then quit program
+      * otherwise process Order record.
+      *
+     C           ORDX      IFNE '*ALL'
+     C           ORDERX    IFNE JSORD
+     C                     MOVE *ON       *INLR
+     C                     LEAVE
+     C                     ENDIF
+     C                     ENDIF
+      *
+     C           *IN90     IFEQ *ON
+     C                     MOVE *ON       *INLR
+     C                     ELSE
+      *
+     C                     MOVE JTYPE     XTYPE   3
+     C                     MOVE XTYPE     MOTYP   3
+     C           MOTYP     CHAINHSLORDPA             95
+     C           *IN92     IFNE *ON
+      ***************************************************
+     C                     Z-ADD17.5      MVATP   52
+      ***************************************************
+     C                     MOVE MVATP     VATP
+     C                     ENDIF
+     C           MSALE     IFEQ 'S'
+      *
+     C                     MOVE INVOIC    JINVN
+     C                     MOVE CYMD      JINVD
+BL   C                     MOVE 'S'       JSTAT
+      *
+     C                     TIME           XXTME   60
+     C                     MOVE XXTME     JCRTT
+     C                     MOVE CYMD      JCRTD
+     C                     MOVE XPGMID    JCRTP
+     C                     MOVE XJOBNO    JCRTS
+     C                     MOVE XUSRID    JCRTU
+     C                     UPDATHSFORDH
+     C                     EXSR SR01
+      *
+     C           JSORD     IFNE TSORD
+     C                     EXSR TOT
+     C                     ENDIF
+     C                     MOVE JSORD     TSORD   80
+      *
+     C                     ENDIF
+     C                     ENDIF
+      *
+e1   C                     ENDDO
+      * Interface batch report totals
+     C                     WRITEDTL1
+     C                     WRITEFTR
+      *
+      ****************************************************************
+      *  Process Record
+      *****************************************************************
+     C           SR01      BEGSR
+      *          ***************
+      *
+      * Get Delivery Address Details
+      * and write delivery details
+      *
+     C           ORDERX    CHAINHSLODELA             91
+     C           JCUST     CHAINHSLCUSTA             94
+     C           *IN94     IFEQ *OFF
+     C                     MOVE DD        JINDD
+     C                     MOVE MM        JINMM
+     C                     MOVE YY        JINYY
+     C                     WRITEHEADER1
+     C                     WRITEDETL
+     C                     ENDIF
+      *
+      * Get Order Detail lines & print. Only quit if no more order line
+      * exist.
+      *
+     C                     MOVE *OFF      *IN93
+      *
+     C           ORDERX    SETLLHSLORDDA
+     C           *IN93     DOWNE*ON
+     C                     READ HSLORDDA                 93
+      *
+     C           ORDERX    IFNE KSORD
+     C                     MOVE *ON       *IN93
+     C                     LEAVE
+     C                     ENDIF
+      *
+     C           *IN93     IFNE *ON
+      *
+      * Get product description.
+      *
+     C           KPROD     CHAINHSLPRODA             92
+     C                     MOVELKPROD     PRODX   4
+     C           *IN92     IFEQ *ON
+     C                     MOVELKDESC     PDESCX 40
+     C                     ELSE
+     C                     MOVELNDESC     PDESCX 40
+     C                     ENDIF
+      * Cost calculations
+      *
+     C                     Z-ADD0         WRKDIS
+     C                     Z-ADD0         WKDISA
+     C                     Z-ADD0         WKCST
+     C           VATP      DIV  100       YVAT    53
+      *
+     C           KVALU     MULT KDISP     WRKDIS 152H
+     C           WRKDIS    DIV  100       WKDISA 152H
+     C           KVALU     SUB  WKDISA    WKCST  152
+     C           WKCST     MULT YVAT      VATX   152H
+     C                     Z-ADDKVALU     PCOSTX 152
+     C                     Z-ADDKPRIC     PPRICX 152
+      * Accumulate final totals for invoice
+      *
+     C                     ADD  PCOSTX    NETA   202
+     C                     ADD  WKDISA    DSCA   202
+     C                     ADD  VATX      VATA   202
+      * Text lines only.
+     C           KLTYP     IFEQ 'T'
+     C                     WRITEDETLT
+     C                     ENDIF
+      * Non Stock line only
+     C           KLTYP     IFEQ 'N'
+     C                     WRITEDETL1
+     C           KSERNF    IFGT 0
+     C           KSERNT    ANDGT0
+     C                     WRITEDETL2
+     C                     ENDIF
+     C                     ENDIF
+      * Stock line only
+     C           KLTYP     IFEQ 'S'
+     C                     WRITEDETL1
+     C                     WRITEDETL2
+     C                     ENDIF
+      *
+     C                     ELSE
+     C                     LEAVE
+     C                     ENDIF
+      *
+      *
+     C                     ENDDO
+      *
+      *          ***************
+     C                     ENDSR
+      *****************************************************************
+      *  Print Totals Subroutine.
+      *****************************************************************
+     C           TOT       BEGSR
+      *          ***************
+      *
+      * Write Totals values to Invoice.
+      *
+     C                     ADD  1         XINV    50
+     C                     Z-ADD0         XERR    50
+     C**         NETA      MULT £DISC     DISC
+     C           NETA      SUB  DSCA      SUBT   152
+     C           VATA      ADD  SUBT      TOTA
+      * Accumulate final totals for interface report
+      *
+     C                     ADD  DSCA      XDSC   152
+     C                     ADD  NETA      XVAL   152
+     C                     ADD  SUBT      XNET   152
+     C                     ADD  VATA      XVAT   152
+     C                     ADD  TOTA      XTOT   152
+      *
+     C                     MOVE *ON       *IN01
+     C                     WRITEFOOTER
+BL   C           MUPSL     IFEQ 'Y'
+     C                     EXSR YIFACE
+     C                     MOVE *BLANKS   VDIN1
+     C                     MOVE *BLANKS   VDIN2
+     C                     MOVE *BLANKS   VDIN3
+     C                     MOVE *ZEROS    DSCA
+     C                     MOVE *ZEROS    NETA
+     C                     MOVE *ZEROS    VATA
+     C                     MOVE *ZEROS    TOTA
+BL   C                     ENDIF
+      *          ***************
+     C                     ENDSR
+      *****************************************************************
+      *  Interface File processing.
+      *****************************************************************
+     C           YIFACE    BEGSR
+      *          ***************
+      *
+      * Write values to I/Face file.
+      *
+     C           JINVN     CHAINHSLSINTA             54
+     C           *IN54     IFEQ *ON
+     C                     MOVE JCOMP     TCOMP
+     C                     MOVE JCUST     TCUST
+     C                     MOVE JCUSB     TCUSB
+     C                     MOVE JINVN     TINVN
+     C                     MOVE JINVD     TINVD
+     C                     ADD  TOTA      TVALU
+     C                     ADD  VATA      TVATA
+     C                     MOVE KDISP     TDISP
+     C                     MOVE BATCH     TBATC
+     C                     WRITEHSFSINT
+      *
+     C                     ENDIF
+      *
+     C                     WRITEDTL
+      *
+     C                     MOVE *ZEROS    TVALU
+     C                     MOVE *ZEROS    TVATA
+      *          ***************
+     C                     ENDSR
+      *****************************************************************
+      *  Initial Subroutine.
+      *****************************************************************
+     C           *INZSR    BEGSR
+      *
+      * Prepare message subfile.
+      *
+     C           *ENTRY    PLIST
+     C                     PARM           ORDX    8
+      *
+     C           *LIKE     DEFN MVATP     VATP
+      *
+     C           ORDX      IFNE '*ALL'
+     C                     MOVE ORDX      ORDERX  80
+     C                     MOVE ORDX      INVOIC  8
+     C                     ENDIF
+      *
+      * Get Invoice Number & increment by 1.
+     C*          *NAMVAR   DEFN HSAINVN   INVOIC  8
+     C*          *LOCK     IN   INVOIC
+     C*                    MOVE INVOIC    INV#    80
+     C*                    ADD  1         INV#
+     C*                    MOVE INV#      INVOIC
+     C*                    OUT  INVOIC
+      *
+      * Get batch number & increment by 1.
+     C           *NAMVAR   DEFN HSAINVB   BATCH   50
+     C           *LOCK     IN   BATCH
+     C                     MOVE BATCH     XBATCH  50
+     C                     ADD  1         XBATCH
+     C                     MOVE XBATCH    BATCH
+     C                     OUT  BATCH
+      *
+      * Set up current CCYYMMDD
+     C                     MOVE UDATE     YMD     60
+     C           YY        IFGE 40
+     C           YY        ANDLE99
+     C                     Z-ADD19        CC
+     C                     ELSE
+     C                     Z-ADD20        CC
+     C                     ENDIF
+      *
+     C                     WRITEHDR1
+     C                     WRITEHDR2
+     C                     ENDSR

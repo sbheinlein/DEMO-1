@@ -1,0 +1,14 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLVCTLA                                    *
+      *                                                            *
+      *  Description:  Agent Voucher Control by Agent/Prod./Series *
+      *                                                            *
+      *  Date       :  February 1999                               *
+      *                                                            *
+      **************************************************************
+     A          R HSFACTL                   PFILE(HSPACTL)
+      *
+     A          K BCUST
+     A          K BPROD
+     A          K BSERCC

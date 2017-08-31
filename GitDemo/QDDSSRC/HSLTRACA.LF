@@ -1,0 +1,12 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLTRACA                                    *
+      *                                                            *
+      *  Description:  Voucher Tracking by Product Code            *
+      *                                                            *
+      *  Date       :  January 1999                                *
+      *                                                            *
+      **************************************************************
+     A          R HSFTRAC                   PFILE(HSPTRAC)
+      *
+     A          K APROD

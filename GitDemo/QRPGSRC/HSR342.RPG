@@ -1,0 +1,384 @@
+      **************************************************************
+      *  Created By :  Intec Systems Limited.                      *
+      *                                                            *
+      *  Program    :  HSR342                                      *
+      *                                                            *
+      *  Description:  Window for Allocations                      *
+      *                                                            *
+      *  Author     :  Robert Lee                                  *
+      *                                                            *
+      *  Date       :  March 1999                                  *
+      *                                                            *
+      **************************************************************
+      *  Function: To provide a display of the allocations breakdown    by    *
+      *                                                                       *
+      *            The actual window takes an area of                         *
+      *                 48 columns                                            *
+      *                 13 lines                                              *
+      *                                                                       *
+      *........................................................        .......*
+      *........................................................        .......*
+      *                                                                       *
+      *  Program Parameters                                                   *
+      *                                                                       *
+      *  Field  Use  Type    Description                                      *
+      *  ¯¯¯¯¯¯ ¯¯¯ ¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯        ¯¯¯¯¯  *
+      *  RTNC@  O   CHAR 1   The return code                                  *
+      *                          '0' - valid number returned                  *
+      *                          '1' - CMD12 to return without         number *
+      *  NUMR@  O   CHAR 15  Selected number                                  *
+      *  @FILE  I   CHAR 10  The file to be displayed                         *
+      *  @NAME  I   CHAR 6   The name of the field in FILE@ tha        t holds*
+      *                      the description text                             *
+      *  @NUMBR I   CHAR 6   The name of the field in FILE@ tha        t holds*
+      *                      the number code                                  *
+      *  @LIN   I   DEC 3,0  The line number to position window               *
+      *  @COL   I   DEC 3,0  The column number to position wind        ow     *
+      *                                                                       *
+      *........................................................        .......*
+      *                                                                       *
+      *  Subroutine Summary                                                   *
+      *                                                                       *
+      *  Subroutine   Description                                             *
+      *  ¯¯¯¯¯¯¯¯¯¯   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯        ¯¯¯¯¯  *
+      *  £BLD         Build first page of subfile of selected r        ecords.*
+      *  £NEXT        Build next page of subfile of selected re        cords. *
+      *  £FRMT        Format the OPNQRYF command.                             *
+      *  *INZSR       Initialisation.                                         *
+      *  £DEFN        Program definitions.                                    *
+      *........................................................        .......*
+      *  Indicator Summary                                                    *
+      *                                                                       *
+      *  Indicator    Description                                             *
+      *  ¯¯¯¯¯¯¯¯¯    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯        ¯¯¯¯¯  *
+      *  *INKL        F12 - Return to calling program without s        elect. *
+      *  *IN27        ROLLUP                                                  *
+      *  *IN73        SFLCLR                                                  *
+      *  *IN73        SFLDSPCTL                                               *
+      *  *IN74        SFLDSP                                                  0
+      *  *IN75        SFLEND                                                  *
+      *  *IN79        General file I/O work indicator.                        *
+      *                                                                       *
+      *                                                                       *
+      *  Amendments                                                           *
+      *                                                                       *
+      *  Number Author       Date   Description                               *
+      *  ¯¯¯¯¯¯ ¯¯¯¯¯¯¯¯¯¯ ¯¯¯¯¯¯¯¯ ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯        ¯¯¯¯¯  *
+      *  XX01   X.X.Xxxxxx XX/XX/XX Xxxxxx xxxxxx xxxxxx xxxxxx         xxxx  *
+      *                                                                       *
+      *........................................................        .......*
+     H        1   D
+     FHSQ342  IF  E           K        DISK                           UC
+     FHSS342  CF  E                    WORKSTN      KINFDS INFDS
+     F                                        RRNC  KSFILE SFLB
+      *  OPNQRY command
+     E                    ARA     1   4 50
+      *
+      *  OVRDBF, CLOF commands
+      *
+     E                    ARB     1   3 50
+      *
+      *  Subset area of OPNQRYF
+      *
+     E*                   SUBA       18  1
+      *********************************************************        *******
+      *                  CONSTANT SPECIFICATIONS                             *
+      *********************************************************        *******
+      *
+     I              4                     C         PAGSIZ
+     I              15                    C         DSPLEN
+     I              'ABCDEFGHIJKLMNOPQRST-C         ALPHA
+     I              'UVWXYZ0123456789* '
+     I              'NBR  *GE      '      C         NMBRGE
+     I              'NAM  = %WLDCRD'      C         NAMEWC
+      *********************************************************        *******
+      *                     INPUT SPECIFICATIONS                             *
+      *********************************************************        *******
+      *
+      * File information data structure of Workstation Display         file.
+      * RECFMT - Current screen format ID
+      * CSRLOC - Current cursor location
+      * TOPRRN - Current top subfile record
+      *
+     IINFDS       DS
+     I                                     *STATUS  XSTAT
+     I                                      261 270 RECFMT
+     I                                    B 370 3710CSRLOC
+     I                                    B 378 3790TOPRRN
+      *
+      * OPNQRY command layout for parameter substitution
+      *
+     ICMA         DS
+     I                                        1 200 ARA
+     I                                       14  23 FILA
+     I*                                      59  72 FIELD
+     I*                                      75  92 SUBA
+     I*                                     165 171 NAMA
+     I*                                     181 187 NUMA
+      *
+      * OVRDBF, CLOF commands layout for parameter substitution
+      *
+     ICMB         DS
+     I                                        1 150 ARB
+     I                                        1 100 OVRB
+     I                                       28  37 FILB
+     I                                      112 121 FILC
+      *
+      *********************************************************        *******
+      *  The MAINLINE section of the code.                                   *
+      *********************************************************        *******
+      *
+      * Display window until selection made or CMD12
+      *
+     C                     WRITEFMTC
+     C           *INKL     DOUEQ*ON
+     C                     EXFMTSFLCB
+     C           *INKL     IFEQ *OFF
+      *
+      *  ROLLUP
+      *
+     C           *IN27     IFEQ *ON
+     C                     EXSR XNEXT
+     C                     ELSE
+      *
+      *  If the subset name is change check that it does not co        ntain
+      *  illegal characters. Rebuild subfile.
+      *
+      * Check for # (and extract) - denotes search on NBR
+     C*                    MOVELDFNAME    AST     1
+     C*          AST       IFEQ '#'
+     C*                    MOVE DFNAME    DF14   14
+     C*                    MOVELDF14      DFNAME
+     C*                    MOVE ' '       DFNAME
+     C*                    ENDIF
+      *
+     C*          DFNAME    IFNE SVNAME
+     C*          ALPHA     CHECKDFNAME    #
+     C*          #         IFEQ *ZERO
+     C*                    MOVE DFNAME    SVNAME
+     C*                    EXSR £BLD
+     C*                    ELSE
+     C*                    MOVE SVNAME    DFNAME
+     C*                    ENDIF
+     C*                    ELSE
+      *
+      * Get selection code and return
+      *
+     C*                    READCSFLB                     79
+     C*          *IN79     IFEQ *OFF
+     C*          SELC      ANDNE*BLANK
+     C*                    MOVE *OFF      RTNC@
+     C*                    MOVE NBR       NUMBR@
+     C*                    LEAVE
+     C*                    ENDIF
+     C*                    Z-ADDTOPRRN    RECNO
+     C*                    ENDIF
+     C                     ENDIF
+      *
+     C                     ENDIF
+     C                     ENDDO
+      *
+      *  Close the open qry file
+      *
+     C                     MOVELARB,3     CMD   256 P
+     C                     CALL 'QCMDEXC'              99
+     C                     PARM           CMD
+     C                     PARM 256       LEN    155
+      *
+      *  Close the program file
+      *
+     C                     CLOSEHSQ342                 99
+      *
+      * Return to the calling Program
+      *
+     C                     SETON                     LR
+     C                     RETRN
+      *********************************************************        *******
+      *  This subroutine performs the following functions :                  *
+      *      Build the first page of the subfile of records tha        t     *
+      *      conform to the subset.                                          *
+      *********************************************************        *******
+      *
+     C           XBLD      BEGSR
+      *
+      *  Close and reopen driving file
+      *
+     C                     EXSR XFRMT
+      *
+      *  Clear subfile
+      *
+     C                     Z-ADD*ZERO     RRNC
+     C                     MOVE *OFF      *IN73
+     C                     MOVE *OFF      *IN74
+     C                     MOVE *OFF      *IN75
+     C                     WRITESFLCB
+     C                     MOVE *ON       *IN73
+     C*                    CLEARSELC
+      *
+      *  Build first page and check that records exist to displ        ay
+      *
+     C                     EXSR XNEXT
+     C           RRNC      COMP *ZERO                7474
+      *
+     C                     ENDSR
+      *********************************************************        *******
+      *  This subroutine performs the following functions :                  *
+      *      Build the next page of the subfile of records that              *
+      *      conform to the subset.                                          *
+      *********************************************************        *******
+      *
+     C           XNEXT     BEGSR
+     C*                    CLEARSELC
+      *
+      *  Read and process a subfile page of records
+      *
+     C                     DO   PAGSIZ    X       30
+     C                     READ FHSQ342                  79
+     C           *IN79     IFEQ *ON
+     C                     MOVE *ON       *IN75
+     C                     LEAVE
+     C                     ENDIF
+     C                     ADD  1         RRNC
+     C                     WRITESFLB
+     C                     ENDDO
+     C                     Z-ADDRRNC      RECNO
+      *
+      *  See if last record read was the last record in the fil        e
+      *
+     C           *IN79     IFEQ *OFF
+     C                     READ FHSQ342                  75
+     C  N75                READPFHSQ342                  79
+     C                     ENDIF
+      *
+     C                     ENDSR
+      *********************************************************        *******
+      *  This subroutine performs the following functions :                  *
+      *      Formats the subset into the OPNQRYF command.                    *
+      *********************************************************        *******
+      *
+     C           XFRMT     BEGSR
+      *
+      *  Close the open qry file
+      *
+     C                     MOVELARB,3     CMD   256 P
+     C                     CALL 'QCMDEXC'              99
+     C                     PARM           CMD
+     C                     PARM 256       LEN    155
+      *
+      *  Close the program file
+      *
+     C                     CLOSEHSQ342                 99
+      *
+      *  Add an * onto the beginning and end of the subset text
+      *  to get the wild card format
+      *
+     C*          ' '       CHECKDFNAME    #       30
+     C*          #         IFEQ *ZERO
+     C*                    Z-ADD1         #
+     C*                    ELSE
+     C*                    SUBSTDFNAME:#  WRK1   50 P
+     C*          ' '       CHEKRWRK1      #
+     C*                    ADD  2         #
+     C*          AST       IFNE '#'
+     C*                    MOVEA'*'       SUBA,1    P
+     C*                    MOVEAWRK1      SUBA,2    P
+     C*                    ELSE
+     C*                    MOVEAWRK1      SUBA,1    P
+     C*                    ENDIF
+     C*                    ENDIF
+     C*          AST       IFNE '#'
+     C*                    MOVEA'*"'      SUBA,#    P
+     C*                    ELSE
+     C*          #         SUB  1         A       30
+     C*          A         IFLE 0
+     C*                    Z-ADD1         A
+     C*                    ENDIF
+     C*                    MOVEA'"'       SUBA,A    P
+     C*                    ENDIF
+      *
+      *  Open the query file
+      *
+     C*          AST       IFEQ '#'
+     C*                    MOVELNMBRGE    FIELD
+     C*                    ELSE
+     C*                    MOVELNAMEWC    FIELD
+     C*                    ENDIF
+      *
+     C                     MOVELCMA       CMD   256
+     C                     CALL 'QCMDEXC'              99
+     C                     PARM           CMD
+     C                     PARM 256       LEN    155
+     C                     OPEN HSQ342
+      *
+     C                     ENDSR
+      *********************************************************        *******
+      *  This subroutine performs the following functions :                  *
+      *      Initialization.                                                 *
+      *********************************************************        *******
+      *
+     C           *INZSR    BEGSR
+     C                     Z-ADD2         YLIN    30
+     C                     Z-ADD2         YCOL    30
+      *
+      *  Plant file name in OVRDBF, CLOF commands
+      *
+     C                     MOVEL'HSPEXPA 'FILB      P
+     C                     MOVEL'HSPEXPA 'FILC      P
+     C*                    MOVE @FILE     FILC
+     C*                    MOVE @FILE     FILC
+      *
+      *  Set up override to selected file
+      *
+     C                     MOVELOVRB      CMD   256 P
+     C                     CALL 'QCMDEXC'              99
+     C                     PARM           CMD
+     C                     PARM 256       LEN    155
+      *
+      *  Set up OPNQRY mappings
+      *
+     C                     MOVEL'HSPEXPA 'FILA      P
+     C*                    MOVE @FILE     FILA
+     C*          @NAME     CAT  '"':0     NAMA      P
+     C*          @NUMBR    CAT  '"':0     NUMA      P
+      *
+      *  Set up screen subset
+      *
+     C*                    CLEARDFNAME
+     C*                    MOVE DFNAME    SVNAME
+     C*                    MOVE *ON       RTNC@
+     C*                    CLEARNUMBR@
+      *
+      *  Build first page
+      *
+     C                     EXSR XBLD
+      *
+     C                     ENDSR
+      *********************************************************        *******
+      *  This subroutine performs the following functions :                  *
+      *      Definition.                                                     *
+      *********************************************************        *******
+      *
+     C           XDEFN     BEGSR
+      *
+     C*          *ENTRY    PLIST
+     C*                    PARM           RTNC@   1
+     C*                    PARM           NUMBR@ 15
+     C*                    PARM           @FILE  10
+     C*                    PARM           @NAME   6
+     C*                    PARM           @NUMBR  6
+     C*                    PARM           @LIN    30
+     C*                    PARM           @COL    30
+      *
+     C                     Z-ADDRRNC      RRNC    50
+     C*          *LIKE     DEFN DFNAME    SVNAME
+      *
+     C                     ENDSR
+**
+OPNQRYF FILE(0123456789) FORMAT(HSQ342)
+MAPFLD((XPROD UPROD) (XSERCC USERCC)
+(XSERNS USERNS) (XSERNE USERNE))
+SEQONLY(*NO  ) OPTIMIZE(*FIRSTIO 4 )
+**
+OVRDBF FILE(HSQ342) TOFILE(0123456789) SHARE(*YES)
+ SEQONLY(*NO)
+CLOF OPNID(0123456789)

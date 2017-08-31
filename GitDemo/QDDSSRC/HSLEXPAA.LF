@@ -1,0 +1,15 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLEXPAA                                    *
+      *                                                            *
+      *  Description:  Unbanded Order line file (temporary) by     *
+      *                Product Code/Series Code/From Serial No.    *
+      *                                                            *
+      *  Date       :  March 1999                                  *
+      *                                                            *
+      **************************************************************
+     A          R HSFEXPA                   PFILE(HSPEXPA)
+      *
+     A          K UPROD
+     A          K USERCC
+     A          K USERNS

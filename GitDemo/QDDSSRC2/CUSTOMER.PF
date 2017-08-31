@@ -1,0 +1,9 @@
+                                            REF(SMPREF)
+                R FCUST
+                  CUID      R               REFFLD(CUSTID)
+                  CUSTNM    R
+                  CUSTA1    R               REFFLD(CUSTAD)
+                  CUSTA2    R               REFFLD(CUSTAD)
+                  CUSTA3    R               REFFLD(CUSTAD)
+                  CUZIP     R               REFFLD(ZIPCOD)
+                  CUCOUN    R               REFFLD(COUNTR)

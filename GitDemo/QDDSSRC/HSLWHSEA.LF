@@ -1,0 +1,13 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLWHSEA                                    *
+      *                                                            *
+      *  Description:  Warehouse file by Warehouse Codes           *
+      *                                                            *
+      *  Date       :  January 1999                                *
+      *                                                            *
+      **************************************************************
+     A          R HSFWHSE                   PFILE(HSPWHSE)
+      *
+     A          K PWHSE
+     A          O PDELT                     VALUES('D')

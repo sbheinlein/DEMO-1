@@ -1,0 +1,19 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSPACTL                                     *
+      *                                                            *
+      *  Description:  Agent Voucher Control                       *
+      *                                                            *
+      *  Date       :  February 1999                               *
+      *                                                            *
+      **************************************************************
+     A                                      REF(*LIBL/HSPREF)
+     A          R HSFEXPA
+      *  Description:  Expanded Order Line File
+     A            UPROD     R               REFFLD(PROD)
+     A            USERCC    R               REFFLD(SERC)
+     A                                      COLHDG('Series Code')
+     A            USERNS    R               REFFLD(SERN)
+     A                                      COLHDG('Start Serial No.')
+     A            USERNE    R               REFFLD(SERN)
+     A                                      COLHDG('End Serial No.')

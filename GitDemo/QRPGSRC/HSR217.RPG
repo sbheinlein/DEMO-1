@@ -1,0 +1,327 @@
+     H        1   Y
+      *****************************************************************
+      *                                                               *
+      *  Program Id. . : HSR217                                       *
+      *                                                               *
+      *  Description . : Receipt Transaction Processing.              *
+      *                                                               *
+      *  System  . . . : High Street Vouchers Control & Tracking      *
+      *                                                               *
+      *  Author  . . . : Colin N. Jones   (Intec Systems Limited)     *
+      *                                                               *
+      *  Date Written  : March 1999                                   *
+      *                                                               *
+      *****************************************************************
+      * Indicator usage:
+      *  90 - Main driving file.
+      *  91 - Customer Validation.
+      *  92 - Product Code Validation.
+      *
+      *  LR - Last Record indicator.
+      *****************************************************************
+      * Maintenance   :
+      * Fix/Chg Ref. Date       Description.
+      * ------------ ---------- -----------------------------------
+      *================================================================
+      *
+      * Inventory Transaction File
+     FHSLINVTEIF  E           K        DISK
+      *
+      * Voucher Tracking File
+     FHSLTRACAO   E           K        DISK                      A
+      *
+      * Sales Order Header File
+     FHSLORDHAO   E           K        DISK                      A
+      *
+      * Sales Order Detail File
+     FHSLORDDAUF  E           K        DISK                      A
+      *
+      * Sales Discount File
+     FHSLDISCBIF  E           K        DISK
+      *
+      * Customer Master File
+     FHSLCUSTAIF  E           K        DISK
+      *
+      * Product Master File
+     FHSLPRODAIF  E           K        DISK
+      *
+      * Sales Order Parameters.
+     FHSLORDPAIF  E           K        DISK
+      *
+      *****************************************************************
+      *----------------------------------------------------------------
+      *
+     IXDATE       DS
+     I                                        1   80CYMD
+     I                                        1   20CC
+     I                                        3   80YMD
+     I                                        3   40YY
+      *
+     IXXXSDS     SDS                            429
+     I                                     *PROGRAM XPGMID
+     I                                      244 253 XJOBNO
+     I                                      254 263 XUSRID
+      *  Main Line Processing
+      *************************************************************
+      *
+b1   C           *INLR     DOUEQ*ON
+      *
+     C                     READ HSLINVTE                 90
+      *
+      * If no more records found then quit program
+      * otherwise process read record.
+      *
+     C           *IN90     IFEQ *ON
+     C                     MOVE *ON       *INLR
+     C                     ELSE
+      * Ignore deleted records.
+     C           CTYPE     IFNE 'REC'
+     C                     ITER
+     C                     ENDIF
+      *
+     C                     EXSR SR01
+      *
+     C                     ENDIF
+      *
+      *
+e1   C                     ENDDO
+      *
+      * Calculate discount for previous order & apply to all detail
+      * lines.
+     C                     EXSR DISC
+      *
+     C                     ADD  1         BATCH
+      ****************************************************************
+      *  Process Record
+      *****************************************************************
+     C           SR01      BEGSR
+      *          ***************
+      *
+      * Validate Customer No. If customer No is invalid do not process
+      * record.
+      *
+     C           CCUST     CHAINHSLCUSTA             91
+      *
+      * Validate Product Code. If Product is invalid do not process
+      * record.
+      *
+     C           CPROD     CHAINHSLPRODA             92
+     C                     MOVE NSUBC     WKSUBC
+     C           *IN92     IFEQ *OFF
+     C                     MOVE APROD     KPROD
+     C                     MOVELNDESC     KDESC
+     C                     ENDIF
+      *
+      * Get Next Order Number and update Data area only if different
+      * customer claims.
+      *
+     C           CCUST     IFNE CUSTX
+      *
+      * Calculate discount for pervious order & apply to all detail
+      * lines.
+     C                     EXSR DISC
+      *
+     C           *NAMVAR   DEFN HSAORDERNOORDERX  80
+     C           *LOCK     IN   ORDERX
+     C                     ADD  1         ORDERX
+     C                     OUT  ORDERX
+     C                     MOVE CCUST     CUSTX
+      *
+     C                     EXSR ORDER
+      *
+      *
+     C                     ENDIF
+      *
+      * Execute Sales Order Detail Processing
+      *
+     C                     EXSR ORDET
+      *          ***************
+     C                     ENDSR
+      *****************************************************************
+      *  Orders  Header Lines Subroutine.
+      *****************************************************************
+     C           ORDER     BEGSR
+      *          ***************
+      *
+      * Set up default header values
+      *
+     C                     MOVE CCUST     JCUST
+     C                     MOVE CTYPE     JTYPE
+     C                     MOVE ORDERX    JSORD
+     C                     MOVE 'A'       JSTAT
+     C                     MOVE CYMD      JORDD
+     C                     MOVE CYMD      JCRTD
+     C                     TIME           JCRTT
+     C                     MOVE 'ZZ'      JCRTS
+     C                     MOVE XUSRID    JCRTU
+     C                     MOVEL'HSR217'  JCRTP
+      *
+      * Write Sales Order Record.
+      *
+     C*                    MOVE BATCH     JBATC
+     C                     WRITEHSFORDH
+     C                     Z-ADD0         KLINE
+     C                     ENDSR
+      *****************************************************************
+      *  Orders  Detail Lines Subroutine.
+      *****************************************************************
+     C           ORDET     BEGSR
+      *          ***************
+      *
+      * Set up default values
+      *
+     C                     ADD  1         KLINE
+     C                     MOVE CCUST     KCUST
+     C                     MOVE CTYPE     KTYPE
+     C                     MOVE 'S'       KLTYP
+     C                     MOVE ORDERX    KSORD
+     C                     Z-ADDNCOST     KCOST
+     C                     Z-ADDNPRIC     KPRIC
+     C                     MOVE CQTYN     KQTYN
+     C           KQTYN     MULT NPRIC     KVALU
+     C                     ADD  KVALU     ORDVAL 152
+     C                     MOVE CYMD      KCRTD
+     C                     TIME           KCRTT
+     C                     MOVE 'ZZ'      KCRTS
+     C                     MOVE XUSRID    KCRTU
+     C                     MOVEL'HSR217'  KCRTP
+      *
+      * Get Serial number range.
+      *
+     C                     MOVE CSERC     KSERC
+     C                     Z-ADDCSERNF    KSERNF
+     C                     Z-ADDCSERNT    KSERNT
+      *
+      * Write Sales Order Record.
+      *
+     C                     WRITEHSFORDD
+      *
+      * Set up default Voucher Tracking Details.
+      *
+     C                     MOVE CPROD     APROD
+     C                     MOVE CTYPE     AVTYP
+     C                     MOVE CSERC     ASERC
+     C                     MOVE CSERNF    ASERN
+     C                     MOVE CCUST     ACUST
+     C                     MOVE ORDERX    ASORD
+      *
+      * Write Voucher Tracking Record.
+      *
+     C                     WRITEHSFTRAC
+      *          ***************
+     C                     ENDSR
+      *****************************************************************
+      *  Discount Subroutine.
+      *****************************************************************
+     C           DISC      BEGSR
+      *
+      * Get customer discount if it is applicable to order.
+     C                     Z-ADDORDVAL    WKVAL
+     C                     Z-ADD0         WKDISC
+      *
+      * Is customer type 'On account' or 'Cash payment'.
+     C                     Z-ADD0         WKDYS
+     C                     SELEC
+     C           WKATYP    WHEQ 'A'
+     C                     Z-ADD28        WKDYS   20
+     C           WKATYP    WHEQ 'C'
+     C                     Z-ADD0         WKDYS
+     C                     ENDSL
+      *
+     C                     CLEARPCTYP
+     C                     CLEARPDAYS
+      *
+     C           DSCKEY    SETLLHSLDISCB                 67
+      *
+      * Read previous record if necessary.
+     C           *IN67     IFEQ *OFF
+     C                     READPHSLDISCB                 67
+     C                     ELSE
+     C                     READ HSLDISCB                 67
+     C                     ENDIF
+      *
+      * If not end of file.
+     C           *IN67     IFEQ *OFF
+     C           PCTYP     ANDEQECTYP
+     C           PDAYS     ANDEQWKDYS
+      *
+      * within range?
+     C           WKVAL     IFGE PFAMT
+     C           WKVAL     ANDLEPTAMT
+     C                     Z-ADDPDISC     WKDISC
+     C                     ENDIF
+      *
+     C                     ENDIF
+      *
+      * if there is discount apply discount %age to previous order
+      * detail lines.
+      *
+     C                     MOVE *OFF      *IN68
+     C           WKDISC    IFNE 0
+     C           ORDERX    SETLLHSLORDDA
+      *
+     C           *IN68     DOUEQ*ON
+     C           ORDERX    READEHSLORDDA                 68
+     C           *IN68     IFEQ *ON
+     C                     LEAVE
+     C                     ENDIF
+     C                     Z-ADDWKDISC    KDISP
+     C                     UPDATHSFORDD
+     C                     ENDDO
+      *
+     C                     ENDIF
+      *
+     C                     Z-ADD0         ORDVAL
+     C                     ENDSR
+      *****************************************************************
+      *  Initial Subroutine.
+      *****************************************************************
+     C           *INZSR    BEGSR
+      *
+      *
+      *
+      * Key List for Inventory Masterfile.
+     C           IVMKEY    KLIST
+     C                     KFLD           CPROD
+     C                     KFLD           WKSUBC
+     C                     MOVE *BLANKS   WKSUBC
+      *
+      * Key List for Discount Masterfile.
+     C           DSCKEY    KLIST
+     C                     KFLD           ECTYP
+     C                     KFLD           WKDYS
+     C                     KFLD           WKVAL
+      *
+     C           *LIKE     DEFN CCUST     CUSTX
+     C           *LIKE     DEFN PFAMT     WKVAL
+     C           *LIKE     DEFN CPROD     PRODX
+     C           *LIKE     DEFN NSUBC     WKSUBC
+     C           *LIKE     DEFN PDISC     WKDISC
+      * Default Fields....
+      *
+      * Set up current CCYYMMDD
+      *
+     C                     MOVE UDATE     YMD     60
+     C           YY        IFGE 40
+     C           YY        ANDLE99
+     C                     Z-ADD19        CC
+     C                     ELSE
+     C                     Z-ADD20        CC
+     C                     ENDIF
+      *
+      *
+     C           *NAMVAR   DEFN HSACLAM   BATCH   50
+     C           *LOCK     IN   BATCH
+     C                     MOVE BATCH     XBATCH  50
+     C                     ADD  1         XBATCH
+     C                     MOVE XBATCH    BATCH
+     C                     OUT  BATCH
+      *
+      * Access Order Parameter record.
+     C                     MOVE 'REC'     OTYPE   3
+     C           OTYPE     CHAINHSLORDPA             77
+     C           *IN77     IFEQ *OFF
+     C                     MOVELMASCG     WKATYP  1
+     C                     ENDIF
+     C                     ENDSR
+      *

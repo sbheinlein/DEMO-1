@@ -1,0 +1,13 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLORDDC                                    *
+      *                                                            *
+      *  Description:  Sales Order Detail by Order No/Product Code *
+      *                                                            *
+      *  Date       :  March 1999                                  *
+      *                                                            *
+      **************************************************************
+     A          R HSFORDD                   PFILE(HSPORDD)
+      *
+     A          K KSORD
+     A          K KPROD

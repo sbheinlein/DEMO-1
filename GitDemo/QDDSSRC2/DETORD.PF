@@ -1,0 +1,10 @@
+                                            REF(SMPREF)
+                R FDETO
+                  ORDDNB    R               REFFLD(ORDENB)
+                  ORDDYR    R               REFFLD(ORDEYR)
+                  ORDDLI    R
+                  ORDDAR    R               REFFLD(ARTIID)
+                  ORDLDE    R               REFFLD(ARTIDE)
+                  ORDDQT    R
+                  ORDDUP    R               REFFLD(ARTIPR)
+                  ORDDPR    R

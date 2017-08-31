@@ -1,0 +1,19 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSPAREQ                                     *
+      *                                                            *
+      *  Description:  Agency Sales  File                          *
+      *                                                            *
+      *  Date       :  Febuary 1999                                *
+      *                                                            *
+      **************************************************************
+     A                                      REF(*LIBL/HSPREF)
+     A          R HSFAREQ
+      *  Description:  Agency Input
+     A            AATYPE    R               REFFLD(TYPE)
+     A                                      COLHDG('Sales Order Type')
+     A            AACUST    R               REFFLD(CUST)
+     A            AAPROD    R               REFFLD(PROD)
+     A            AAQTYN    R               REFFLD(QTYN)
+     A            AADELT    R               REFFLD(A1)
+     A                                      COLHDG('Deletion Flag')

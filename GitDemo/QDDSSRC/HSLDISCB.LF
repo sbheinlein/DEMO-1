@@ -1,0 +1,15 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLDISCA                                    *
+      *                                                            *
+      *  Description:  Customer Discount File by Customer Type &   *
+      *                Order Amount From                           *
+      *                                                            *
+      *  Date       :  February 1999                               *
+      *                                                            *
+      **************************************************************
+     A          R HSFDISC                   PFILE(HSPDISC)
+      *
+     A          K PCTYP
+     A          K PDAYS
+     A          K PFAMT

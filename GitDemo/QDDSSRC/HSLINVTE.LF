@@ -1,0 +1,15 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLWHSEB                                    *
+      *                                                            *
+      *  Description:  Inventory Transactions by Trans/Prod Code   *
+      *                                                            *
+      *  Date       :  March 1999                                  *
+      *                                                            *
+      **************************************************************
+     A          R HSFINVT                   PFILE(HSPINVT)
+      *
+     A          K CTYPE
+     A          K CPROD
+     A          K CTDAT                     DESCEND
+     A*         O CTYPE                     VALUES('J' ' ')

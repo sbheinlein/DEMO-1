@@ -1,0 +1,61 @@
+     A*****************************************************************
+     A*                                                               *
+     A*  Display File  : HSS341                                       *
+     A*                                                               *
+     A*  Description . : F4 Window Search                             *
+     A*                                                               *
+     A*  System  . . . : HSV Control & Tracking                       *
+     A*                                                               *
+     A*  Date Written  : January 1999                                 *
+     A*                                                               *
+     A*****************************************************************
+     A                                      DSPSIZ(24 80 *DS3)
+     A                                      PRINT(*LIBL/QSYSPRT        )
+     A          R FMTA
+     A                                      ASSUME
+     A                                  1  2' '
+     A          R SFLB                      SFL
+     A            SELC           1A  B  6  2COLOR(BLU)
+     A                                      DSPATR(UL)
+     A                                      COMP(EQ '1')
+     A                                      CHECK(ER)
+     A            NAM           40A  O  6 20
+     A            NBR           15A  O  6  4
+     A            ID             3  0H
+     A          R SFLCB                     SFLCTL(SFLB)
+     A                                      SFLSIZ(0005)
+     A                                      SFLPAG(0004)
+     A                                      WINDOW(FMTC)
+     A                                      CA12(12 'Previous')
+     A                                      ROLLUP(27)
+     A                                      BLINK
+     A                                      OVERLAY
+     A N74                                  ERASE(SFLB)
+     A                                      PUTOVR
+     A  74                                  SFLDSP
+     A  73                                  SFLDSPCTL
+     A N73                                  SFLCLR
+     A  75                                  SFLEND(*MORE)
+     A            RECNO          4S 0H      SFLRCDNBR
+     A                                  2  8'Search value:'
+     A                                      COLOR(WHT)
+     A            DFNAME        15A  B  2 22OVRDTA
+     A                                      COLOR(BLU)
+     A                                  5  1'Sl Code            Description    -
+     A                                                '
+     A                                      COLOR(WHT)
+     A                                      DSPATR(UL)
+     A                                  4  2'1=Select'
+     A                                      COLOR(WHT)
+     A          R FMTC
+     A                                      WINDOW(&YLIN &YCOL 11 69 *NOMSGLIN)
+     A                                      CLRL(*NO)
+     A                                      OVERLAY
+     A                                      PROTECT
+     A                                      PUTOVR
+     A                                      WDWBORDER((*COLOR BLU) (*DSPATR RI)-
+     A                                       (*CHAR '        ')        )
+     A            YLIN           3S 0P
+     A            YCOL           3S 0P
+     A                                 11  2'F12=No Selection'
+     A                                      COLOR(WHT)

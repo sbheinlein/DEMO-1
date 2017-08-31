@@ -1,0 +1,28 @@
+      *%CSTD===========================================================*       *
+      ** Application. : SAM        Arcad Sample application            *       *
+      ** Component. . : ARTICLE                       Type: PF         *       *
+      **===============================================================*       *
+      ** Sub-system . : ACC Accounting                                 *       *
+      ** Function . . : ACP Accounts payable                           *       *
+      ** Sub-function :                                                *       *
+      **%S=============================================================*       *
+      ** Description of functions:                                     *       *
+      **                                                               *       *
+      **                                                               *       *
+      **                                                               *       *
+      **%E=============================================================*       *
+      ** AUTHOR:                          00:00                        *       *
+      ** MODIFS: ** RBERNARDI  03/19/2014 17:45  V 1.00.F WI       55  *       *
+      **           Adapt Cobol side to manage Country.                 *       *
+      **         ** RBERNARDI  03/19/2014   :    V 1.00.E WI       55  *       *
+      **         02 RBERNARDI  03/19/2014 15:08  V 1.00.D WI       55  *       *
+      **           Adapt Cobol side to manage Country.                 *       *
+      **         01 RBERNARDI  03/19/2014 14:51  V 1.00.C WI       12  *       *
+      **           Demo Review                                         *       *
+      *%ECSTD==========================================================*       *
+                                            REF(SMPREF)
+                R FARTI
+                  ARTIID    R
+                  ARTIDE    R
+                  ARTISP    R               REFFLD(ARTIPR)
+                  ARTIFA    R               REFFLD(FAMIID)

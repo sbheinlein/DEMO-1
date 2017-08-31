@@ -1,0 +1,13 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLPRODB                                    *
+      *                                                            *
+      *  Description:  Product Master by Item Code                 *
+      *                                                            *
+      *  Date       :  January 1999                                *
+      *                                                            *
+      **************************************************************
+     A          R HSFPROD                   PFILE(HSPPROD)
+      *
+     A          K NPROD
+     A          O NDELT                     VALUES('D')

@@ -1,0 +1,354 @@
+     A          R BPRDR
+     A                                      TEXT('Fichier Détail Réception')
+     A            DRTYRC     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('TYPE RECEP')
+     A                                      COLHDG( +
+     A                                      'TYPE' +
+     A                                      'RECEP' +
+     A                                      )
+     A            DRCIDR     00005A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CID RATTACHEMENT')
+     A                                      COLHDG( +
+     A                                      'CID' +
+     A                                      'RATTACHEMENT' +
+     A                                      )
+     A            DRKAPP     00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('APPRO')
+     A                                      COLHDG( +
+     A                                      'APPRO' +
+     A                                      )
+     A            DRKDEP     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('DEP')
+     A                                      COLHDG( +
+     A                                      'DEP' +
+     A                                      )
+     A            DRKRAY     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('RAY')
+     A                                      COLHDG( +
+     A                                      'RAY' +
+     A                                      )
+     A            DRKSEC     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('SECT')
+     A                                      COLHDG( +
+     A                                      'SECT' +
+     A                                      )
+     A            DRCNUL     00006A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CNUL')
+     A                                      COLHDG( +
+     A                                      'CNUL' +
+     A                                      )
+     A            DRNENT     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('NO ENT SEC')
+     A                                      COLHDG( +
+     A                                      'NO' +
+     A                                      'ENT' +
+     A                                      'SEC' +
+     A                                      )
+     A            DRCID      00005A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CID')
+     A                                      COLHDG( +
+     A                                      'CID' +
+     A                                      )
+     A            DRAARC     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('ANNEE RECEPTION')
+     A                                      COLHDG( +
+     A                                      'ANNEE' +
+     A                                      'RECEPTION' +
+     A                                      )
+     A            DRMMRC     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('MOIS RECEPTION')
+     A                                      COLHDG( +
+     A                                      'MOIS' +
+     A                                      'RECEPTION' +
+     A                                      )
+     A            DRJJRC     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('JOUR RECEPTION')
+     A                                      COLHDG( +
+     A                                      'JOUR' +
+     A                                      'RECEPTION' +
+     A                                      )
+     A            DRNORD     00005A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('NUMERO ORDRE')
+     A                                      COLHDG( +
+     A                                      'NUMERO' +
+     A                                      'ORDRE' +
+     A                                      )
+     A            DRSLIM     00007A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('COD ART')
+     A                                      COLHDG( +
+     A                                      'COD ART' +
+     A                                      )
+     A            DRMOD      00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('MOD')
+     A                                      COLHDG( +
+     A                                      'MOD' +
+     A                                      )
+     A            DRQTE      00009P03B
+     A                                      TEXT('QUANTITE')
+     A                                      COLHDG( +
+     A                                      'QUANTITE' +
+     A                                      )
+     A            DRPA       00009P03B
+     A                                      TEXT('PRIX ACHAT')
+     A                                      COLHDG( +
+     A                                      'PRIX' +
+     A                                      'ACHAT' +
+     A                                      )
+     A            DRPV       00009P02B
+     A                                      TEXT('PRIX VENTE')
+     A                                      COLHDG( +
+     A                                      'PRIX' +
+     A                                      'VENTE' +
+     A                                      )
+     A            DRTAX      00009P03B
+     A                                      TEXT('TAXE')
+     A                                      COLHDG( +
+     A                                      'TAXE' +
+     A                                      )
+     A            DRTVA      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CODE TVA')
+     A                                      COLHDG( +
+     A                                      'CODE' +
+     A                                      'TVA' +
+     A                                      )
+     A            DRRET      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('RETOUR')
+     A                                      COLHDG( +
+     A                                      'RETOUR' +
+     A                                      )
+     A            DRRGVI     00007P03B
+     A                                      TEXT('VIGNETTE')
+     A                                      COLHDG( +
+     A                                      'VIGNETTE' +
+     A                                      )
+     A            DRRGDR     00007P03B
+     A                                      TEXT('DROITS REGIE')
+     A                                      COLHDG( +
+     A                                      'DROITS' +
+     A                                      'REGIE' +
+     A                                      )
+     A            DRCNUF     00006A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CNUF')
+     A                                      COLHDG( +
+     A                                      'CNUF' +
+     A                                      )
+     A            DRCIP      00006A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIP')
+     A                                      COLHDG( +
+     A                                      'CIP' +
+     A                                      )
+     A            DRVA       00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('VA')
+     A                                      COLHDG( +
+     A                                      'VA' +
+     A                                      )
+     A            DRPCB      00004S00B
+     A                                      TEXT('PCB')
+     A                                      COLHDG( +
+     A                                      'PCB' +
+     A                                      )
+     A            DRFAM      00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('FAM')
+     A                                      COLHDG( +
+     A                                      'FAM' +
+     A                                      )
+     A            DRSFA      00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('SFAM')
+     A                                      COLHDG( +
+     A                                      'SFAM' +
+     A                                      )
+     A            DRCAT      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CAT')
+     A                                      COLHDG( +
+     A                                      'CAT' +
+     A                                      )
+     A            DRGST      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('GESTION STOCK')
+     A                                      COLHDG( +
+     A                                      'GESTION' +
+     A                                      'STOCK' +
+     A                                      )
+     A            DRTART     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('TYPE ARTICLE')
+     A                                      COLHDG( +
+     A                                      'TYPE' +
+     A                                      'ARTICLE' +
+     A                                      )
+     A            DRLCON     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('LISTE CONCURENCE')
+     A                                      COLHDG( +
+     A                                      'LISTE' +
+     A                                      'CONCURENCE' +
+     A                                      )
+     A            DRRIST     00007P02B
+     A                                      TEXT('RIST')
+     A                                      COLHDG( +
+     A                                      'RIST' +
+     A                                      )
+     A            DRCRIS     00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('COD RIST')
+     A                                      COLHDG( +
+     A                                      'COD' +
+     A                                      'RIST' +
+     A                                      )
+     A            DRCOOP     00007P02B
+     A                                      TEXT('COOP')
+     A                                      COLHDG( +
+     A                                      'COOP' +
+     A                                      )
+     A            DRCCOO     00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('COD COOP')
+     A                                      COLHDG( +
+     A                                      'COD' +
+     A                                      'COOP' +
+     A                                      )
+     A            DRNEG      00007P02B
+     A                                      TEXT('REM NEG MAG')
+     A                                      COLHDG( +
+     A                                      'REM' +
+     A                                      'NEG' +
+     A                                      'MAG' +
+     A                                      )
+     A            DRCNEG     00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('COD NEG MAG')
+     A                                      COLHDG( +
+     A                                      'COD' +
+     A                                      'NEG' +
+     A                                      'MAG' +
+     A                                      )
+     A            DRRF       00007P03B
+     A                                      TEXT('REM FCT')
+     A                                      COLHDG( +
+     A                                      'REM' +
+     A                                      'FCT' +
+     A                                      )
+     A            DRCRF      00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('COD REM FCT')
+     A                                      COLHDG( +
+     A                                      'COD' +
+     A                                      'REM' +
+     A                                      'FCT' +
+     A                                      )
+     A            DRAVDF     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('TAUX AVD FIXE')
+     A                                      COLHDG( +
+     A                                      'TAUX' +
+     A                                      'AVD' +
+     A                                      'FIXE' +
+     A                                      )
+     A            DRTAX1     00009P03B
+     A                                      TEXT('TAXE')
+     A                                      COLHDG( +
+     A                                      'TAXE' +
+     A                                      )
+     A            DRTAX2     00009P03B
+     A                                      TEXT('TAXE')
+     A                                      COLHDG( +
+     A                                      'TAXE' +
+     A                                      )
+     A            DRTRSP     00007P02B
+     A                                      TEXT('TRANSPORT')
+     A                                      COLHDG( +
+     A                                      'TRANSPORT' +
+     A                                      )
+     A            DRTOP1     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('TOP')
+     A                                      COLHDG( +
+     A                                      'TOP' +
+     A                                      )
+     A            DRTOP2     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('TOP')
+     A                                      COLHDG( +
+     A                                      'TOP' +
+     A                                      )
+     A            DRTOP3     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('TOP')
+     A                                      COLHDG( +
+     A                                      'TOP' +
+     A                                      )
+     A            DRTOP4     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('TOP')
+     A                                      COLHDG( +
+     A                                      'TOP' +
+     A                                      )
+     A            DRTOP5     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('TOP')
+     A                                      COLHDG( +
+     A                                      'TOP' +
+     A                                      )
+     A            DRAAFT     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('ANNEE')
+     A                                      COLHDG( +
+     A                                      'ANNEE' +
+     A                                      )
+     A            DRMMFT     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('MOIS')
+     A                                      COLHDG( +
+     A                                      'MOIS' +
+     A                                      )
+     A            DRJJFT     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('JOUR')
+     A                                      COLHDG( +
+     A                                      'JOUR' +
+     A                                      )
+     A            DRNORF     00005A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('NUMERO ORDRE FACT')
+     A                                      COLHDG( +
+     A                                      'NUMERO' +
+     A                                      'ORDRE' +
+     A                                      'FACT' +
+     A                                      )
+     A          K DRTYRC
+     A          K DRCIDR
+     A          K DRKAPP
+     A          K DRKDEP
+     A          K DRKRAY
+     A          K DRKSEC
+     A          K DRCNUL
+     A          K DRNENT
+     A          K DRCID
+     A          K DRAARC
+     A          K DRMMRC
+     A          K DRJJRC
+     A          K DRNORD
+     A          K DRSLIM

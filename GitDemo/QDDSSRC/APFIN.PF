@@ -1,0 +1,13 @@
+     A          R APRIN
+     A            INFCLE     00020A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CLE INFODI')
+     A            INFDON     00223A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('DONNEES INFODI')
+     A            DATAMJ     00006A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('DATE AAMMJJ')
+     A            NOMESS     00007A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('NUMERO MESSAGE')

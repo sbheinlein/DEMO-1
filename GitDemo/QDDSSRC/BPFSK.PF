@@ -1,0 +1,179 @@
+     A          R BPRSK
+     A            SKRAC      00006A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('ART COMMANDE: RACINE')
+     A                                      COLHDG( +
+     A                                      'RACINE' +
+     A                                      )
+     A            SKCCC      00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('ART COMMANDE: CONDT CMDE M')
+     A                                      COLHDG( +
+     A                                      'COND' +
+     A                                      'CMDE' +
+     A                                      'MAG' +
+     A                                      )
+     A            SKVPV      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('ART COMMANDE: LOT PROMO')
+     A                                      COLHDG( +
+     A                                      'LOT' +
+     A                                      'PROMO' +
+     A                                      )
+     A            SKMOD      00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('MODULO')
+     A                                      COLHDG( +
+     A                                      'MOD' +
+     A                                      )
+     A            SKAAM      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('ANNEE MODIF')
+     A                                      COLHDG( +
+     A                                      'ANNEE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            SKMMM      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('MOIS MODIF')
+     A                                      COLHDG( +
+     A                                      'MOIS' +
+     A                                      'MODIF' +
+     A                                      )
+     A            SKJJM      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('JOUR MODIF')
+     A                                      COLHDG( +
+     A                                      'JOUR' +
+     A                                      'MODIF' +
+     A                                      )
+     A            SKHHM      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('HEURE MODIF')
+     A                                      COLHDG( +
+     A                                      'HEURE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            SKMNM      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('MINUTE MODIF')
+     A                                      COLHDG( +
+     A                                      'MINUTE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            SKSSM      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('SECONDE MODIF')
+     A                                      COLHDG( +
+     A                                      'SECONDE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            SKAN       00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('N° ANNEE')
+     A                                      COLHDG( +
+     A                                      'N°' +
+     A                                      'ANNEE' +
+     A                                      )
+     A            SKMOIS     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('N° MOIS')
+     A                                      COLHDG( +
+     A                                      'N°' +
+     A                                      'MOIS' +
+     A                                      )
+     A            SKSTKO     00011P03B
+     A                                      TEXT('STOCK ORIGINE AVANT')
+     A                                      COLHDG( +
+     A                                      'STOCK' +
+     A                                      'ORIGINE' +
+     A                                      'AVANT' +
+     A                                      )
+     A            SKNATO     00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('0ex,1disp,2prom,3blq,4prép')
+     A                                      COLHDG( +
+     A                                      'NATURE' +
+     A                                      'ORIGINE' +
+     A                                      )
+     A            SKSTKD     00011P03B
+     A                                      TEXT('STOCK DESTINA AVANT')
+     A                                      COLHDG( +
+     A                                      'STOCK' +
+     A                                      'DESTINA' +
+     A                                      'AVANT' +
+     A                                      )
+     A            SKNATD     00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('0ex,1disp,2prom,3blq,4prép')
+     A                                      COLHDG( +
+     A                                      'NATURE' +
+     A                                      'DESTINA' +
+     A                                      )
+     A            SKSTKV     00011P03B
+     A                                      TEXT('VARIATION STOC')
+     A                                      COLHDG( +
+     A                                      'VARIATION' +
+     A                                      'STOC' +
+     A                                      )
+     A            SKTYPE     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('TYPE MODIF')
+     A                                      COLHDG( +
+     A                                      'TYPE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            SKMOTF     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('MOTIF')
+     A                                      COLHDG( +
+     A                                      'MOTIF' +
+     A                                      )
+     A            SKCID      00005A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CENTRE D''ACTIVITE')
+     A                                      COLHDG( +
+     A                                      'CID' +
+     A                                      )
+     A            SKNFAC     00008A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('NUMERO FACTURE')
+     A                                      COLHDG( +
+     A                                      'NUMERO' +
+     A                                      'FACTURE' +
+     A                                      )
+     A            SKNPLT     00006S00B
+     A                                      TEXT('NUMERO PALETTE')
+     A                                      COLHDG( +
+     A                                      'NPLT' +
+     A                                      )
+     A            SKFTAA     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('AA FACT')
+     A                                      COLHDG( +
+     A                                      'AA' +
+     A                                      'FACT' +
+     A                                      )
+     A            SKFTMM     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('MM FACT')
+     A                                      COLHDG( +
+     A                                      'MM' +
+     A                                      'FACT' +
+     A                                      )
+     A            SKFTJJ     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('JJ FACT')
+     A                                      COLHDG( +
+     A                                      'JJ' +
+     A                                      'FACT' +
+     A                                      )
+     A          K SKRAC
+     A          K SKCCC
+     A          K SKVPV
+     A          K SKAAM
+     A          K SKMMM
+     A          K SKJJM
+     A          K SKHHM
+     A          K SKMNM
+     A          K SKSSM

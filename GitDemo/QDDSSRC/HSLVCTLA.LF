@@ -1,0 +1,13 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLVCTLA                                    *
+      *                                                            *
+      *  Description:  Voucher Tracking by Customer                *
+      *                                                            *
+      *  Date       :  January 1998                                *
+      *                                                            *
+      **************************************************************
+     A          R HSFVCTL                   PFILE(HSPVCTL)
+      *
+     A          K BPROD
+     A          K BSERCC

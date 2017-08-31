@@ -1,0 +1,23 @@
+         /*-----------------------------------*/
+         /* Test RtvSysVal Upper or LowerCase */
+         /*-----------------------------------*/
+ 
+             PGM        PARM(&SYSVALNAM &UPLW &VALUE)
+             DCL        VAR(&SYSVALNAM) TYPE(*CHAR) LEN(10)
+             DCL        VAR(&UPLW) TYPE(*CHAR) LEN(1)
+             DCL        VAR(&VALUE) TYPE(*CHAR) LEN(100)
+ 
+ 
+             CALLPRC    PRC('SMK48M1') PARM(&SYSVALNAM &VALUE)
+ 
+       /* Return In Upper or LowerCase */
+             IF         COND(&UPLW = 'U') THEN(DO)
+             CALLPRC    PRC('STR_TOUPPER') PARM(&VALUE) +
+                          RTNVAL(&VALUE)
+             ENDDO
+             IF         COND(&UPLW = 'L') THEN(DO)
+             CALLPRC    PRC('STR_TOLOWER') PARM(&VALUE) +
+                          RTNVAL(&VALUE)
+             ENDDO
+ 
+             ENDPGM
