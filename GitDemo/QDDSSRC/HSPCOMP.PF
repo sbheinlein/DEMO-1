@@ -35,3 +35,5 @@
      A                                      COLHDG('Company Text')
      A            WDELT     R               REFFLD(A1)
      A                                      COLHDG('Deletion Flag')
+     A            WDELJT    R               REFFLD(A1)
+     A                                      COLHDG('Deletion Flag')
