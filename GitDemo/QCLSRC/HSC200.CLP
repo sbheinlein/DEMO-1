@@ -35,5 +35,4 @@
              OVRDBF     FILE(ALTCUSTA) TOFILE(HSLCUSTA)
              CALL       PGM(HSR200) PARM(&MODE &ORDER &TYPE &CUST)
              DLTOVR     FILE(ALTCUSTA)
-             dspsplf
              ENDPGM
