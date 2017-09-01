@@ -24,7 +24,7 @@
 /* System      : HSV - Voucher Tracking and Control                 */
 /* Date        : February 1999                                      */
 /********************************************************************/
- 
+
              PGM        PARM(&MODE &ORDER &TYPE &CUST)
              DCL        VAR(&MODE) TYPE(*CHAR) LEN(1)
              DCL        VAR(&MODEA) TYPE(*CHAR) LEN(1)
@@ -35,4 +35,5 @@
              OVRDBF     FILE(ALTCUSTA) TOFILE(HSLCUSTA)
              CALL       PGM(HSR200) PARM(&MODE &ORDER &TYPE &CUST)
              DLTOVR     FILE(ALTCUSTA)
+             dspsplf
              ENDPGM
