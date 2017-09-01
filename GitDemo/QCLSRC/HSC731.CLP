@@ -2,9 +2,9 @@
 /* Program     : HSC731                                             */
 /* Purpose     : Create OPNQRYF for Voucher Control file HSLVCTLA   */
 /* System      : HSV - Voucher Tracking and Control                 */
-/* Date        : January 1999                                       */
+/* Date        : January 1999      xxxxx                            */
 /********************************************************************/
- 
+
              PGM        PARM(&XPROD &XPROD1 &XPGMID &XUSRID &XJOBNO)
              DCL        VAR(&XPROD) TYPE(*CHAR) LEN(13)
              DCL        VAR(&XPROD1) TYPE(*CHAR) LEN(13)
