@@ -1,7 +1,7 @@
 <html>
 <?php
 define("PAGE_TITLE", "Employee Update");
-define("PHP_FILE_NAME", "employee_update_works.php")
+define("PHP_FILE_NAME", "employee_update_works_new.php")
 ?>
 
 <title><?= PAGE_TITLE . " - " . PHP_FILE_NAME; ?></title>
@@ -33,7 +33,7 @@ if ($customerNumber == "") {
 		/* when Search button is selected.                                    */
 		print '<h1>Enter the first few characters of the employee records you wish to view/edit in the last name field.</h1>';
 		print '<h2>For example, "JO":</h2>';
-		print '<form action="employee_update_works.php" method="POST">';
+		print '<form action="employee_update_works_new.php" method="POST">';
 		print 'Last Name: <input type="text" name="lastname" /> <br />';
 		print '<input type="submit" name="action" value="Search" />';
 		print '</form>';
@@ -57,7 +57,7 @@ if ($customerNumber == "") {
 				$workdept = $row[4];
 				$job = $row[7];
 				$salary = $row[11];
-				print '<tr><td align=center><a href=employee_update_works.php?customerNumber=' . $customerNumber . '>' . $customerNumber .
+				print '<tr><td align=center><a href=employee_update_works_new.php?customerNumber=' . $customerNumber . '>' . $customerNumber .
 				'</a><td>'.$customerName.'<td>'.$customerFirst.'<td>'.$workdept.'<td>'.$job.'<td>'.$salary.'</td></tr>';
 			}
 		}
@@ -80,9 +80,9 @@ if ($customerNumber == "") {
 			print '<p>Echo of dynamically-built sql:<br>'.$sql.'</p>';
 		} else {
 			print '<h1>Update Successful</h1>';
-			print '<form action="employee_update_works.php" method="POST">';
+			print '<form action="employee_update_works_new.php" method="POST">';
 			print '<p>Echo of dynamically-built sql:<br>'.$sql.'</p>';
-			print '<input type="submit" name="action" value="Continue" /><a href=employee_update_works.php></a>';
+			print '<input type="submit" name="action" value="Continue" /><a href=employee_update_works_new.php></a>';
 			print '</form>';
 		}
 	}
@@ -106,7 +106,7 @@ if ($customerNumber == "") {
 	/* Display the Employee Edit form and $_GET all fields */
 	/* when Update button is selected.                     */
 	print '<h1>Edit an Employee record:</h1>';
-	print '<form action="employee_update_works.php" method="GET">';
+	print '<form action="employee_update_works_new.php" method="GET">';
 	print 'Customer Number: <input type="text" name="customerNumber" value="'.$customerNumber.'" /> <br />';
 	print 'Last Name: <input type="text" name="customerName" value="'.$customerName.'" /> <br />';
 	print 'First Name: <input type="text" name="customerFirst" value="'.$customerFirst.'"/> <br />';
