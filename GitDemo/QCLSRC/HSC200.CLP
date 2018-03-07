@@ -37,5 +37,6 @@
              CALL       PGM(HSR200) PARM(&MODE &ORDER &TYPE +
                           &CUST &TEST)
              dspmsg
+             wrksplf
              DLTOVR     FILE(ALTCUSTA)
              ENDPGM
