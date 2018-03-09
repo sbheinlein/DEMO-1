@@ -6,7 +6,5 @@
 /********************************************************************/
 
              PGM
-             DCLF       FILE(HSPEXPA)
-             CLRPFM     FILE(HSPEXPA)
              dspmsg
              ENDPGM
