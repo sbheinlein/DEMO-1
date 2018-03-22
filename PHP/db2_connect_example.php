@@ -1,6 +1,6 @@
 <html>
 <?php
-define("PAGE_TITLE", "db2_ apis");
+define("PAGE_TITLE", "db223_ apis");
 define("PHP_FILE_NAME", "db2_connect_example.php")
 ?>
 
