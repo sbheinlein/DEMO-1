@@ -1,6 +1,6 @@
 <html>
 <?php
-define("PAGE_TITLE", "Employee Update");
+define("PAGE_TITLE", "Employee Update Page");
 define("PHP_FILE_NAME", "employee_update.php")
 ?>
 
