@@ -21,7 +21,7 @@
 /********************************************************************/
 /* Program     : HSC200                                             */
 /* Purpose     : Sales Order Processing.                            */
-/* System      : HSV - Voucher Tracking and Control                 */
+/* System      : HSV - Voucher Tracking and Control   change        */
 /* Date        : February 1999                                      */
 /********************************************************************/
 
