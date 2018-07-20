@@ -3,5 +3,6 @@ PGM
              CPYF       FROMFILE(ARTICLE) +
                           TOFILE(&LIB/ARTICLESAV)
              dspmsg
-/* */
+             wrksplf
+             /*test*/
 ENDPGM
