@@ -4,5 +4,5 @@ PGM
                           TOFILE(&LIB/ARTICLESAV)
              dspmsg
              wrksplf
-/* */
+             /*test*/
 ENDPGM
