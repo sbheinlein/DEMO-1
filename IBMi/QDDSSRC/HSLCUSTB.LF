@@ -1,0 +1,13 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLCUSTB                                    *
+      *                                                            *
+      *  Description:  Customer Masterfile by Post Code            *
+      *                                                            *
+      *  Date       :  January 1999                                *
+      *                                                            *
+      **************************************************************
+     A          R HSFCUST                   PFILE(HSPCUST)
+      *
+     A          K EPCDE
+     A          O EDELT                     COMP(EQ 'D')

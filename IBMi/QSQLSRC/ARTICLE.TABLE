@@ -1,0 +1,57 @@
+     --%CSTD===========================================================*
+     --* Application. : RWB        Rays demo app                       *
+     --* Component. . : ARTICLE                       Type: TABLE      *
+     --*===============================================================*
+     --* Sub-system . :                                                *
+     --* Function . . :                                                *
+     --* Sub-function :                                                *
+     --*%S=============================================================*
+     --* Description of functions:                                     *
+     --*                                                               *
+     --*                   CHANGE                                      *
+     --*                                                               *
+     --*%E=============================================================*
+     --* AUTHOR:                          00:00                        *
+     --* MODIFS: ** RBERNARDI  08/23/2017   :    00.00.06    00/       *
+     --*         04 RBERNARDI  08/16/2017 15:58  00.00.05 MR 17/   17  *
+     --*           short desc                                          *
+     --*         03 RBERNARDI  08/07/2017 19:08  00.00.04 MR 17/    8  *
+     --*           Daily changes                                       *
+     --*         02 RBERNARDI  08/04/2017 18:54  00.00.03 MR 17/   16  *
+     --*           Make changes                                        *
+     --*         01 RBERNARDI  08/04/2017 16:13  00.00.02 MR 17/   12  *
+     --*           Change to file                                      *
+     --%ECSTD==========================================================*
+--  Generate SQL
+--  Version:                   V7R1M0 100423
+--  Generated on:              10/16/14 00:54:43
+--  Relational Database:       B0020BFT
+--  Standards Option:          DB2 for i
+ 
+ 
+CREATE TABLE ARTICLE (
+--  SQL150B   10   REUSEDLT(*NO) in table ARTICLE in ARCAD_SMPL ignored.
+  ARTIID CHAR(6) CCSID 37 NOT NULL DEFAULT '' ,
+  ARTIDE CHAR(50) CCSID 37 NOT NULL DEFAULT '' ,
+  ARTISP DECIMAL(9, 2) NOT NULL DEFAULT 0 ,
+  ARTIFx CHAR(3) CCSID 37 NOT NULL DEFAULT '' ,
+  ARTIFA CHAR(3) CCSID 37 NOT NULL DEFAULT '' )
+ 
+  RCDFMT FARTI      ;
+ 
+LABEL ON TABLE ARTICLE
+  IS 'Article File' ;
+ 
+LABEL ON COLUMN ARTICLE
+( ARTIID IS 'ARTICLE ID' ,
+  ARTIDE IS 'ARTICLE DESCRPTION' ,
+  ARTISP IS 'ARTICLE PRICE' ,
+  ARTISP IS 'ARTICLE COST' ,
+  ARTIFA IS 'FAMILLY ID' ) ;
+ 
+LABEL ON COLUMN ARTICLE
+( ARTIID TEXT IS 'ARTICLE ID' ,
+  ARTIDE TEXT IS 'ARTICLE DESCRPTION' ,
+  ARTISP TEXT IS 'ARTICLE PRICE' ,
+  ARTIFA TEXT IS 'FAMILY ID' ) ;
+ 

@@ -1,0 +1,21 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSPSHPO                                     *
+      *                                                            *
+      *  Description:  Ship Only Details                           *
+      *                                                            *
+      *  Date       :  December 1998                               *
+      *                                                            *
+      **************************************************************
+     A                                      REF(*LIBL/HSPREF)
+     A          R HSFSHPO
+      *  Description:  Ship Only Details
+     A            GCOMP     R               REFFLD(COMP)
+     A            GCUST     R               REFFLD(CUST)
+     A                                      COLHDG('Ship Only A/c No')
+     A            GPROD     R               REFFLD(PROD)
+     A            GNAME     R               REFFLD(NAME)
+     A                                      COLHDG('Customer Name')
+     A            GVTYP     R               REFFLD(VTYP)
+     A            GDELT     R               REFFLD(A1)
+     A                                      COLHDG('Deletion Flag')

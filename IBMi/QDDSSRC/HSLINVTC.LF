@@ -1,0 +1,16 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLINVTC                                    *
+      *                                                            *
+      *  Description:  Inventory Transactions by warehouse, Prod,  *
+      *                Series code, 1st serial no.                 *
+      *                                                            *
+      *  Date       :  February 1999                               *
+      *                                                            *
+      **************************************************************
+     A          R HSFINVT                   PFILE(HSPINVT)
+      *
+     A*         K CWHSE
+     A          K CPROD
+     A          K CSERC
+     A          K CTDAT

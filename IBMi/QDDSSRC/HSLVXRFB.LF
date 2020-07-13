@@ -1,0 +1,15 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLVXRFB                                    *
+      *                                                            *
+      *  Description:  Voucher Cross-reference by Catalogue Year / *
+      *                               Agency Code / Agent Product  *
+      *                                                            *
+      *  Date       :  January 1999                                *
+      *                                                            *
+      **************************************************************
+     A          R HSFVXRF                   PFILE(HSPVXRF)
+      *
+     A          K HCATL
+     A          K HAGEN
+     A          K HAGPR

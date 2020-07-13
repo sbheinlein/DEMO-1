@@ -1,0 +1,39 @@
+      *%CSTD===========================================================*       *
+      ** Application. : SAM        Arcad Sample application            *       *
+      ** Component. . : HSPCOMP                       Type: PF         *       *
+      **===============================================================*       *
+      ** Sub-system . : TRD Trade                                      *       *
+      ** Function . . : SAL Sales                                      *       *
+      ** Sub-function :                                                *       *
+      **%S=============================================================*       *
+      ** Description of functions:                                     *       *
+      **                                                               *       *
+      **            changes   changed changed                          *       *
+      **                                                               *       *
+      **%E=============================================================*       *
+      ** AUTHOR:                          00:00                        *       *
+      ** MODIFS: 02 MMARREL    09/15/2014 10:28  V 1.00.L MR 14/   30  *       *
+      **           Rld change                                          *       *
+      **         01 MMARREL    06/13/2014 11:28  V 1.00.H MR 14/   23  *       *
+      **           Xact prp                                            *       *
+      *%ECSTD==========================================================*       *
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSPCOMP                                     *
+      *                                                            *
+      *  Description:  Company Codes                               *
+      *                                                            *
+      *  Date       :  December 1998                               *
+      *                                                            *
+      **************************************************************
+      * %ATTR SIZE(*NOMAX)
+     A                                      REF(*LIBL/HSPREF)
+     A          R HSFCOMP
+      *  Description:  Company Codes
+     A            WCOMP     R               REFFLD(COMP)
+     A            WODES     R               REFFLD(DESC)
+     A                                      COLHDG('Company Text')
+     A            WDELT     R               REFFLD(A1)
+     A                                      COLHDG('Deletion Flag')
+     A            WDELJT    R               REFFLD(A1)
+     A                                      COLHDG('Deletion Flag')

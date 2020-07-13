@@ -1,0 +1,12 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLWHSEA                                    *
+      *                                                            *
+      *  Description:  Inventory Transactions by Product Code      *
+      *                                                            *
+      *  Date       :  January 1999                                *
+      *                                                            *
+      **************************************************************
+     A          R HSFINVT                   PFILE(HSPINVT)
+      *
+     A          K CPROD

@@ -1,0 +1,52 @@
+      ********************************************************
+      *                                                      *
+      *                                                      *
+      *      File Name:   HSW735                             *
+      *                                                      *
+      *      Description: Voucher Control Report             *
+      *                                                      *
+      *      Date:        January 1999                       *
+      *                                                      *
+      ********************************************************
+      *
+     A          R HEADER1
+     A            XPGMID        10         2
+     A                                    31'HIGH STREET VOUCHERS'
+     A            XSYSNM         8        72SPACEA(01)
+     A            XUSRID        10         2
+     A                                    29'Voucher Control Reports'
+     A                                    72DATE EDTCDE(Y) SPACEA(01)
+     A            XJOBNO        10         2
+     A                                    72TIME SPACEA(04)
+     A                                    35'From'
+     A                                    58'To' SPACEA(01)
+     A                                    19'Product Code'
+     A            XPROD         13        35
+     A            XPROD1        13        58
+      ****************************************************************
+     A          R HEADER2                   SKIPB(02)
+     A                                   110'Date:'
+     A                                   116DATE EDTCDE(Y) SPACEA(01)
+     A                                   110'Page:'
+     A                                   116PAGNBR EDTCDE(Z) SPACEA(02)
+     A                                     1'Product Code'
+     A                                    20'Start Serial No.'
+     A                                    38'End Serial No.'
+     A                                    53'Next Serial No.'
+     A                                    75'Current Series Code'
+     A                                    95'Next Series Code'
+     A                                   112'No. of Elements' SPACEA(02)
+      ****************************************************************
+     A          R DETL
+     A            RPROD         13         1
+     A            RSERNS         9  0     20
+     A            RSERNE         9  0     38
+     A            RSERNN         9  0     53
+     A            RSERCC         3        75
+     A            RSERCN         3        95
+     A            RELEM          3  0    112SPACEA(01)
+      *---------------------------------------------------------------
+     A          R FOOTER
+     A                                    10'NUMBER OF RECORDS PRINTED:'
+     A                                      SPACEB(02)
+     A            COUN           8  0     38EDTWRD('      0 ')

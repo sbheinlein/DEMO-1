@@ -1,0 +1,792 @@
+      */TITLE Inventory Transaction Reports
+      * CRTRPGPGM
+      *
+      * System  :  High Street Vouchers Control and Tracking
+      * Author  :  Owen Sarll  (Intec Systems Ltd)
+      * Date    :  January 1999.
+      *
+      *================================================================
+      * Indicator usage:
+      *
+      * 03 - The main controlling do-loop.
+      * 32 - DSPATR (error) - Transaction Type.
+      * 33 - DSPATR (error) - From Product Code.
+      * 34 - DSPATR (error) - To Product Code.
+      * 35 - DSPATR (error) - From Product sub-code.
+      * 36 - DSPATR (error) - To Product sub-code.
+      * 37 - DSPATR (error) - From Reason code.
+      * 38 - DSPATR (error) - To Reason code.
+      * 39 - DSPATR (error) - From Serial No.
+      * 40 - DSPATR (error) - To Serial No.
+      * 41 - DSPATR (error) - From Element No.
+      * 42 - DSPATR (error) - To Element No.
+      * 43 - DSPATR (error) - From Date.
+      * 44 - DSPATR (error) - To Date.
+      * 45 - DSPATR (error) - From Quantity.
+      * 46 - DSPATR (error) - To Quantity.
+      * 47 - DSPATR (error) - From Reference.
+      * 48 - DSPATR (error) - To Reference.
+      * 49 - DSPATR (error) - From Serial Code.
+      * 50 - DSPATR (error) - To Serial Code.
+      * 73 - Do-loop that encompasses validation subroutine and is
+      *      exited from if an error is found in the data to be
+      *      entered for report generation.
+      * 79 - MSGSFL (SFLCLR ETC...)
+      * 94 - Chain Product Master File.
+      * 95 - Chain Product Sub-Code File.
+      * 96 - Chain Inventory Transactions Type File.
+      * 97 - Chain Reason Code File.
+      *
+      *===============================================================
+     FHSLPRODAIF  E           K        DISK
+      * Product Code file by Product Code.
+     FHSLRESNAIF  E           K        DISK
+      * Stock reason Code file by Reason Code.
+     FHSLSUBCBIF  E           K        DISK
+      * Product sub-codes file by Product sub-codes.
+     FINLTRNCAIF  E           K        DISK
+      * Inventory transaction type parameters file by transaction type.
+     FHSS701  CF  E                    WORKSTN      KINFDS INFDS
+      * Screen file.
+      * ===============================================================
+      * Arrays.
+      *
+     E                    LPY    12  12  2 0
+     E                    NLY    12  12  2 0
+      *
+      * OPNQRY command
+      *
+     E                    ARA     1   6 60
+      *================================================================
+      * Data Structures.
+      *
+     ICMA         DS
+      *    OPNQRY command layout for parameter substitution
+     I                                        1 360 ARA
+     I                                       30  32 YTYPE
+     I                                       36  48 XPROD
+     I                                       52  64 XPROD1
+     I                                       68  87 XREF
+     I                                       91 110 XREF1
+     I                                      114 121 ADAT
+     I                                      125 132 ADAT1
+     I                                      136 140 XSUBC
+     I                                      144 148 XSUBC1
+     I                                      152 154 XSERC
+     I                                      158 160 XSERC1
+     I                                      164 172 ASERN
+     I                                      176 184 ASERN1
+     I                                      188 190 AELEM
+     I                                      196 198 AELEM1
+     I                                      204 218 AQTYN
+     I                                      222 236 AQTYN1
+     I                                      240 244 XREAS
+     I                                      248 252 XREAS1
+     I                                      256 265 XPGMID
+     I                                      269 278 XUSRID
+     I                                      282 291 XJOBNO
+      *
+     ICMD         DS                            360
+      *
+     I            DS
+     I                                        1   80YDAT
+     I                                        1   40XYY
+     I                                        5   60XMM
+     I                                        7   80XDD
+     I            DS
+     I                                        1   80YDAT1
+     I                                        1   40XYY1
+     I                                        5   60XMM1
+     I                                        7   80XDD1
+     IINFDS       DS
+     I                                    B 370 3710CSRLOC
+     I                                      369 369 KEY
+      *
+     IXXXSDS     SDS                            429
+     I                                     *STATUS  XSYSNM
+     I                                     *PROGRAM APGMID
+     I                                      244 253 AJOBNO
+     I                                      254 263 AUSRID
+      *
+     I            DS
+     I                                        1 132 P0MSDA
+     I                                        1  15 WRK1
+     I                                       16  25 WRK2
+      *================================================================
+      * Constants.
+      *
+      * Named hexadecimal constants for function keys.
+      *
+     I              X'33'                 C         F03
+     I              X'34'                 C         F04
+     I              X'3A'                 C         F10
+     I              X'3C'                 C         F12
+      *
+      * Other constants.
+      *
+     I              'Product Code'        C         PAC
+     I              'Transac Type'        C         TAC
+     I              'Prod sub-code'       C         PSC
+     I              'Reason code'         C         RAC
+     I              '999'                 C         SERCHI
+     I              '999999999'           C         SUBCHI
+     I              '9999999999999'       C         PRODHI
+     I              '99999999999999999999'C         REFHI
+     I              '99999'               C         REASHI
+      *
+      * Zeros to 'setoff' error indicators.
+     I              '0000000000000000000' C         XZEROE
+      *
+      *================================================================
+      * M A I N L I N E
+      *================================================================
+      *
+      * Controlling Do-loop.
+      *
+     C           KEY       DOUEQF03                        Do 1.
+     C           KEY       OREQ F12                        Do 1.
+      *
+      * Write the message subfile
+      *
+     C                     WRITEMSGCTL
+      *
+     C                     EXFMTHSS701A
+      *
+      * Clear the message subfile.
+      *
+     C                     EXSR YCLRMG
+      *
+      * Process the various function keys available on the screen.
+      *
+      * Exit if F03 pressed.
+     C           KEY       IFEQ F03
+     C           KEY       OREQ F12
+     C                     LEAVE
+     C                     ENDIF
+      *
+      * Execute the data validation subroutine.
+     C           KEY       IFNE F04
+     C                     EXSR YVALD
+     C*          KEY       IFEQ F10
+     C           *IN73     IFEQ *OFF
+     C                     ITER
+     C                     ENDIF
+     C                     MOVE *OFF      *IN73
+     C                     ENDIF
+      *
+      * Execute search window subroutine.
+     C           KEY       IFEQ F04
+     C                     EXSR YPRMT
+     C                     ITER
+     C                     ENDIF
+      *
+     C*          KEY       IFEQ F10
+     C                     EXSR YCONF
+     C*                    ITER
+     C                     LEAVE
+     C*                    ENDIF
+      *
+      *
+     C                     ENDDO
+      *
+     C                     SETON                         LR
+     C                     RETRN
+      *
+      *-----------------------------------------------------------
+      *                  SUBROUTINES
+      *-----------------------------------------------------------
+      *-----------------------------------------------------------
+      *
+      *
+      * ----------------------------------------------------------
+      * VALID Subroutine validate input data.
+      * ----------------------------------------------------------
+     C           YVALD     BEGSR
+      * -----------------
+      * The Do-loop below is merely a tool to process multiple
+      * possibilities of inputing error by the user.
+      *
+     C           *IN73     DOWEQ*OFF
+      *
+      * Reset error indicators....
+     C                     MOVEAXZEROE    *IN,32
+      *
+     C           XTYPE     IFEQ *BLANKS
+     C                     MOVE *ON       *IN32
+     C                     MOVEL'HSV0068' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+      *
+      * Error message preventing a transaction type being entered which
+      * does not exist on the Inventory Transaction Type file.
+      *
+     C                     MOVE XTYPE     YTYPE
+     C           YTYPE     CHAININLTRNCA             96
+     C           *IN96     IFEQ *ON
+     C           YDELT     OREQ 'D'
+     C                     MOVE *ON       *IN32
+     C                     MOVELTAC       WRK1      P
+     C                     MOVELXTYPE     WRK2      P
+     C                     MOVEL'HSV0067' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+      *
+      * Error message preventing a 'From' Product Code being added
+      * which does not exist on the Product master file.
+      * A blank entry is allowed.
+      *
+     C                     MOVE XPROD     NPROD
+     C           NPROD     CHAINHSLPRODA             94
+     C           XPROD     IFNE *BLANKS
+     C           *IN94     IFEQ *ON
+     C           NDELT     OREQ 'D'
+     C                     MOVE *ON       *IN33
+     C                     MOVELPAC       WRK1      P
+     C                     MOVELXPROD     WRK2      P
+     C                     MOVEL'HSV0048' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+     C                     ENDIF
+      *
+      * Error message preventing a 'To' Product Code being added
+      * which does not exist on the Product master file.
+      * A blank entry is allowed.
+      *
+     C                     MOVE XPROD1    NPROD
+     C           NPROD     CHAINHSLPRODA             94
+     C           XPROD1    IFNE *BLANKS
+     C           *IN94     IFEQ *ON
+     C           NDELT     OREQ 'D'
+     C                     MOVE *ON       *IN34
+     C                     MOVELPAC       WRK1      P
+     C                     MOVELXPROD1    WRK2      P
+     C                     MOVEL'HSV0048' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+     C                     ENDIF
+      *
+      * Error message preventing a 'To' Product code being entered
+      * which is less than the 'From' Product code.
+      *
+     C           XPROD     IFGT XPROD1
+     C           XPROD1    ANDNE*BLANKS
+     C                     MOVE *ON       *IN33
+     C                     MOVE *ON       *IN34
+     C                     MOVEL'HSV0069' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+      *
+      * Error message preventing a 'To' Reference being entered
+      * which is less than the 'From' Reference.
+      *
+     C           XREF      IFGT XREF1
+     C           XREF1     ANDNE*BLANKS
+     C                     MOVE *ON       *IN47
+     C                     MOVE *ON       *IN48
+     C                     MOVEL'HSV0070' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+      *
+      * Error message preventing a date being entered which is
+      * not leap year compliant.
+      *
+     C                     Z-ADD0         TYY     40
+     C                     Z-ADD0         TMM     20
+     C                     Z-ADD0         TDD     20
+      *
+     C           XYY       IFNE TYY
+     C           XMM       ANDNETMM
+     C           XDD       ANDNETDD
+      *
+     C           XYY       DIV  4         Y       20
+     C                     MVR            X       20
+     C                     SELEC
+     C           X         WHEQ 0
+     C           XDD       ANDGTLPY,XMM
+     C                     MOVE *ON       *IN43
+     C                     MOVEL'HSV0072' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C           X         WHNE 0
+     C           XDD       ANDGTNLY,XMM
+     C                     MOVE *ON       *IN43
+     C                     MOVEL'HSV0072' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDSL
+     C                     ENDIF
+      *
+     C           XYY1      IFNE TYY
+     C           XMM1      ANDNETMM
+     C           XDD1      ANDNETDD
+      *
+     C           XYY1      DIV  4         Y       20
+     C                     MVR            X       20
+     C                     SELEC
+     C           X         WHEQ 0
+     C           XDD1      ANDGTLPY,XMM1
+     C                     MOVE *ON       *IN44
+     C                     MOVEL'HSV0073' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C           X         WHNE 0
+     C           XDD1      ANDGTNLY,XMM1
+     C                     MOVE *ON       *IN44
+     C                     MOVEL'HSV0073' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDSL
+     C                     ENDIF
+      *
+      * Error message preventing a 'To' Date being entered
+      * which is less than the 'From' Date.
+      *
+     C                     Z-ADD0         TDAT    80
+     C           YDAT      IFGT YDAT1
+     C           YDAT1     ANDNETDAT
+     C                     MOVE *ON       *IN43
+     C                     MOVE *ON       *IN44
+     C                     MOVEL'HSV0071' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+      *
+      * Error message preventing a 'From' Product sub-code being added
+      * which does not exist on the Product sub-codes file.
+      * A blank entry is allowed.
+      *
+     C                     MOVE XSUBC     NASUBC
+     C           NASUBC    CHAINHSLSUBCB             95
+     C           XSUBC     IFNE *BLANKS
+     C           *IN95     IFEQ *ON
+     C           NADELT    OREQ 'D'
+     C                     MOVE *ON       *IN35
+     C                     MOVELPSC       WRK1      P
+     C                     MOVELXSUBC     WRK2      P
+     C                     MOVEL'HSV0074' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+     C                     ENDIF
+      *
+      * Error message preventing a 'To' Product sub-code being added
+      * which does not exist on the Product sub-code file.
+      * A blank entry is allowed.
+      *
+     C                     MOVE XSUBC1    NASUBC
+     C           NASUBC    CHAINHSLSUBCB             95
+     C           XSUBC1    IFNE *BLANKS
+     C           *IN95     IFEQ *ON
+     C           NDELT     OREQ 'D'
+     C                     MOVE *ON       *IN36
+     C                     MOVELPSC       WRK1      P
+     C                     MOVELXSUBC1    WRK2      P
+     C                     MOVEL'HSV0074' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+     C                     ENDIF
+      *
+      * Error message preventing a 'To' Product sub-code being entered
+      * which is less than the 'From' Product sub-code.
+      *
+     C           XSUBC     IFGT XSUBC1
+     C           XSUBC1    ANDNE*BLANKS
+     C                     MOVE *ON       *IN35
+     C                     MOVE *ON       *IN36
+     C                     MOVEL'HSV0075' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+      *
+      * Error message preventing a 'To' Series code being entered
+      * which is less than the 'From' Series code.
+      *
+     C           XSERC     IFGT XSERC1
+     C           XSERC1    ANDNE*BLANKS
+     C                     MOVE *ON       *IN49
+     C                     MOVE *ON       *IN50
+     C                     MOVEL'HSV0076' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+      *
+      * Error message preventing a 'To' Serial number being entered
+      * which is less than the 'From' Serial number.
+      *
+     C                     Z-ADD0         TSERN   90
+     C           XSERN     IFGT XSERN1
+     C           XSERN1    ANDNETSERN
+     C                     MOVE *ON       *IN39
+     C                     MOVE *ON       *IN40
+     C                     MOVEL'HSV0077' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+      *
+      * Error message preventing a 'To' Element number being entered
+      * which is less than the 'From' Element number.
+      *
+     C                     Z-ADD0         TELEM   30
+     C           XELEM     IFGT XELEM1
+     C           XELEM1    ANDNETELEM
+     C                     MOVE *ON       *IN41
+     C                     MOVE *ON       *IN42
+     C                     MOVEL'HSV0078' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+      *
+      * Error message preventing a 'To' Quantity number being entered
+      * which is less than the 'From' Quantity.
+      *
+     C                     Z-ADD0         TQTYN  150
+     C           XQTYN     IFGT XQTYN1
+     C           XQTYN1    ANDNETQTYN
+     C                     MOVE *ON       *IN45
+     C                     MOVE *ON       *IN46
+     C                     MOVEL'HSV0079' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+      *
+      *
+      * Error message preventing a 'From' Reason code being added
+      * which does not exist on the Reason codes file.
+      * A blank entry is allowed.
+      *
+     C                     MOVE XREAS     OREAS
+     C           OREAS     CHAINHSLRESNA             97
+     C           XREAS     IFNE *BLANKS
+     C           *IN97     IFEQ *ON
+     C           ODELT     OREQ 'D'
+     C                     MOVE *ON       *IN37
+     C                     MOVELRAC       WRK1      P
+     C                     MOVELXREAS     WRK2      P
+     C                     MOVEL'HSV0080' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+     C                     ENDIF
+      *
+      * Error message preventing a 'To' Reason code being added
+      * which does not exist on the Reason code file.
+      * A blank entry is allowed.
+      *
+     C                     MOVE XREAS1    OREAS
+     C           OREAS     CHAINHSLRESNA             97
+     C           XREAS1    IFNE *BLANKS
+     C           *IN97     IFEQ *ON
+     C           ODELT     OREQ 'D'
+     C                     MOVE *ON       *IN38
+     C                     MOVELRAC       WRK1      P
+     C                     MOVELXREAS1    WRK2      P
+     C                     MOVEL'HSV0080' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+     C                     ENDIF
+      *
+      * Error message preventing a 'To' Reason code being entered
+      * which is less than the 'From' Reason code.
+      *
+     C           XREAS     IFGT XREAS1
+     C           XREAS1    ANDNE*BLANKS
+     C                     MOVE *ON       *IN37
+     C                     MOVE *ON       *IN38
+     C                     MOVEL'HSV0081' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+     C                     MOVE *ON       *IN73
+      *
+      * Reset chaining indicators.
+      *
+     C                     MOVE *OFF      *IN94
+     C                     MOVE *OFF      *IN95
+     C                     MOVE *OFF      *IN96
+     C                     MOVE *OFF      *IN97
+      *
+      * Message: Data is valid, press F10 to process.
+      *
+     C*          KEY       IFNE F10
+     C                     MOVEL'HSV9011' P0MSID
+     C                     EXSR SNDMSG
+     C*                    ENDIF
+     C                     MOVE *ON       *IN73
+     C                     ENDDO
+     C                     ENDSR
+      *
+      * ---------------------------------------------------
+      * SNDMSG Subroutine to send message to subfile.
+      * ---------------------------------------------------
+     C           SNDMSG    BEGSR
+      * -----------------
+     C                     CALL 'SNDMSGC'
+     C                     PARM           P0PGMQ
+     C                     PARM           P0PGRL
+     C                     PARM           P0MSID
+     C                     PARM           P0MSGF
+     C                     PARM           P0MSDA
+     C                     PARM           P0MSTP
+     C                     ENDSR
+      * --------------------------------------------------
+      * CONF Subroutine to update file
+      * --------------------------------------------------
+     C           YCONF     BEGSR
+      * -------------
+      *
+     C                     MOVE XPROD     XPROD
+      *
+     C           XPROD1    IFEQ *BLANKS
+     C                     MOVE XPROD     XPROD1 13
+     C                     ELSE
+     C                     MOVE XPROD1    XPROD1
+     C                     ENDIF
+      *
+     C                     MOVE XREF      XREF
+      *
+     C           XREF1     IFEQ *BLANKS
+     C                     MOVE XREF      XREF1  20
+     C                     ELSE
+     C                     MOVE XREF1     XREF1
+     C                     ENDIF
+      *
+     C           YDAT      IFEQ TDAT
+     C                     MOVE *ZEROS    XDAT    80P
+     C                     ELSE
+     C                     MOVE YDAT      XDAT
+     C                     ENDIF
+      *
+     C           YDAT1     IFEQ TDAT
+     C                     MOVE XDAT      XDAT1   80
+     C                     ELSE
+     C                     MOVE YDAT1     XDAT1
+     C                     ENDIF
+      *
+     C                     MOVE XSUBC     XSUBC
+      *
+     C           XSUBC1    IFEQ *BLANKS
+     C                     MOVE XSUBC     XSUBC1  5
+     C                     ELSE
+     C                     MOVE XSUBC1    XSUBC1
+     C                     ENDIF
+      *
+     C                     MOVE XSERC     XSERC
+      *
+     C           XSERC1    IFEQ *BLANKS
+     C                     MOVE XSERC     XSERC1  3
+     C                     ELSE
+     C                     MOVE XSERC1    XSERC1
+     C                     ENDIF
+      *
+     C           XSERN     IFEQ TSERN
+     C                     MOVE *ZEROS    XSERN   90P
+     C                     ELSE
+     C                     MOVE XSERN     XSERN
+     C                     ENDIF
+      *
+     C           XSERN1    IFEQ TSERN
+     C                     MOVE XSERN     XSERN1  90
+     C                     ELSE
+     C                     MOVE XSERN1    XSERN1
+     C                     ENDIF
+      *
+     C           XELEM     IFEQ TELEM
+     C                     MOVE *ZEROS    XELEM   30P
+     C                     ELSE
+     C                     MOVE XELEM     XELEM
+     C                     ENDIF
+      *
+     C           XELEM1    IFEQ TELEM
+     C                     MOVE XELEM     XELEM1  30
+     C                     ELSE
+     C                     MOVE XELEM1    XELEM1
+     C                     ENDIF
+      *
+     C           XQTYN     IFEQ TQTYN
+     C                     Z-ADD0         XQTYN  150
+     C                     ELSE
+     C                     MOVE XQTYN     XQTYN
+     C                     ENDIF
+      *
+     C           XQTYN1    IFEQ TQTYN
+     C                     MOVE XQTYN     XQTYN1 150
+     C                     ELSE
+     C                     MOVE XQTYN1    XQTYN1
+     C                     ENDIF
+      *
+     C                     MOVE XREAS     XREAS
+      *
+     C           XREAS1    IFEQ *BLANKS
+     C                     MOVE XREAS     XREAS1  5
+     C                     ELSE
+     C                     MOVE XREAS1    XREAS1
+     C                     ENDIF
+      *
+     C                     MOVE XDAT      ADAT    8
+     C                     MOVE XDAT1     ADAT1   8
+     C                     MOVE XSERN     ASERN   9
+     C                     MOVE XSERN1    ASERN1  9
+     C                     MOVE XELEM     AELEM   3
+     C                     MOVE XELEM1    AELEM1  3
+     C                     MOVE XQTYN     AQTYN  15
+     C                     MOVE XQTYN1    AQTYN1 15
+      *
+      * Perform Submit Job.
+      *
+     C                     MOVELCMA       CMD       P
+     C                     CALL 'QCMDEXC'                85
+     C                     PARM           CMD
+     C                     PARM 360       LEN    155
+      *
+     C                     ENDSR
+      * -------------------------------------------------------
+      * CLEAR MESSAGE Subroutine to clear out the message queue.
+      * -------------------------------------------------------
+     C           YCLRMG    BEGSR
+     C                     CALL 'RMVMSGC'
+     C                     ENDSR
+      *
+      * ----------------------------------------------------
+      * Search Window Subroutine
+      * ----------------------------------------------------
+      *
+     C           YPRMT     BEGSR
+      * ----------------
+     C                     SELEC
+     C           CSRFLD    WHEQ 'XSUBC'
+     C                     MOVEL'HSLSUBCA'FILEY     P
+     C                     MOVEL'NADESC'  NAMEY     P
+     C                     MOVEL'NASUBC'  NUMBRY    P
+     C                     Z-ADD10        LINY
+     C                     Z-ADD07        COLY
+     C                     CALL 'HSR341'  PL341
+     C           YRTNC     IFEQ *OFF
+     C                     MOVELYNUMBR    XSUBC     P
+     C                     ENDIF
+      *
+     C           CSRFLD    WHEQ 'XSUBC1'
+     C                     MOVEL'HSLSUBCA'FILEY     P
+     C                     MOVEL'NADESC'  NAMEY     P
+     C                     MOVEL'NASUBC'  NUMBRY    P
+     C                     Z-ADD10        LINY
+     C                     Z-ADD07        COLY
+     C                     CALL 'HSR341'  PL341
+     C           YRTNC     IFEQ *OFF
+     C                     MOVELYNUMBR    XSUBC1    P
+     C                     ENDIF
+      *
+     C           CSRFLD    WHEQ 'XTYPE'
+     C                     MOVEL'INLTRNCA'FILEY     P
+     C                     MOVEL'YODES'   NAMEY     P
+     C                     MOVEL'YTYPE'   NUMBRY    P
+     C                     Z-ADD10        LINY
+     C                     Z-ADD07        COLY
+     C                     CALL 'HSR341'  PL341
+     C           YRTNC     IFEQ *OFF
+     C                     MOVELYNUMBR    XTYPE     P
+     C                     ENDIF
+      *
+     C           CSRFLD    WHEQ 'XPROD'
+     C                     MOVEL'HSLPRODA'FILEY     P
+     C                     MOVEL'NDESC'   NAMEY     P
+     C                     MOVEL'NPROD'   NUMBRY    P
+     C                     Z-ADD10        LINY
+     C                     Z-ADD07        COLY
+     C                     CALL 'HSR341'  PL341
+     C           YRTNC     IFEQ *OFF
+     C                     MOVELYNUMBR    XPROD     P
+     C                     ENDIF
+      *
+     C           CSRFLD    WHEQ 'XPROD1'
+     C                     MOVEL'HSLPRODA'FILEY     P
+     C                     MOVEL'NDESC'   NAMEY     P
+     C                     MOVEL'NPROD'   NUMBRY    P
+     C                     Z-ADD10        LINY
+     C                     Z-ADD07        COLY
+     C                     CALL 'HSR341'  PL341
+     C           YRTNC     IFEQ *OFF
+     C                     MOVELYNUMBR    XPROD1    P
+     C                     ENDIF
+      *
+     C           CSRFLD    WHEQ 'XREAS'
+     C                     MOVEL'HSLRESNA'FILEY     P
+     C                     MOVEL'OODES'   NAMEY     P
+     C                     MOVEL'OREAS'   NUMBRY    P
+     C                     Z-ADD10        LINY
+     C                     Z-ADD07        COLY
+     C                     CALL 'HSR341'  PL341
+     C           YRTNC     IFEQ *OFF
+     C                     MOVELYNUMBR    XREAS     P
+     C                     ENDIF
+      *
+     C           CSRFLD    WHEQ 'XREAS1'
+     C                     MOVEL'HSLRESNA'FILEY     P
+     C                     MOVEL'OODES'   NAMEY     P
+     C                     MOVEL'OREAS'   NUMBRY    P
+     C                     Z-ADD10        LINY
+     C                     Z-ADD07        COLY
+     C                     CALL 'HSR341'  PL341
+     C           YRTNC     IFEQ *OFF
+     C                     MOVELYNUMBR    XREAS1    P
+     C                     ENDIF
+     C                     ENDSL
+      *
+     C           PL341     PLIST
+     C                     PARM           YRTNC   1
+     C                     PARM           YNUMBR 15
+     C                     PARM           FILEY  10
+     C                     PARM           NAMEY   6
+     C                     PARM           NUMBRY  6
+     C                     PARM           LINY    30
+     C                     PARM           COLY    30
+     C                     ENDSR
+      *
+      * ----------------------------------------------------
+      * Initialisation Subroutine
+      * ----------------------------------------------------
+     C           *INZSR    BEGSR
+      *----------------
+     C                     Z-ADD0         XYY1
+     C                     Z-ADD0         XYY
+     C                     Z-ADD0         XMM
+     C                     Z-ADD0         XMM1
+     C                     Z-ADD0         XDD
+     C                     Z-ADD0         XDD1
+     C                     Z-ADD0         XSERN
+     C                     Z-ADD0         XSERN1
+     C                     Z-ADD0         XELEM
+     C                     Z-ADD0         XELEM1
+     C                     Z-ADD0         XQTYN
+     C                     Z-ADD0         XQTYN1
+     C                     MOVE APGMID    XPGMID
+     C                     MOVE AUSRID    XUSRID
+     C                     MOVE AJOBNO    XJOBNO
+     C                     MOVE *ON       *IN79
+     C                     MOVEL'HSR701'  XPGMID
+     C                     MOVE XPGMID    P0PGMQ 10        PGM queue
+     C                     MOVEL'*PRV'    P0PGRL  5        Rel queue
+     C                     MOVE *BLANKS   P0MSID  7        Message ID
+     C                     MOVEL'HSM001'  P0MSGF 10        Message File
+     C                     MOVE *BLANKS   P0MSDA132        Message Data
+     C                     MOVEL'*INFO'   P0MSTP  7        Message Type
+     C                     ENDSR
+      *
+**         LEAP YEARS
+312931303130313130313031
+**          NON-LEAP YEARS
+312831303130313130313031
+**
+SBMJOB CMD(CALL HSR703 PARM('123' '1234567890123' '123456789
+0123' '12345678901234567890' '12345678901234567890' '1234567
+8' '12345678' '12345' '12345' '123' '123' '123456789' '12345
+6789' '123'   '123'   '123456789012345' '123456789012345' '1
+2345' '12345' '1234567890' '1234567890' '1234567890'))
+JOB(HSR701B) JOBD(MNJL0000)

@@ -1,0 +1,70 @@
+      *%CSTD==========================================================*
+      * Application. : SAM Arcad Sample application                   *
+      * Component. . : HSW230                        Type: PRTF       *
+      *===============================================================*
+      * Sub-system . : TRD   Trade                                    *
+      * Function . . : SAL   Sales                                    *
+      * Sub-function :                                                *
+      *%S=============================================================*
+      * Description of functionalities :                              *
+      *                                                               *
+      *                                                               *
+      *                                                               *
+      *%E=============================================================*
+      * AUTHOR:                           00:00                       *
+      * MODIFS: 01 MARY      28/07/2000   12:16 V 1.00.B MR N°00/0506 *
+      *           CR 00/0122 Sales Order Delivery Details             *
+      *%ECSTD=========================================================*
+      ********************************************************
+      *                                                      *
+      *                                                      *
+      *      File Name:   HSW230                             *
+      *                                                      *
+      *      Description: Delivery Note Print File           *
+      *                                                      *
+      *      Date:        February 1999                      *
+      *                                                      *
+      ********************************************************
+      *
+     A          R HEADER1
+     A            ORDERX         8  0   8 35
+     A            ENAM1         40     10  5
+     A            VNAM1         40     10 55
+     A            EADR1         30     11  5
+     A            VADR1         30     11 55
+     A            EADR2         30     12  5
+     A            VADR2         30     12 55
+     A            EADR3         30     13  5
+     A            VADR3         30     13 55
+     A            EADR4         30     14  5
+     A            VPCDE         10     14 55
+     A            EPCDE         10     15  5
+      *
+     A            JCUST          8     18 04
+     A            JORDR         15     18 20
+     A            JDELNX         8     18 65
+     A            JINDD          2     18 75
+     A                                 18 77 '-'
+     A            JINMM          2     18 78
+     A                                 18 80 '-'
+     A            JINYY          2     18 81
+      *---------------------------------------------------------------
+     A          R DETL                       SKIPB(21)
+     A          R DETL1                      SPACEB(1)
+     A            PRODX          4         2
+     A            PDESCX        40         6
+     A            KQTYN         15  0     60EDTCDE(Z)
+      *
+     A          R DETL2                      SPACEB(1)
+     A                                     5'Srs'
+     A            KSERC          3         9
+     A                                    12':'
+     A            KSERNF         9  0     14
+     A                                    24'-'
+     A            KSERNT         9  0     26
+      *---------------------------------------------------------------
+     A          R FOOTER
+     A            DELNX         12S 0  42  5BARCODE(EAN13)
+     A            VDIN1         30     45  5
+     A            VDIN2         30     46  5
+     A            VDIN3         30     47  5

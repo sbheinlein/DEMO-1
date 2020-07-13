@@ -1,0 +1,138 @@
+     A*%%TS  SD  19990211  094053  SARLLO      REL-V3R7M0  5716-PW1
+     A*****************************************************************
+     A*                                                               *
+     A*  Display File  : HSS721                                       *
+     A*                                                               *
+     A*  Description . : Customer Address Reports                     *
+     A*                                                               *
+     A*  System  . . . : HSV Control & Tracking                       *
+     A*                                                               *
+     A*  Author  . . . : Owen Sarll                                   *
+     A*                                                               *
+     A*  Date Written  : January 1999                                 *
+     A*                                                               *
+     A*****************************************************************
+     A*
+     A*%%EC
+     A                                      DSPSIZ(24 80 *DS3)
+     A                                      REF(*LIBL/HSP999)
+     A                                      PRINT
+     A                                      HELP
+     A          R HSS721A
+     A*%%TS  SD  19990211  094053  SARLLO      REL-V3R7M0  5716-PW1
+     A                                      OVERLAY
+     A*                                     CA03(03)
+     A                                      CF04
+     A*                                     CF10
+     A                                      CA12
+     A                                      RTNCSRLOC(&CSRRCD &CSRFLD)
+     A            CSRRCD        10A  H
+     A            CSRFLD        10A  H
+     A            XPGMID        10A  O  1  2COLOR(WHT)
+     A                                  1 31'HIGH STREET VOUCHERS'
+     A                                      COLOR(WHT)
+     A                                  1 72SYSNAME
+     A                                      COLOR(WHT)
+     A            XUSRID        10A  O  2  2COLOR(WHT)
+     A                                  2 72DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A            XJOBNO        10A  O  3  2COLOR(WHT)
+     A                                  3 72TIME
+     A                                      COLOR(WHT)
+     A*                                23  3'F3-Exit'
+     A*                                     COLOR(WHT)
+     A                                 23 12'F4-Search'
+     A                                      COLOR(WHT)
+     A*                                23 23'F10-Confirm'
+     A*                                     COLOR(WHT)
+     A                                 23 68'F12-Return'
+     A                                      COLOR(WHT)
+     A                                  2 29'Customer Address Reports'
+     A                                      COLOR(WHT)
+     A                                  4 25'From'
+     A                                      DSPATR(UL)
+     A                                  4 42'To'
+     A                                      DSPATR(UL)
+     A                                  5  2'Customer Number'
+     A                                  7  2'Post Code'
+     A                                  9  2'Last Statement Date'
+     A                                 10  2'Sort Code'
+     A            XCUST          8A  B  5 25COLOR(BLU)
+     A  32                                  DSPATR(PC)
+     A  32                                  DSPATR(RI)
+     A            XCUST1         8A  B  5 42COLOR(BLU)
+     A  33                                  DSPATR(PC)
+     A  33                                  DSPATR(RI)
+     A            XPCDE         10A  B  7 25COLOR(BLU)
+     A  34                                  DSPATR(PC)
+     A  34                                  DSPATR(RI)
+     A            XPCDE1        10A  B  7 42COLOR(BLU)
+     A  35                                  DSPATR(PC)
+     A  35                                  DSPATR(RI)
+     A            XDD            2Y 0B  9 25COLOR(BLU)
+     A  36                                  DSPATR(PC)
+     A  36                                  DSPATR(RI)
+     A                                      EDTCDE(4)
+     A                                      RANGE(1 31)
+     A                                      CHECK(AB)
+     A                                  9 28'/'
+     A                                      COLOR(BLU)
+     A            XMM            2Y 0B  9 30COLOR(BLU)
+     A  36                                  DSPATR(PC)
+     A  36                                  DSPATR(RI)
+     A                                      EDTCDE(4)
+     A                                      RANGE(1 12)
+     A                                      CHECK(AB)
+     A                                  9 33'/'
+     A                                      COLOR(BLU)
+     A            XYY            4Y 0B  9 35COLOR(BLU)
+     A  36                                  DSPATR(PC)
+     A  36                                  DSPATR(RI)
+     A                                      EDTCDE(4)
+     A                                      RANGE(0 9999)
+     A                                      CHECK(AB)
+     A            XDD1           2Y 0B  9 42COLOR(BLU)
+     A  37                                  DSPATR(PC)
+     A  37                                  DSPATR(RI)
+     A                                      EDTCDE(4)
+     A                                      RANGE(1 31)
+     A                                      CHECK(AB)
+     A            XMM1           2Y 0B  9 47COLOR(BLU)
+     A  37                                  DSPATR(PC)
+     A  37                                  DSPATR(RI)
+     A                                      EDTCDE(4)
+     A                                      RANGE(1 12)
+     A                                      CHECK(AB)
+     A            XYY1           4Y 0B  9 52COLOR(BLU)
+     A  37                                  DSPATR(PC)
+     A  37                                  DSPATR(RI)
+     A                                      EDTCDE(4)
+     A                                      RANGE(0 9999)
+     A                                      CHECK(AB)
+     A                                  9 50'/'
+     A                                      COLOR(BLU)
+     A                                  9 45'/'
+     A                                      COLOR(BLU)
+     A            XSCDE          6A  B 10 25COLOR(BLU)
+     A  38                                  DSPATR(PC)
+     A  38                                  DSPATR(RI)
+     A            XSCDE1         6A  B 10 42COLOR(BLU)
+     A  39                                  DSPATR(PC)
+     A  39                                  DSPATR(RI)
+     A*****************************************************************
+     A          R MSGRCD                    TEXT('Program messages')
+     A                                      SFL SFLMSGRCD(24)
+     A            MSGKEY                    SFLMSGKEY
+     A            XPGMID                    SFLPGMQ
+     A*****************************************************************
+     A          R MSGCTL                    SFLCTL(MSGRCD)
+     A*%%TS  SD  19980328  123253  EDISUPP     REL-V3R1M0  5763-PW1
+     A                                      TEXT('Program messages')
+     A  79                                  SFLDSP
+     A  79                                  SFLDSPCTL
+     A  79                                  SFLINZ
+     A  79                                  SFLEND
+     A                                      SFLSIZ(0010)
+     A                                      SFLPAG(0001)
+     A            XPGMID                    SFLPGMQ

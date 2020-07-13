@@ -1,0 +1,47 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSPORDH                                     *
+      *                                                            *
+      *  Description:  Sales Order Header                          *
+      *                                                            *
+      *  Date       :  December 1998                               *
+      *                                                            *
+      **************************************************************
+     A                                      REF(*LIBL/HSPREF)
+     A          R HSFORDH
+      *  Description:  Sales Order Header
+     A            JCOMP     R               REFFLD(COMP)
+     A            JCUST     R               REFFLD(CUST)
+     A            JCUSB     R               REFFLD(CUSB)
+     A                                      COLHDG('Customer Branch')
+     A            JORDR     R               REFFLD(CONT)
+     A                                      COLHDG('Cust.Order Ref.')
+     A            JTYPE     R               REFFLD(TYPE)
+     A                                      COLHDG('Sales Order Type')
+     A            JSORD     R               REFFLD(SORD)
+     A            JORDD     R               REFFLD(DATE)
+     A                                      COLHDG('Order Date')
+     A            JINVN     R               REFFLD(INVN)
+     A            JINVD     R               REFFLD(DATE)
+     A                                      COLHDG('Invoice Date')
+     A            JDELN     R               REFFLD(DELN)
+     A            JDELD     R               REFFLD(DATE)
+     A                                      COLHDG('Ship Date')
+     A            JCRTD     R               REFFLD(DATE)
+     A                                      COLHDG('Date Created')
+     A            JCRTT     R               REFFLD(TIME)
+     A                                      COLHDG('Time Created')
+     A            JCRTS     R               REFFLD(SCRN)
+     A                                      COLHDG('Screen Id.')
+     A            JCRTU     R               REFFLD(USER)
+     A                                      COLHDG('User Id.')
+     A            JCRTP     R               REFFLD(PROG)
+     A                                      COLHDG('Program Id.')
+     A            JSTAT     R               REFFLD(A1)
+     A                                      COLHDG('Status Flag')
+     A            JSUBB     R               REFFLD(SUBB)
+     A                                      COLHDG('Customer Sub-branch')
+     A            JBATC     R               REFFLD(DSPB)
+     A                                      COLHDG('Claims Batch No.')
+     A            JDELT     R               REFFLD(A1)
+     A                                      COLHDG('Deletion Flag')

@@ -1,0 +1,52 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  INPTRNC                                     *
+      *                                                            *
+      *  Description:  Inventory Transaction Type Codes            *
+      *                                                            *
+      *  Date       :  December 1998                               *
+      *                                                            *
+      **************************************************************
+     A                                      REF(*LIBL/HSPREF)
+     A          R INFTRNC
+      *  Description:  Inventory Transaction Type Codes
+     A            YTYPE     R               REFFLD(TYPE)
+     A                                      COLHDG('Invent.Trans Type')
+     A            YODES     R               REFFLD(DESC)
+     A                                      COLHDG('Invent.Trans Desc')
+     A            YCOMP     R               REFFLD(COMP)
+     A                                      COLHDG('Default Company')
+     A            YWHSE     R               REFFLD(WHSE)
+     A                                      COLHDG('Default Warehouse')
+     A            YREFR     R               REFFLD(A1)
+     A                                      COLHDG('Reference Requir?')
+     A            YDATR     R               REFFLD(A1)
+     A                                      COLHDG('Trans.Date Requr?')
+     A            YSACR     R               REFFLD(A1)
+     A                                      COLHDG('Supp. A/C Requr?')
+     A            YCACR     R               REFFLD(A1)
+     A                                      COLHDG('Cust. A/C Requr?')
+     A            YPWDR     R               REFFLD(A1)
+     A                                      COLHDG('Password Requird?')
+     A            YSECR     R               REFFLD(A1)
+     A                                      COLHDG('Series Cde Requr?')
+     A            YSCFR     R               REFFLD(A1)
+     A                                      COLHDG('From Prod sub Cod')
+     A            YSCTR     R               REFFLD(A1)
+     A                                      COLHDG('To Prod sub Cod')
+     A            YSNFR     R               REFFLD(A1)
+     A                                      COLHDG('From SrNo Requir?')
+     A            YELFR     R               REFFLD(A1)
+     A                                      COLHDG('From ElemNo Reqr?')
+     A            YSNTR     R               REFFLD(A1)
+     A                                      COLHDG('To SerNo Requird?')
+     A            YELTR     R               REFFLD(A1)
+     A                                      COLHDG('To ElemNo Requir?')
+     A            YQTYR     R               REFFLD(A1)
+     A                                      COLHDG('Quantity Requird?')
+     A            YREAR     R               REFFLD(A1)
+     A                                      COLHDG('Reason Code Req.?')
+     A            YMOVT     R               REFFLD(A1)
+     A                                      COLHDG('In/Out Movement')
+     A            YDELT     R               REFFLD(A1)
+     A                                      COLHDG('Deletion Flag')

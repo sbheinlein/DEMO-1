@@ -1,0 +1,13 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLCLAMA                                    *
+      *                                                            *
+      *  Description:  Claims file by Customer Number.             *
+      *                                                            *
+      *  Date       :  January 1999                                *
+      *                                                            *
+      **************************************************************
+     A          R HSFCLAM                   PFILE(HSPCLAM)
+      *
+     A          K KACUST
+     A          O KADELT                    COMP(EQ 'D')

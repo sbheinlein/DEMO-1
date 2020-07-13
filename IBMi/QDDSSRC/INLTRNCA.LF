@@ -1,0 +1,13 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  INLTRNCA                                    *
+      *                                                            *
+      *  Description:  Inventory Transaction Type Parameters       *
+      *                                                            *
+      *  Date       :  January 1999                                *
+      *                                                            *
+      **************************************************************
+     A          R INFTRNC                   PFILE(INPTRNC)
+      *
+     A          K YTYPE
+     A          O YDELT                     VALUES('D')

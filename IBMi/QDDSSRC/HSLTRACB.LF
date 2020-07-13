@@ -1,0 +1,16 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLTRACB                                    *
+      *                                                            *
+      *  Description:  Voucher Tracking by Product/Series/Serial   *
+      *                Number and Element Number.                  *
+      *                                                            *
+      *  Date       :  January 1999                                *
+      *                                                            *
+      **************************************************************
+     A          R HSFTRAC                   PFILE(HSPTRAC)
+      *
+     A          K APROD
+     A          K ASERC
+     A          K ASERN
+     A          K AELEM

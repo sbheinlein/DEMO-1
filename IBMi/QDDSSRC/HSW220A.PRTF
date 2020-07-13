@@ -1,0 +1,71 @@
+      ********************************************************
+      *                                                      *
+      *                                                      *
+      *      File Name:   HSW220A                            *
+      *                                                      *
+      *      Description: Sales Invoice Interface Report.    *
+      *                                                      *
+      *      Date:        February 1999                      *
+      *                                                      *
+      ********************************************************
+      *
+     A          R HDR1
+     A            XPGMID        10         2
+     A                                    31'HIGH STREET VOUCHERS'
+     A            XSYSNM         8        72SPACEA(01)
+     A            XUSRID        10         2
+     A                                    66'Date:'
+     A                                    72DATE EDTCDE(Y) SPACEA(01)
+     A                                    26'Sales Interface Report'
+     A            XJOBNO        10         2
+     A                                    66'Time:'
+     A                                    72TIME SPACEA(01)
+     A                                    66'Page:'
+     A                                    72PAGNBR EDTCDE(Z) SPACEA(02)
+      *------------------------------------------------------------
+     A          R HDR2
+     A                                     1'Customer No.'
+     A                                    16'Invoice No.'
+     A                                    30'Invoice Date'
+     A                                    55'Order No.'
+     A                                      SPACEA(2)
+      *---------------------------------------------------------------
+     A          R DTL                       SPACEA(01)
+     A            JCUST          8A        1
+     A            JINVN          8A       16
+     A            DD             2  0     30
+     A                                    32'/'
+     A            MM             2  0     33
+     A                                    35'/'
+     A            CCYY           4  0     36
+     A            JSORD          8  0     55
+     A N54                                70 '*** Invoice already exist ***'
+      *---------------------------------------------------------------
+     A          R DTL1                      SPACEB(03)
+     A                                     5 'No. of Invoices Processed       :'
+     A            XINV           5  0     41EDTCDE(J)
+     A                                      SPACEA(01)
+     A                                     5 'No. of Errors Reported          :'
+     A            XERR           5  0     41EDTCDE(J)
+     A                                      SPACEA(01)
+     A                                     5 'Total Net Amount before Discount:'
+     A            XVAL          15  2     41EDTCDE(J)
+     A                                      SPACEA(01)
+     A                                     5 'Total Discount Amount           :'
+     A            XDSC          15  2     41EDTCDE(J)
+     A                                      SPACEA(01)
+     A                                     5 'Total Net Amount                :'
+     A            XNET          15  2     41EDTCDE(J)
+     A                                      SPACEA(01)
+     A                                     5 'Total VAT Processed             :'
+     A            XVAT          15  2     41EDTCDE(J)
+     A                                      SPACEA(01)
+     A                                     5 'Total Gross Value               :'
+     A            XTOT          15  2     41EDTCDE(J)
+     A                                      SPACEA(01)
+     A                                     5 'Invoice Batch No.               :'
+     A            XBATCH         5  0     41EDTCDE(J)
+     A                                      SPACEA(02)
+      *---------------------------------------------------------------
+     A          R FTR
+     A                                    10'*** END OF REPORT ***'

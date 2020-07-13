@@ -1,0 +1,9 @@
+                                            REF(SMPREF)
+                R FPROV
+                  PRID      R               REFFLD(PROVID)
+                  PROVNM    R
+                  PROVA1    R               REFFLD(PROVAD)
+                  PROVA2    R               REFFLD(PROVAD)
+                  PROVA3    R               REFFLD(PROVAD)
+                  PRZIP     R               REFFLD(ZIPCOD)
+                  PRCOUN    R               REFFLD(COUNTR)

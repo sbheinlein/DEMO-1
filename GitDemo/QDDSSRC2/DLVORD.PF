@@ -1,7 +1,0 @@
-                                            REF(SMPREF)
-                R FDLVO
-                  ORDVNB    R               REFFLD(ORDENB)
-                  ORDVYR    R               REFFLD(ORDEYR)
-                  ORDVLI    R               REFFLD(ORDDLI)
-                  ORDVDL        10  0
-                  ORDVDQ        10  0

@@ -1,0 +1,108 @@
+     A*%%TS  SD  19990210  164941  SARLLO      REL-V3R7M0  5716-PW1
+     A*****************************************************************
+     A*                                                               *
+     A*  Display File  : HSS761                                       *
+     A*                                                               *
+     A*  Description . : Sales Order Details Report Parameters        *
+     A*                                                               *
+     A*  System  . . . : HSV Control & Tracking                       *
+     A*                                                               *
+     A*  Author  . . . : Owen Sarll                                   *
+     A*                                                               *
+     A*  Date Written  : January 1999                                 *
+     A*                                                               *
+     A*****************************************************************
+     A*
+     A*%%EC
+     A                                      DSPSIZ(24 80 *DS3)
+     A                                      REF(*LIBL/HSP999)
+     A                                      PRINT
+     A                                      HELP
+     A          R HSS761A
+     A*%%TS  SD  19990210  164941  SARLLO      REL-V3R7M0  5716-PW1
+     A                                      OVERLAY
+     A*                                     CA03(03)
+     A                                      CF04
+     A*                                     CF10
+     A                                      CA12
+     A                                      RTNCSRLOC(&CSRRCD &CSRFLD)
+     A            CSRRCD        10A  H
+     A            CSRFLD        10A  H
+     A            XPGMID        10A  O  1  2COLOR(WHT)
+     A                                  1 31'HIGH STREET VOUCHERS'
+     A                                      COLOR(WHT)
+     A                                  1 72SYSNAME
+     A                                      COLOR(WHT)
+     A            XUSRID        10A  O  2  2COLOR(WHT)
+     A                                  2 72DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A            XJOBNO        10A  O  3  2COLOR(WHT)
+     A                                  3 72TIME
+     A                                      COLOR(WHT)
+     A*                                23  3'F3-Exit '
+     A*                                     COLOR(WHT)
+     A                                 23 12'F4-Search '
+     A                                      COLOR(WHT)
+     A*                                23 23'F10-Confirm '
+     A*                                     COLOR(WHT)
+     A                                 23 68'F12-Return'
+     A                                      COLOR(WHT)
+     A                                  5 27'From'
+     A                                      DSPATR(UL)
+     A                                  5 51'To'
+     A                                      DSPATR(UL)
+     A                                  2 28'Sales Order Details Report'
+     A                                      COLOR(WHT)
+     A                                  6  2'Customer'
+     A                                 10  2'Order No.'
+     A                                  8  2'Product Code'
+     A                                 11  2'Order Value'
+     A            XCUST          8A  B  6 27COLOR(BLU)
+     A  32                                  DSPATR(PC)
+     A  32                                  DSPATR(RI)
+     A            XCUST1         8A  B  6 51COLOR(BLU)
+     A  33                                  DSPATR(PC)
+     A  33                                  DSPATR(RI)
+     A            XSORD          8Y 0B 10 27COLOR(BLU)
+     A  36                                  DSPATR(PC)
+     A  36                                  DSPATR(RI)
+     A                                      RANGE(0 99999999)
+     A                                      EDTCDE(4)
+     A            XSORD1         8Y 0B 10 51COLOR(BLU)
+     A  37                                  DSPATR(PC)
+     A  37                                  DSPATR(RI)
+     A                                      RANGE(0 99999999)
+     A                                      EDTCDE(4)
+     A            XPROD         13A  B  8 27COLOR(BLU)
+     A  34                                  DSPATR(PC)
+     A  34                                  DSPATR(RI)
+     A            XPROD1        13A  B  8 51COLOR(BLU)
+     A  35                                  DSPATR(PC)
+     A  35                                  DSPATR(RI)
+     A            XVALU         20Y 5B 11 27COLOR(BLU)
+     A  38                                  DSPATR(PC)
+     A  38                                  DSPATR(RI)
+     A                                      RANGE(0 999999999999999.99999)
+     A                                      EDTCDE(4)
+     A            XVALU1        20Y 5B 11 51COLOR(BLU)
+     A  39                                  DSPATR(PC)
+     A  39                                  DSPATR(RI)
+     A                                      RANGE(0 999999999999999.99999)
+     A                                      EDTCDE(4)
+     A*****************************************************************
+     A          R MSGRCD                    TEXT('Program messages')
+     A                                      SFL SFLMSGRCD(24)
+     A            MSGKEY                    SFLMSGKEY
+     A            XPGMID                    SFLPGMQ
+     A*****************************************************************
+     A          R MSGCTL                    SFLCTL(MSGRCD)
+     A*%%TS  SD  19980328  123253  EDISUPP     REL-V3R1M0  5763-PW1
+     A                                      TEXT('Program messages')
+     A  79                                  SFLDSP
+     A  79                                  SFLDSPCTL
+     A  79                                  SFLINZ
+     A  79                                  SFLEND
+     A                                      SFLSIZ(0010)
+     A                                      SFLPAG(0001)
+     A            XPGMID                    SFLPGMQ

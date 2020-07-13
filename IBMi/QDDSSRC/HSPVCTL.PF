@@ -1,0 +1,24 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSPVCTL                                     *
+      *                                                            *
+      *  Description:  Voucher Control                             *
+      *                                                            *
+      *  Date       :  December 1998                               *
+      *                                                            *
+      **************************************************************
+     A                                      REF(*LIBL/HSPREF)
+     A          R HSFVCTL
+      *  Description:  Voucher Control
+     A            BCOMP     R               REFFLD(COMP)
+     A            BWHSE     R               REFFLD(WHSE)
+     A            BPROD     R               REFFLD(PROD)
+     A            BVTYP     R               REFFLD(VTYP)
+     A            BSERNN    R               REFFLD(SERN)
+     A                                      COLHDG('Next Serial No.')
+     A            BSERCC    R               REFFLD(SERC)
+     A                                      COLHDG('Curr.Series Code')
+     A            BELEM     R               REFFLD(ELEM)
+     A                                      COLHDG('No. of Elements')
+     A            BDELT     R               REFFLD(A1)
+     A                                      COLHDG('Deletion Flag')

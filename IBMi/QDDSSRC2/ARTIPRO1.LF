@@ -1,0 +1,4 @@
+                                            UNIQUE
+                R FARPR                     PFILE(ARTIPROV)
+                K ARTIID
+                K PROVID

@@ -1,0 +1,62 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSPINVT                                     *
+      *                                                            *
+      *  Description:  Inventory Transactions                      *
+      *                                                            *
+      *  Date       :  December 1998                               *
+      *                                                            *
+      **************************************************************
+     A                                      REF(*LIBL/HSPREF)
+     A          R HSFINVT
+      *  Description:  Inventory Transactions
+     A            CCOMP     R               REFFLD(COMP)
+     A            CWHSE     R               REFFLD(WHSE)
+     A            CPROD     R               REFFLD(PROD)
+     A            CSUBCF    R               REFFLD(SUBC)
+     A                                      COLHDG('From Sub-code')
+     A            CSUBCT    R               REFFLD(SUBC)
+     A                                      COLHDG('To Sub-code')
+     A            CVTYP     R               REFFLD(VTYP)
+     A            CSERC     R               REFFLD(SERC)
+     A            CSERNF    R               REFFLD(SERN)
+     A                                      COLHDG('From Serial No.')
+     A            CELEMF    R               REFFLD(ELEM)
+     A                                      COLHDG('From Element No.')
+     A            CSERNT    R               REFFLD(SERN)
+     A                                      COLHDG('To Serial No.')
+     A            CELEMT    R               REFFLD(ELEM)
+     A                                      COLHDG('To Element No.')
+     A            CQTYN     R               REFFLD(QTYN)
+     A            CBATC     R               REFFLD(DSPB)
+     A            CDELN     R               REFFLD(DELN)
+     A            CREAS     R               REFFLD(REAS)
+     A            CTDAT     R               REFFLD(DATE)
+     A                                      COLHDG('Transaction Date')
+     A            CTYPE     R               REFFLD(TYPE)
+     A                                      COLHDG('Transaction Type')
+     A            CSUPP     R               REFFLD(SUPP)
+     A            CCUST     R               REFFLD(CUST)
+     A            CAREA     R               REFFLD(AREA)
+     A            CAISL     R               REFFLD(AISL)
+     A            CBAYR     R               REFFLD(BAYR)
+     A            CLEVL     R               REFFLD(LEVL)
+     A            CINVN     R               REFFLD(INVN)
+     A            CSBAL     R               REFFLD(QTYN)
+     A                                      COLHDG('Opening Balance')
+     A            CCBAL     R               REFFLD(QTYN)
+     A                                      COLHDG('Closing Balance')
+     A            CIOTF     R               REFFLD(A1)
+     A                                      COLHDG('In/Out/Transfer')
+     A            CCRTD     R               REFFLD(DATE)
+     A                                      COLHDG('Date Created')
+     A            CCRTT     R               REFFLD(TIME)
+     A                                      COLHDG('Time Created')
+     A            CCRTS     R               REFFLD(SCRN)
+     A                                      COLHDG('Screen Id.')
+     A            CCRTU     R               REFFLD(USER)
+     A                                      COLHDG('User Id.')
+     A            CCRTP     R               REFFLD(PROG)
+     A                                      COLHDG('Program Id.')
+     A            CDELT     R               REFFLD(A1)
+     A                                      COLHDG('Deletion Flag')

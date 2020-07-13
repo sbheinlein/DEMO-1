@@ -1,0 +1,537 @@
+      */TITLE Customer Address Reports
+      * CRTRPGPGM
+      *
+      * System  : High Street Vouchers Control and Tracking
+      * Author  : Owen Sarll  (Intec Systems Ltd)
+      * Date    : January 1999.
+      *
+      *================================================================
+      * Indicator usage:
+      *
+      * 03 - The main controlling do-loop.
+      * 32 - DSPATR (error) - From Customer No.
+      * 33 - DSPATR (error) - To Customer No.
+      * 34 - DSPATR (error) - From Post Code.
+      * 35 - DSPATR (error) - To Post Code.
+      * 36 - DSPATR (error) - From Last Statement Date.
+      * 37 - DSPATR (error) - To Last Statement Date.
+      * 38 - DSPATR (error) - From Sort Code.
+      * 39 - DSPATR (error) - To Sort Code.
+      * 73 - Do-loop that encompasses validation subroutine and is
+      *      exited from if an error is found in the data to be
+      *      entered for report generation.
+      * 79 - MSGSFL (SFLCLR ETC.....)
+      * 96 - Chain Customer Master File.
+      * 97 - Chain Customer Master File.
+      *
+      *================================================================
+     FHSLCUSTBIF  E           K        DISK
+      * Customer Code file by Customer code.
+     FHSLCUSTAIF  E           K        DISK
+     F            HSFCUST                           KRENAMEHSFCUST1
+      * Customer Code file by Post Code.
+     FHSS721  CF  E                    WORKSTN      KINFDS INFDS
+      * Screen file.
+      * ===============================================================
+      * Arrays.
+      *
+     E                    LPY    12  12  2 0
+     E                    NLY    12  12  2 0
+      *
+      * SBMJOB command
+      *
+     E                    ARA     1   4 60
+      *================================================================
+      * Data Structures.
+      *
+     ICMA         DS
+      *    SBMJOB command layout for parameter substitution
+     I                                        1 240 ARA
+     I                                       30  37 XCUST
+     I                                       41  48 XCUST1
+     I                                       52  61 XPCDE
+     I                                       65  74 XPCDE1
+     I                                       78  85 ADAT
+     I                                       89  96 ADAT1
+     I                                      100 105 XSCDE
+     I                                      109 114 XSCDE1
+     I                                      118 127 XPGMID
+     I                                      131 140 XUSRID
+     I                                      144 153 XJOBNO
+      *
+     ICMD         DS                            240
+      *
+     I            DS
+     I                                        1   80YDAT
+     I                                        1   40XYY
+     I                                        5   60XMM
+     I                                        7   80XDD
+     I            DS
+     I                                        1   80YDAT1
+     I                                        1   40XYY1
+     I                                        5   60XMM1
+     I                                        7   80XDD1
+     IINFDS       DS
+     I                                    B 370 3710CSRLOC
+     I                                      369 369 KEY
+      *
+     IXXXSDS     SDS                            429
+     I                                     *STATUS  XSYSNM
+     I                                     *PROGRAM APGMID
+     I                                      244 253 AJOBNO
+     I                                      254 263 AUSRID
+      *
+     I            DS
+     I                                        1 132 P0MSDA
+     I                                        1  15 WRK1
+     I                                       16  25 WRK2
+      *========================================================
+      * Constants.
+      *
+      * Named hexadecimal constants for function keys.
+     I              X'33'                 C         F03
+     I              X'34'                 C         F04
+     I              X'3A'                 C         F10
+     I              X'3C'                 C         F12
+      *
+      * Other constants.
+      *
+     I              'Customer Number'     C         CNM
+     I              'Post Code'           C         PCD
+     I              '99999999'            C         CUSTHI
+     I              '9999999999'          C         PCDEHI
+     I              '999999'              C         SCDEHI
+      *
+      * Zeros to 'setoff' error indicators.
+     I              '00000000'            C         XZEROE
+      *================================================================
+      * M A I N L I N E
+      *================================================================
+      *
+      * Controlling Do-loop.
+      *
+     C           KEY       DOUEQF03                        Do 1.
+     C           KEY       OREQ F12                        Do 1.
+      *
+      * Write the message subfile
+      *
+     C                     WRITEMSGCTL
+      *
+     C                     EXFMTHSS721A
+      *
+      * Clear the message subfile.
+      *
+     C                     EXSR CLRMSG
+      *
+      * Process the various function keys available on the screen.
+      *
+      * Exit if F03 pressed.
+     C           KEY       IFEQ F03
+     C           KEY       OREQ F12
+     C                     LEAVE
+     C                     ENDIF
+      *
+      * Execute the data validation subroutine.
+     C           KEY       IFNE F04
+     C                     EXSR VALID
+     C*          KEY       IFEQ F10
+     C           *IN73     IFEQ *OFF
+     C                     ITER
+     C                     ENDIF
+     C                     MOVE *OFF      *IN73
+     C                     ENDIF
+      *
+     C           KEY       IFEQ F04
+     C                     EXSR PRMT
+     C                     ITER
+     C                     ENDIF
+      *
+     C*          KEY       IFEQ F10
+     C                     EXSR CONF
+     C*                    ITER
+     C                     LEAVE
+     C*                    ENDIF
+      *
+      *
+     C                     ENDDO
+      *
+     C                     SETON                         LR
+     C                     RETRN
+      *
+      *-----------------------------------------------------------
+      *                  SUBROUTINES
+      *-----------------------------------------------------------
+      *-----------------------------------------------------------
+      *
+      *
+      * ----------------------------------------------------------
+      * VALID Subroutine validate input data.
+      * ----------------------------------------------------------
+     C           VALID     BEGSR
+      * -----------------
+      * The Do-loop below is merely a tool to process multiple
+      * possibilities of inputing error by the user.
+      *
+     C           *IN73     DOWEQ*OFF
+      *
+      * Reset error indicators....
+     C                     MOVEAXZEROE    *IN,32
+      *
+      * Error message preventing a Customer Number being entered which
+      * does not exist on the Customer Master file. Blanks are allowed
+      *
+     C                     MOVE XCUST     ECUST
+     C           ECUST     CHAINHSLCUSTA             96
+     C           XCUST     IFNE *BLANKS
+     C           *IN96     IFEQ *ON
+     C           EDELT     OREQ 'D'
+     C                     MOVE *ON       *IN32
+     C                     MOVELCNM       WRK1      P
+     C                     MOVELXCUST     WRK2      P
+     C                     MOVEL'HSV0118' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+     C                     ENDIF
+      *
+      * Error message preventing a Customer Number being entered which
+      * does not exist on the Customer Master file. Blanks are allowed
+      *
+     C                     MOVE XCUST1    ECUST
+     C           ECUST     CHAINHSLCUSTA             96
+     C           XCUST1    IFNE *BLANKS
+     C           *IN96     IFEQ *ON
+     C           EDELT     OREQ 'D'
+     C                     MOVE *ON       *IN33
+     C                     MOVELCNM       WRK1      P
+     C                     MOVELXCUST1    WRK2      P
+     C                     MOVEL'HSV0118' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+     C                     ENDIF
+      *
+      * Error message preventing a 'To' Customer Number being entered
+      * which is less than the 'From' Customer Number.
+      *
+     C           XCUST     IFGT XCUST1
+     C           XCUST1    ANDNE*BLANKS
+     C                     MOVE *ON       *IN32
+     C                     MOVE *ON       *IN33
+     C                     MOVEL'HSV0097' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+      *
+      * Error message preventing a Post Code being entered which
+      * does not exist on the Customer Master file.
+      *
+     C                     MOVE XPCDE     EPCDE
+     C           XPCDE     IFNE *BLANKS
+     C           EPCDE     CHAINHSLCUSTB             97
+     C           *IN96     IFEQ *ON
+     C           EDELT     OREQ 'D'
+     C                     MOVE *ON       *IN34
+     C                     MOVELPCD       WRK1      P
+     C                     MOVELXPCDE     WRK2      P
+     C                     MOVEL'HSV0120' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+     C                     ENDIF
+      *
+      * Error message preventing a Post Code being entered which
+      * does not exist on the Customer Master file.
+      *
+     C                     MOVE XPCDE1    EPCDE
+     C           XPCDE1    IFNE *BLANKS
+     C           EPCDE     CHAINHSLCUSTB             97
+     C           *IN96     IFEQ *ON
+     C           EDELT     OREQ 'D'
+     C                     MOVE *ON       *IN35
+     C                     MOVELPCD       WRK1      P
+     C                     MOVELXPCDE1    WRK2      P
+     C                     MOVEL'HSV0120' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+     C                     ENDIF
+      *
+      * Error message preventing a 'To' Post Code being entered
+      * which is less than the 'From' Post Code.
+      *
+     C           XPCDE     IFGT XPCDE1
+     C           XPCDE1    ANDNE*BLANKS
+     C                     MOVE *ON       *IN34
+     C                     MOVE *ON       *IN35
+     C                     MOVEL'HSV0119' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+      *
+      * Error message preventing a date being entered which is
+      * not leap year compliant.
+      *
+     C                     Z-ADD0         TYY     40
+     C                     Z-ADD0         TMM     20
+     C                     Z-ADD0         TDD     20
+      *
+     C           XYY       IFNE TYY
+     C           XMM       ANDNETMM
+     C           XDD       ANDNETDD
+      *
+     C           XYY       DIV  4         Y       20
+     C                     MVR            X       20
+     C                     SELEC
+     C           X         WHEQ 0
+     C           XDD       ANDGTLPY,XMM
+     C                     MOVE *ON       *IN36
+     C                     MOVEL'HSV0072' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C           X         WHNE 0
+     C           XDD       ANDGTNLY,XMM
+     C                     MOVE *ON       *IN36
+     C                     MOVEL'HSV0072' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDSL
+     C                     ENDIF
+      *
+     C           XYY1      IFNE TYY
+     C           XMM1      ANDNETMM
+     C           XDD1      ANDNETDD
+      *
+     C           XYY1      DIV  4         Y       20
+     C                     MVR            X       20
+     C                     SELEC
+     C           X         WHEQ 0
+     C           XDD1      ANDGTLPY,XMM1
+     C                     MOVE *ON       *IN37
+     C                     MOVEL'HSV0073' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C           X         WHNE 0
+     C           XDD1      ANDGTNLY,XMM1
+     C                     MOVE *ON       *IN37
+     C                     MOVEL'HSV0073' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDSL
+     C                     ENDIF
+      *
+      * Error message preventing a 'To' Date being entered
+      * which is less than the 'From' Date.
+      *
+     C                     Z-ADD0         TDAT    80
+     C           YDAT      IFGT YDAT1
+     C           YDAT1     ANDNETDAT
+     C                     MOVE *ON       *IN36
+     C                     MOVE *ON       *IN37
+     C                     MOVEL'HSV0071' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+      *
+      * Error message preventing a 'To' Sort Code being entered
+      * which is less than the 'From' Sort Code.
+      *
+     C           XSCDE     IFGT XSCDE1
+     C           XSCDE1    ANDNE*BLANKS
+     C                     MOVE *ON       *IN38
+     C                     MOVE *ON       *IN39
+     C                     MOVEL'HSV0121' P0MSID
+     C                     EXSR SNDMSG
+     C                     LEAVE
+     C                     ENDIF
+      *
+      * Reset chaining indicators.
+      *
+     C                     MOVE *OFF      *IN96
+     C                     MOVE *OFF      *IN97
+      *
+      * Message: Data is valid, press F10 to process.
+      *
+     C*          KEY       IFNE F10
+     C                     MOVEL'HSV9011' P0MSID
+     C                     EXSR SNDMSG
+     C*                    ENDIF
+     C                     MOVE *ON       *IN73
+     C                     ENDDO
+     C                     ENDSR
+      *
+      * ---------------------------------------------------
+      * SNDMSG Subroutine to send message to subfile.
+      * ---------------------------------------------------
+     C           SNDMSG    BEGSR
+      * -----------------
+     C                     CALL 'SNDMSGC'
+     C                     PARM           P0PGMQ
+     C                     PARM           P0PGRL
+     C                     PARM           P0MSID
+     C                     PARM           P0MSGF
+     C                     PARM           P0MSDA
+     C                     PARM           P0MSTP
+     C                     ENDSR
+      * --------------------------------------------------
+      * CONF Subroutine to update file
+      * --------------------------------------------------
+     C           CONF      BEGSR
+      * -------------
+      *
+     C                     MOVE XCUST     XCUST
+      *
+     C           XCUST1    IFEQ *BLANKS
+     C                     MOVE XCUST     XCUST1  8
+     C                     ELSE
+     C                     MOVE XCUST1    XCUST1
+     C                     ENDIF
+      *
+     C                     MOVE XPCDE     XPCDE
+      *
+     C           XPCDE1    IFEQ *BLANKS
+     C                     MOVE XPCDE     XPCDE1 10
+     C                     ELSE
+     C                     MOVE XPCDE1    XPCDE1
+     C                     ENDIF
+      *
+     C           YDAT      IFEQ TDAT
+     C                     MOVE *ZEROS    XDAT    80P
+     C                     ELSE
+     C                     MOVE YDAT      XDAT
+     C                     ENDIF
+      *
+     C           YDAT1     IFEQ TDAT
+     C                     MOVE XDAT      XDAT1   80
+     C                     ELSE
+     C                     MOVE YDAT1     XDAT1
+     C                     ENDIF
+      *
+     C                     MOVE XSCDE     XSCDE
+      *
+     C           XSCDE1    IFEQ *BLANKS
+     C                     MOVE XSCDE     XSCDE1  6
+     C                     ELSE
+     C                     MOVE XSCDE1    XSCDE1
+      *
+     C                     ENDIF
+      *
+     C                     MOVELXDAT1     ADAT1
+     C                     MOVELXDAT      ADAT
+      *
+      * Submit job command.
+      *
+     C                     MOVELCMA       CMD       P
+     C                     CALL 'QCMDEXC'                85
+     C                     PARM           CMD
+     C                     PARM 240       LEN    155
+      *
+      *
+     C                     ENDSR
+      * -------------------------------------------------------
+      * CLEAR MESSAGE Subroutine to clear out the message queue.
+      * -------------------------------------------------------
+     C           CLRMSG    BEGSR
+     C                     CALL 'RMVMSGC'
+     C                     ENDSR
+      *
+      * ----------------------------------------------------
+      * Search Window Subroutine
+      * ----------------------------------------------------
+      *
+     C           PRMT      BEGSR
+      * ----------------
+     C                     SELEC
+      *
+     C           CSRFLD    WHEQ 'XPCDE'
+     C                     MOVEL'HSLCUSTB'FILEY     P
+     C                     MOVEL'ENAM2'   NAMEY     P
+     C                     MOVEL'EPCDE'   NUMBRY    P
+     C                     Z-ADD10        LINY
+     C                     Z-ADD07        COLY
+     C                     CALL 'HSR341'  PL341
+     C           YRTNC     IFEQ *OFF
+     C                     MOVELYNUMBR    XPCDE     P
+     C                     ENDIF
+      *
+     C           CSRFLD    WHEQ 'XPCDE1'
+     C                     MOVEL'HSLCUSTB'FILEY     P
+     C                     MOVEL'ENAM2'   NAMEY     P
+     C                     MOVEL'EPCDE'   NUMBRY    P
+     C                     Z-ADD10        LINY
+     C                     Z-ADD07        COLY
+     C                     CALL 'HSR341'  PL341
+     C           YRTNC     IFEQ *OFF
+     C                     MOVELYNUMBR    XPCDE1    P
+     C                     ENDIF
+      *
+     C           CSRFLD    WHEQ 'XCUST'
+     C                     MOVEL'HSLCUSTA'FILEY     P
+     C                     MOVEL'ENAM2'   NAMEY     P
+     C                     MOVEL'ECUST'   NUMBRY    P
+     C                     Z-ADD10        LINY
+     C                     Z-ADD07        COLY
+     C                     CALL 'HSR341'  PL341
+     C           YRTNC     IFEQ *OFF
+     C                     MOVELYNUMBR    XCUST     P
+     C                     ENDIF
+      *
+     C           CSRFLD    WHEQ 'XCUST1'
+     C                     MOVEL'HSLCUSTA'FILEY     P
+     C                     MOVEL'ENAM2'   NAMEY     P
+     C                     MOVEL'ECUST'   NUMBRY    P
+     C                     Z-ADD10        LINY
+     C                     Z-ADD07        COLY
+     C                     CALL 'HSR341'  PL341
+     C           YRTNC     IFEQ *OFF
+     C                     MOVELYNUMBR    XCUST1    P
+     C                     ENDIF
+     C                     ENDSL
+      *
+     C           PL341     PLIST
+     C                     PARM           YRTNC   1
+     C                     PARM           YNUMBR 15
+     C                     PARM           FILEY  10
+     C                     PARM           NAMEY   6
+     C                     PARM           NUMBRY  6
+     C                     PARM           LINY    30
+     C                     PARM           COLY    30
+     C                     ENDSR
+      *
+      * ----------------------------------------------------
+      * Initialisation Subroutine
+      * ----------------------------------------------------
+     C           *INZSR    BEGSR
+      *----------------
+     C                     Z-ADD0         XYY1
+     C                     Z-ADD0         XYY
+     C                     Z-ADD0         XMM
+     C                     Z-ADD0         XMM1
+     C                     Z-ADD0         XDD
+     C                     Z-ADD0         XDD1
+     C                     MOVE APGMID    XPGMID
+     C                     MOVE AUSRID    XUSRID
+     C                     MOVE AJOBNO    XJOBNO
+     C                     MOVE *ON       *IN79
+     C                     MOVEL'HSR721'  XPGMID
+     C                     MOVE XPGMID    P0PGMQ 10        PGM queue
+     C                     MOVEL'*PRV'    P0PGRL  5        Rel queue
+     C                     MOVE *BLANKS   P0MSID  7        Message ID
+     C                     MOVEL'HSM001'  P0MSGF 10        Message File
+     C                     MOVE *BLANKS   P0MSDA132        Message Data
+     C                     MOVEL'*INFO'   P0MSTP  7        Message Type
+     C                     ENDSR
+      *
+     C           DEFN      BEGSR
+     C                     READ HSLCUSTA                 99
+     C                     ENDSR
+      *
+**         LEAP YEARS
+312931303130313130313031
+**          NON-LEAP YEARS
+312831303130313130313031
+**
+SBMJOB CMD(CALL HSR723 PARM('12345678' '12345678' '123456789
+0' '1234567890' '12345678' '12345678' '123456' '123456' '123
+4567890' '1234567890' '1234567890'))
+JOB(HSR721B) JOBD(MNJL0000)

@@ -1,0 +1,53 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSPTRAC                                     *
+      *                                                            *
+      *  Description:  Voucher Tracking                            *
+      *                                                            *
+      *  Date       :  December 1998                               *
+      *                                                            *
+      **************************************************************
+     A                                      REF(*LIBL/HSPREF)
+     A          R HSFTRAC
+      *****************
+      *  Description:  Voucher Tracking
+      *
+      *
+      ***************  IN/ADD
+     A            ACOMP     R               REFFLD(COMP)
+     A            APROD     R               REFFLD(PROD)
+     A            AVTYP     R               REFFLD(VTYP)
+     A            ASERC     R               REFFLD(SERC)
+     A            ASERN     R               REFFLD(SERN)
+     A            AELEM     R               REFFLD(ELEM)
+      *
+      *
+      ***************  IN/ADD
+     A            ADELN     R               REFFLD(DELN)
+     A            ADELD     R               REFFLD(DATE)
+     A                                      COLHDG('Date Delivered')
+     A            ASUPP     R               REFFLD(SUPP)
+      *
+      *
+      ***************  ALLOCATION
+     A            AALLD     R               REFFLD(DATE)
+     A                                      COLHDG('Allocation Date')
+      ***************  OUT/UPDATE
+     A            ACUST     R               REFFLD(CUST)
+     A            ASORD     R               REFFLD(SORD)
+     A            ADSPB     R               REFFLD(DSPB)
+     A            ADFIS     R               REFFLD(DATE)
+     A                                      COLHDG('Ship Date')
+      *
+      *
+      *************** REDEMPTIONS
+     A            AREDB     R               REFFLD(REDB)
+     A            ADRED     R               REFFLD(DATE)
+     A                                      COLHDG('Date Redeemed')
+     A            AHSVB     R               REFFLD(REDE)
+     A                                      COLHDG('AS400 Red Batch No.')
+     A            AREDC     R               REFFLD(REDC)
+     A            AREDR     R               REFFLD(REDR)
+     A            AREDI     R               REFFLD(REDI)
+     A            ASTAT     R               REFFLD(A1)
+     A                                      COLHDG('Status Code')

@@ -1,0 +1,183 @@
+     A*%%TS  SD  19990211  085228  SARLLO      REL-V3R7M0  5716-PW1
+     A*****************************************************************
+     A*                                                               *
+     A*  Display File  : HSS701                                       *
+     A*                                                               *
+     A*  Description . : Inventory Transaction Reports                *
+     A*                                                               *
+     A*  System  . . . : HSV Control & Tracking                       *
+     A*                                                               *
+     A*  Author  . . . : Owen Sarll                                   *
+     A*                                                               *
+     A*  Date Written  : January 1999                                 *
+     A*                                                               *
+     A*****************************************************************
+     A*
+     A*%%EC
+     A                                      DSPSIZ(24 80 *DS3)
+     A                                      REF(*LIBL/HSP999)
+     A                                      PRINT
+     A                                      HELP
+     A          R HSS701A
+     A*%%TS  SD  19990211  085228  SARLLO      REL-V3R7M0  5716-PW1
+     A                                      OVERLAY
+     A*                                     CA03(03)
+     A                                      CF04
+     A*                                     CF10
+     A                                      CA12
+     A                                      RTNCSRLOC(&CSRRCD &CSRFLD)
+     A            CSRRCD        10A  H
+     A            CSRFLD        10A  H
+     A            XPGMID        10A  O  1  2COLOR(WHT)
+     A                                  1 31'HIGH STREET VOUCHERS'
+     A                                      COLOR(WHT)
+     A                                  1 72SYSNAME
+     A                                      COLOR(WHT)
+     A            XUSRID        10A  O  2  2COLOR(WHT)
+     A                                  2 72DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A            XJOBNO        10A  O  3  2COLOR(WHT)
+     A                                  3 72TIME
+     A                                      COLOR(WHT)
+     A*                                23  3'F3-Exit'
+     A*                                     COLOR(WHT)
+     A                                 23 12'F4-Search'
+     A                                      COLOR(WHT)
+     A*                                23 23'F10-Confirm'
+     A*                                     COLOR(WHT)
+     A                                 23 68'F12-Return'
+     A                                      COLOR(WHT)
+     A                                  2 26'Inventory Transaction Reports'
+     A                                      COLOR(WHT)
+     A                                  5  2'Transaction Type'
+     A                                  8  2'Product Code'
+     A                                 18  2'Reference'
+     A                                  7 25'From'
+     A                                      DSPATR(UL)
+     A                                  7 49'To'
+     A                                      DSPATR(UL)
+     A                                 16  2'Date'
+     A                                 10  2'Product Sub-Code'
+     A                                 19  2'Series Code'
+     A                                 14  2'Serial Number'
+     A                                 15  2'Element Number'
+     A                                 17  2'Quantity'
+     A                                 12  2'Reason Code'
+     A            XTYPE          3A  B  5 25COLOR(BLU)
+     A  32                                  DSPATR(PC)
+     A  32                                  DSPATR(RI)
+     A            XPROD         13A  B  8 25COLOR(BLU)
+     A  33                                  DSPATR(PC)
+     A  33                                  DSPATR(RI)
+     A            XPROD1        13A  B  8 49COLOR(BLU)
+     A  34                                  DSPATR(PC)
+     A  34                                  DSPATR(RI)
+     A            XREF          20A  B 18 25COLOR(BLU)
+     A  47                                  DSPATR(PC)
+     A  47                                  DSPATR(RI)
+     A            XREF1         20A  B 18 49COLOR(BLU)
+     A  48                                  DSPATR(PC)
+     A  48                                  DSPATR(RI)
+     A            XDD            2Y 0B 16 25COLOR(BLU)
+     A                                      EDTCDE(4)
+     A                                      RANGE(1 31)
+     A                                      CHECK(AB)
+     A  43                                  DSPATR(PC)
+     A  43                                  DSPATR(RI)
+     A                                 16 28'/'
+     A                                      COLOR(BLU)
+     A            XMM            2Y 0B 16 30COLOR(BLU)
+     A                                      RANGE(1 12)
+     A                                      EDTCDE(4)
+     A  43                                  DSPATR(PC)
+     A  43                                  DSPATR(RI)
+     A                                      CHECK(AB)
+     A                                 16 33'/'
+     A                                      COLOR(BLU)
+     A            XYY            4Y 0B 16 35COLOR(BLU)
+     A                                      EDTCDE(4)
+     A                                      RANGE(0 9999)
+     A                                      CHECK(AB)
+     A  43                                  DSPATR(PC)
+     A  43                                  DSPATR(RI)
+     A            XDD1           2Y 0B 16 49COLOR(BLU)
+     A                                      RANGE(1 31)
+     A                                      CHECK(AB)
+     A                                      EDTCDE(4)
+     A  44                                  DSPATR(PC)
+     A  44                                  DSPATR(RI)
+     A                                 16 52'/'
+     A                                      COLOR(BLU)
+     A            XMM1           2Y 0B 16 54COLOR(BLU)
+     A                                      EDTCDE(4)
+     A                                      RANGE(1 12)
+     A                                      CHECK(AB)
+     A  44                                  DSPATR(PC)
+     A  44                                  DSPATR(RI)
+     A                                 16 57'/'
+     A                                      COLOR(BLU)
+     A            XYY1           4Y 0B 16 59COLOR(BLU)
+     A                                      EDTCDE(4)
+     A                                      RANGE(0 9999)
+     A                                      CHECK(AB)
+     A  44                                  DSPATR(PC)
+     A  44                                  DSPATR(RI)
+     A            XSUBC          5A  B 10 25COLOR(BLU)
+     A  35                                  DSPATR(PC)
+     A  35                                  DSPATR(RI)
+     A            XSUBC1         5A  B 10 49COLOR(BLU)
+     A  36                                  DSPATR(PC)
+     A  36                                  DSPATR(RI)
+     A            XSERC          3A  B 19 25COLOR(BLU)
+     A  49                                  DSPATR(PC)
+     A  49                                  DSPATR(RI)
+     A            XSERC1         3A  B 19 49COLOR(BLU)
+     A  50                                  DSPATR(PC)
+     A  50                                  DSPATR(RI)
+     A            XSERN          9Y 0B 14 25COLOR(BLU)
+     A  39                                  DSPATR(PC)
+     A  39                                  DSPATR(RI)
+     A                                      EDTCDE(4)
+     A            XSERN1         9Y 0B 14 49COLOR(BLU)
+     A  40                                  DSPATR(PC)
+     A  40                                  DSPATR(RI)
+     A                                      EDTCDE(4)
+     A            XELEM          3Y 0B 15 25COLOR(BLU)
+     A  41                                  DSPATR(PC)
+     A  41                                  DSPATR(RI)
+     A                                      EDTCDE(4)
+     A            XELEM1         3Y 0B 15 49COLOR(BLU)
+     A  42                                  DSPATR(PC)
+     A  42                                  DSPATR(RI)
+     A                                      EDTCDE(4)
+     A            XQTYN         15Y 0B 17 25COLOR(BLU)
+     A  45                                  DSPATR(PC)
+     A  45                                  DSPATR(RI)
+     A                                      EDTCDE(4)
+     A            XQTYN1        15Y 0B 17 49COLOR(BLU)
+     A  46                                  DSPATR(PC)
+     A  46                                  DSPATR(RI)
+     A                                      EDTCDE(4)
+     A            XREAS          5A  B 12 25COLOR(BLU)
+     A  37                                  DSPATR(PC)
+     A  37                                  DSPATR(RI)
+     A            XREAS1         5A  B 12 49COLOR(BLU)
+     A  38                                  DSPATR(PC)
+     A  38                                  DSPATR(RI)
+     A*****************************************************************
+     A          R MSGRCD                    TEXT('Program messages')
+     A                                      SFL SFLMSGRCD(24)
+     A            MSGKEY                    SFLMSGKEY
+     A            XPGMID                    SFLPGMQ
+     A*****************************************************************
+     A          R MSGCTL                    SFLCTL(MSGRCD)
+     A*%%TS  SD  19980328  123253  EDISUPP     REL-V3R1M0  5763-PW1
+     A                                      TEXT('Program messages')
+     A  79                                  SFLDSP
+     A  79                                  SFLDSPCTL
+     A  79                                  SFLINZ
+     A  79                                  SFLEND
+     A                                      SFLSIZ(0010)
+     A                                      SFLPAG(0001)
+     A            XPGMID                    SFLPGMQ

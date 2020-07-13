@@ -1,0 +1,6 @@
+                                            REF(SMPREF)
+                                            UNIQUE
+                R FFAMI
+                  FAMIID    R
+                  FAMIDE    R
+                K FAMIID

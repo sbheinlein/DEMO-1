@@ -1,0 +1,13 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLCOMPB                                    *
+      *                                                            *
+      *  Description:  Companies file by Companies Codes           *
+      *                                                            *
+      *  Date       :  January 1999                                *
+      *                                                            *
+      **************************************************************
+     A          R HSFCOMP                   PFILE(HSPCOMP)
+      *
+     A          K WCOMP
+     A          O WDELT                     VALUES('D')

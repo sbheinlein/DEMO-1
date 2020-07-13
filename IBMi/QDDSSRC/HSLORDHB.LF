@@ -1,0 +1,13 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLORDHB                                    *
+      *                                                            *
+      *  Description:  Sales Order Header by Invoice/Status Flag.  *
+      *                                                            *
+      *  Date       :  February 1999                               *
+      *                                                            *
+      **************************************************************
+     A          R HSFORDH                   PFILE(HSPORDH)
+      *
+     A          K JINVN
+     A          O JSTAT                     VALUES('J' ' ')

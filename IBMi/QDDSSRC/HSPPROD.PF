@@ -1,0 +1,33 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSPPROD                                     *
+      *                                                            *
+      *  Description:  Item Master                                 *
+      *                                                            *
+      *  Date       :  December 1998                               *
+      *                                                            *
+      **************************************************************
+     A                                      REF(*LIBL/HSPREF)
+     A          R HSFPROD
+      *  Description:  Product Master
+     A            NCOMP     R               REFFLD(COMP)
+     A            NPROD     R               REFFLD(PROD)
+     A            NSUBC     R               REFFLD(SUBC)
+     A            NDESC     R               REFFLD(DESC)
+     A            NANL1     R               REFFLD(ANL1)
+     A            NANL2     R               REFFLD(ANL1)
+     A            NANL3     R               REFFLD(ANL1)
+     A            NANL4     R               REFFLD(ANL1)
+     A            NANL5     R               REFFLD(ANL1)
+     A            NANL6     R               REFFLD(ANL1)
+     A            NANL7     R               REFFLD(ANL1)
+     A            NANL8     R               REFFLD(ANL1)
+     A            NANL9     R               REFFLD(ANL1)
+     A            NCOST     R               REFFLD(COST)
+     A            NPRIC     R               REFFLD(PRIC)
+     A            NBOOK     R               REFFLD(A1)
+     A                                      COLHDG('Booklet/Single')
+     A            NVATC     R               REFFLD(A1)
+     A                                      COLHDG('VAT Code/A,B,C')
+     A            NDELT     R               REFFLD(A1)
+     A                                      COLHDG('Deletion Flag')

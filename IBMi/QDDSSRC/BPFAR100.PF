@@ -1,0 +1,1864 @@
+     A                                      UNIQUE
+     A          R BPRAR1
+     A            ARECRA     00010A  B
+     A
+     A                                      TEXT('SCREEN LOCK')
+     A                                      COLHDG( +
+     A                                      'NOM ECRAN' +
+     A                                      )
+     A            ARSTTS     00001A  B
+     A
+     A                                      TEXT('STATUS RECORD 0 = INACTIVE')
+     A                                      COLHDG( +
+     A                                      'ST' +
+     A                                      )
+     A            ARCTLE     00001A  B
+     A
+     A                                      TEXT('1=YES 0=NO')
+     A                                      COLHDG( +
+     A                                      'CTL' +
+     A                                      'LE' +
+     A                                      )
+     A            ARCTLD     00001A  B
+     A
+     A                                      TEXT('1=OUI 0=NON')
+     A                                      COLHDG( +
+     A                                      'CTL' +
+     A                                      'LD' +
+     A                                      )
+     A            ARENTR     00005A  B
+     A
+     A                                      TEXT('WAREHOUSE NBR')
+     A                                      COLHDG( +
+     A                                      'ENTREPOT' +
+     A                                      )
+     A            ARNENT     00002A  B
+     A
+     A                                      TEXT('SECOND WAREHOUSE NUMBER')
+     A                                      COLHDG( +
+     A                                      'NO' +
+     A                                      'ENT' +
+     A                                      'SEC' +
+     A                                      )
+     A            ARRAC      00006A  B
+     A
+     A                                      TEXT('ART COMMAND: ROOT')
+     A                                      COLHDG( +
+     A                                      'RACINE' +
+     A                                      )
+     A            ARCCC      00001A  B
+     A
+     A                                      TEXT('ART COMMAND: CONDT CMD M')
+     A                                      COLHDG( +
+     A                                      'COND' +
+     A                                      'CMDE' +
+     A                                      'MAG' +
+     A                                      )
+     A            ARVPV      00002A  B
+     A
+     A                                      TEXT('ART COMMAND: LOT SALE')
+     A                                      COLHDG( +
+     A                                      'LOT' +
+     A                                      'PROMO' +
+     A                                      )
+     A            ARMOD      00001A  B
+     A
+     A                                      TEXT('MODULE')
+     A                                      COLHDG( +
+     A                                      'MOD' +
+     A                                      )
+     A            ARAPP      00003A  B
+     A
+     A                                      TEXT('SUPPLIER CODE')
+     A                                      COLHDG( +
+     A                                      'APP' +
+     A                                      )
+     A            ARACH      00003A  B
+     A
+     A                                      TEXT('BUYER CODE')
+     A                                      COLHDG( +
+     A                                      'ACHETEUR' +
+     A                                      )
+     A            ARCNUL     00006A  B
+     A
+     A                                      TEXT('CNUF DELIVERER')
+     A                                      COLHDG( +
+     A                                      'CNUL' +
+     A                                      )
+     A            ARCIF      00003A  B
+     A
+     A                                      TEXT('INTERNAL SUPPLIER CODE')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      )
+     A            ARNSL      00012A  B
+     A
+     A                                      TEXT('SIMPLIFIED DEL CODE')
+     A                                      COLHDG( +
+     A                                      'NSL' +
+     A                                      )
+     A            ARCNUF     00006A  B
+     A
+     A                                      TEXT('GENCOD: CNUF MANUFACT.')
+     A                                      COLHDG( +
+     A                                      'CNUF' +
+     A                                      )
+     A            ARCIP      00006A  B
+     A
+     A                                      TEXT('GENCOD: INTERNAL PROD. CODE')
+     A                                      COLHDG( +
+     A                                      'CIP' +
+     A                                      )
+     A            ARVA       00002A  B
+     A
+     A                                      TEXT('GENCOD: SALE VARIANT')
+     A                                      COLHDG( +
+     A                                      'VA' +
+     A                                      )
+     A            ARPCB      00004S00B
+     A                                      TEXT('GENCOD: CONDITIONING FO')
+     A                                      COLHDG( +
+     A                                      'PCB' +
+     A                                      )
+     A            ARSPCB     00004S00B
+     A                                      TEXT('SUB-CONDITIONING SUPPLIER')
+     A                                      COLHDG( +
+     A                                      'SPCB' +
+     A                                      )
+     A            ARVL       00002A  B
+     A
+     A                                      TEXT('VARIANT LOGISTICS')
+     A                                      COLHDG( +
+     A                                      'VL' +
+     A                                      )
+     A            ARCDLE     00004S00B
+     A                                      TEXT('CONDITIONING DELIVERY')
+     A                                      COLHDG( +
+     A                                      'CDLE' +
+     A                                      )
+     A            ARUCS      00004S00B
+     A                                      TEXT('BRANCH COMMAND PROCESSING')
+     A                                      COLHDG( +
+     A                                      'UCS' +
+     A                                      )
+     A            ARQTLO     00004S00B
+     A                                      TEXT('QUANTITY BY BATCH')
+     A                                      COLHDG( +
+     A                                      'QTLO' +
+     A                                      )
+     A            ARLOVT     00004S00B
+     A                                      TEXT('BATCH SOLD INDIVIDUALLY')
+     A                                      COLHDG( +
+     A                                      'DETAIL' +
+     A                                      'LOT' +
+     A                                      )
+     A            ARNSF      00012A  B
+     A
+     A                                      TEXT('MANUFACTURER SHORT NAME')
+     A                                      COLHDG( +
+     A                                      'NSF' +
+     A                                      )
+     A            ARDES      00030A  B
+     A
+     A                                      TEXT('DESIGNATION')
+     A                                      COLHDG( +
+     A                                      'DES' +
+     A                                      )
+     A            ARDESC     00030A  B
+     A
+     A                                      TEXT('ADDITIONAL DESIGNATION')
+     A                                      COLHDG( +
+     A                                      'DESIGNATION COMPLEM.' +
+     A                                      )
+     A            ARLCAI     00012A  B
+     A
+     A                                      TEXT('CRATE LABEL')
+     A                                      COLHDG( +
+     A                                      'LCAI' +
+     A                                      )
+     A            ARSYMB     00002A  B
+     A
+     A                                      TEXT('CODE SYMBOLIC')
+     A                                      COLHDG( +
+     A                                      'SYMB' +
+     A                                      )
+     A            AREAN      00012A  B
+     A
+     A                                      TEXT('E.A.N.')
+     A                                      COLHDG( +
+     A                                      'EAN' +
+     A                                      )
+     A            ARKEAN     00001A  B
+     A
+     A                                      TEXT('EAN KEY')
+     A                                      COLHDG( +
+     A                                      'KEAN' +
+     A                                      )
+     A            ARPLU      00004A  B
+     A
+     A                                      TEXT('PLU')
+     A                                      COLHDG( +
+     A                                      'PLU' +
+     A                                      )
+     A            ARDEP      00002A  B
+     A
+     A                                      TEXT('DEPARTMENT')
+     A                                      COLHDG( +
+     A                                      'DEP' +
+     A                                      )
+     A            ARRAY      00002A  B
+     A
+     A                                      TEXT('SECTION')
+     A                                      COLHDG( +
+     A                                      'RAY' +
+     A                                      )
+     A            ARSEC      00002A  B
+     A
+     A                                      TEXT('SECTOR')
+     A                                      COLHDG( +
+     A                                      'SECT' +
+     A                                      )
+     A            ARFAM      00003A  B
+     A
+     A                                      TEXT('FAMILY')
+     A                                      COLHDG( +
+     A                                      'FAM' +
+     A                                      )
+     A            ARSFA      00003A  B
+     A
+     A                                      TEXT('SUB FAMILY')
+     A                                      COLHDG( +
+     A                                      'SFA' +
+     A                                      )
+     A            ARCAT      00002A  B
+     A
+     A                                      TEXT('CATEGORY')
+     A                                      COLHDG( +
+     A                                      'CAT' +
+     A                                      )
+     A            AREMMV     00002A  B
+     A
+     A                                      TEXT('GLASS PACKAGING')
+     A                                      COLHDG( +
+     A                                      'EMBV' +
+     A                                      )
+     A            AREMMC     00002A  B
+     A
+     A                                      TEXT('CRATE PACKAGING')
+     A                                      COLHDG( +
+     A                                      'EMBC' +
+     A                                      )
+     A            AREMMT     00002A  B
+     A
+     A                                      TEXT('WHOLE PACKAGING')
+     A                                      COLHDG( +
+     A                                      'EMBT' +
+     A                                      )
+     A            AREMSV     00002A  B
+     A
+     A                                      TEXT('BRANCH GLASS PACKAGING')
+     A                                      COLHDG( +
+     A                                      'EMBALLAGES' +
+     A                                      'VERRES' +
+     A                                      'SLE' +
+     A                                      )
+     A            AREMSC     00002A  B
+     A
+     A                                      TEXT('BRANCH CRATE PACKAGING')
+     A                                      COLHDG( +
+     A                                      'EMBALLAGES' +
+     A                                      'CASIERS' +
+     A                                      'SLE' +
+     A                                      )
+     A            AREMST     00002A  B
+     A
+     A                                      TEXT('BRANCH WHOLE PACKAGING')
+     A                                      COLHDG( +
+     A                                      'EMBALLAGES' +
+     A                                      'TROUS' +
+     A                                      'SLE' +
+     A                                      )
+     A            ARKL       00002A  B
+     A
+     A                                      TEXT('PRICE PER KG OR LITER')
+     A                                      COLHDG( +
+     A                                      'KL' +
+     A                                      )
+     A            ARCKL      00007P04B
+     A                                      TEXT('COEFFICIENT KILO LITER')
+     A                                      COLHDG( +
+     A                                      'CKL' +
+     A                                      )
+     A            ARRGCD     00002A  B
+     A
+     A                                      TEXT('CODE BOARD')
+     A                                      COLHDG( +
+     A                                      'RGCD' +
+     A                                      )
+     A            ARRGVO     00005P02B
+     A                                      TEXT('CONTENANCE')
+     A                                      COLHDG( +
+     A                                      'RGVO' +
+     A                                      )
+     A            ARRGDG     00005P02B
+     A                                      TEXT('DEGREE')
+     A                                      COLHDG( +
+     A                                      'RGDG' +
+     A                                      )
+     A            ARRGDR     00007P03B
+     A                                      TEXT('BOARD AUTHORITY')
+     A                                      COLHDG( +
+     A                                      'DROITS' +
+     A                                      'REGIE' +
+     A                                      )
+     A            ARRGVI     00007P03B
+     A                                      TEXT('LABEL')
+     A                                      COLHDG( +
+     A                                      'VIGNETTE' +
+     A                                      )
+     A            ARTVA      00002A  B
+     A
+     A                                      TEXT('TAX CODE')
+     A                                      COLHDG( +
+     A                                      'TVA' +
+     A                                      )
+     A            ARTAXP     00009P03B
+     A                                      TEXT('TAX PARAFISCAL')
+     A                                      COLHDG( +
+     A                                      'TAXE' +
+     A                                      'PARAFISCALE' +
+     A                                      )
+     A            ARCTXP     00001A  B
+     A
+     A                                      TEXT('TAX CODE: SPACE=%, 1=FRAN')
+     A                                      COLHDG( +
+     A                                      'CODE' +
+     A                                      'TAXE' +
+     A                                      'PARA' +
+     A                                      )
+     A            ARTAX1     00009P03B
+     A                                      TEXT('TAXE')
+     A                                      COLHDG( +
+     A                                      'TAX' +
+     A                                      )
+     A            ARCTX1     00001A  B
+     A
+     A                                      TEXT('CODE TAXE: SPACE=%, 1=FRAN')
+     A                                      COLHDG( +
+     A                                      'CTX' +
+     A                                      )
+     A            ARTAX2     00009P03B
+     A                                      TEXT('TAX')
+     A                                      COLHDG( +
+     A                                      'TAX' +
+     A                                      )
+     A            ARCTX2     00001A  B
+     A
+     A                                      TEXT('TAX CODE: SPACE=%, 1=FRAN')
+     A                                      COLHDG( +
+     A                                      'CTX' +
+     A                                      )
+     A            ARTAX3     00009P03B
+     A                                      TEXT('TAX')
+     A                                      COLHDG( +
+     A                                      'TAX' +
+     A                                      )
+     A            ARCTX3     00001A  B
+     A
+     A                                      TEXT('TAX CODE: SPACE=%, 1=FRAN')
+     A                                      COLHDG( +
+     A                                      'CTX' +
+     A                                      )
+     A            ARFRIT     00007P02B
+     A                                      TEXT('FREINTE')
+     A                                      COLHDG( +
+     A                                      'FRIT' +
+     A                                      )
+     A            ARCFRI     00001A  B
+     A
+     A                                      TEXT('FREINTE: SPACE=%, 1=FRANCS')
+     A                                      COLHDG( +
+     A                                      'CFRI' +
+     A                                      )
+     A            ARTYTP     00001A  B
+     A
+     A                                      TEXT('0=PAS DE TPL 1=TPL/SECT 2=')
+     A                                      COLHDG( +
+     A                                      'TYPE' +
+     A                                      'TPL' +
+     A                                      )
+     A            ARTPL      00007P03B
+     A                                      TEXT('T.P.L')
+     A                                      COLHDG( +
+     A                                      'TPL' +
+     A                                      )
+     A            ARCTPL     00001A  B
+     A
+     A                                      TEXT('TPL: SPACE=%, 1=FRANCS')
+     A                                      COLHDG( +
+     A                                      'CTPL' +
+     A                                      )
+     A            ARCCAD     00001A  B
+     A
+     A                                      TEXT('EDIT CADENCIER: 0=NON 1=OU')
+     A                                      COLHDG( +
+     A                                      'CCAD' +
+     A                                      )
+     A            ARETT1     00002A  B
+     A
+     A                                      TEXT('TYPE ETIQ')
+     A                                      COLHDG( +
+     A                                      'ETQT' +
+     A                                      )
+     A            ARETN1     00003P00B
+     A                                      TEXT('NB ETIQ')
+     A                                      COLHDG( +
+     A                                      'ETQN' +
+     A                                      )
+     A            ARETT2     00002A  B
+     A
+     A                                      TEXT('TYPE ETIQ SUCCURSALE')
+     A                                      COLHDG( +
+     A                                      'ETQT' +
+     A                                      )
+     A            ARETN2     00003P00B
+     A                                      TEXT('NB ETIQ SUCCURSALE')
+     A                                      COLHDG( +
+     A                                      'ETQN' +
+     A                                      )
+     A            ARASS      00002A  B
+     A
+     A                                      TEXT('ASSORTIMENT')
+     A                                      COLHDG( +
+     A                                      'ASS' +
+     A                                      )
+     A            ARTYAR     00002A  B
+     A
+     A                                      TEXT('TYPE ARTICLE')
+     A                                      COLHDG( +
+     A                                      'TYAR' +
+     A                                      )
+     A            ARLCON     00002A  B
+     A
+     A                                      TEXT('LISTE CONCURENCE')
+     A                                      COLHDG( +
+     A                                      'LCON' +
+     A                                      )
+     A            ARCLOP     00002A  B
+     A
+     A                                      TEXT('CODE RELEVE PRIX')
+     A                                      COLHDG( +
+     A                                      'CODE' +
+     A                                      'RELEVE' +
+     A                                      'PRIX' +
+     A                                      )
+     A            ARTSER     00002A  B
+     A
+     A                                      TEXT('TAUX DE SERVICE')
+     A                                      COLHDG( +
+     A                                      'TSER' +
+     A                                      )
+     A            ARSORT     00001A  B
+     A
+     A                                      TEXT('CTRL SORTIES ARTICLES: 0=N')
+     A                                      COLHDG( +
+     A                                      'CTRL' +
+     A                                      'SORTIES' +
+     A                                      'ARTICLES' +
+     A                                      )
+     A            ARTFAC     00001A  B
+     A
+     A                                      TEXT('FACTURABLE : 0=NON 1=OUI')
+     A                                      COLHDG( +
+     A                                      'FACTURABLE ?' +
+     A                                      )
+     A            ARCTBR     00001A  B
+     A
+     A                                      TEXT('CONTROLE BR : 0=NON 1=OUI')
+     A                                      COLHDG( +
+     A                                      'CTRL' +
+     A                                      'BR' +
+     A                                      )
+     A            ARLIVQ     00001A  B
+     A
+     A                                      TEXT('LIVRE QUI?')
+     A                                      COLHDG( +
+     A                                      'LIVRE' +
+     A                                      'QUI?' +
+     A                                      )
+     A            ARPROM     00001A  B
+     A
+     A                                      TEXT('PROMO: 0=NON 1=OUI')
+     A                                      COLHDG( +
+     A                                      'PROMO ?' +
+     A                                      )
+     A            ARPVBL     00001A  B
+     A
+     A                                      TEXT('PV BLOQUE: 0=NON 1=OUI')
+     A                                      COLHDG( +
+     A                                      'PVBL' +
+     A                                      )
+     A            ARMARQ     00002A  B
+     A
+     A                                      TEXT('MARQUE')
+     A                                      COLHDG( +
+     A                                      'MARQ' +
+     A                                      )
+     A            ARPVM      00001A  B
+     A
+     A                                      TEXT('PV MARQUE: 0=NON 1=OUI')
+     A                                      COLHDG( +
+     A                                      'PVM' +
+     A                                      )
+     A            ARCEE      00002A  B
+     A
+     A                                      TEXT('ORIGINE')
+     A                                      COLHDG( +
+     A                                      'CEE' +
+     A                                      )
+     A            ARCLST     00001A  B
+     A
+     A                                      TEXT('COLIS STD FRAIS: 0=NON 1=O')
+     A                                      COLHDG( +
+     A                                      'CLST' +
+     A                                      )
+     A            ARPUCS     00009P04B
+     A                                      TEXT('FRAIS: POIDS COLIS STD  UC')
+     A                                      COLHDG( +
+     A                                      'POIDS' +
+     A                                      'COLIS' +
+     A                                      'UCS' +
+     A                                      )
+     A            ARPSPC     00009P04B
+     A                                      TEXT('FRAIS: POIDS COLIS STD  SP')
+     A                                      COLHDG( +
+     A                                      'POIDS' +
+     A                                      'COLIS' +
+     A                                      'SPCB' +
+     A                                      )
+     A            ARPPCB     00009P04B
+     A                                      TEXT('FRAIS: POIDS COLIS STD  PC')
+     A                                      COLHDG( +
+     A                                      'POIDS' +
+     A                                      'COLIS' +
+     A                                      'PCB' +
+     A                                      )
+     A            ARFACT     00001A  B
+     A
+     A                                      TEXT('UNITE FACT FRAIS')
+     A                                      COLHDG( +
+     A                                      'FACT' +
+     A                                      )
+     A            ARGART     00005A  B
+     A
+     A                                      TEXT('GROUPE ARTICLE FRAIS')
+     A                                      COLHDG( +
+     A                                      'GART' +
+     A                                      )
+     A            ARUC       00002A  B
+     A
+     A                                      TEXT('UNITE CESSION FRAIS')
+     A                                      COLHDG( +
+     A                                      'UC' +
+     A                                      )
+     A            ARPVON     00001A  B
+     A
+     A                                      TEXT('PV FRAIS: 0=NON 1=OUI')
+     A                                      COLHDG( +
+     A                                      'P.V.' +
+     A                                      'OUI/NON' +
+     A                                      )
+     A            ARTOP1     00002A  B
+     A
+     A                                      TEXT('TOP')
+     A                                      COLHDG( +
+     A                                      'TOP' +
+     A                                      )
+     A            ARTOP2     00002A  B
+     A
+     A                                      TEXT('TOP')
+     A                                      COLHDG( +
+     A                                      'TOP' +
+     A                                      )
+     A            ARTOP3     00002A  B
+     A
+     A                                      TEXT('TOP')
+     A                                      COLHDG( +
+     A                                      'TOP' +
+     A                                      )
+     A            ARTOP4     00002A  B
+     A
+     A                                      TEXT('TOP')
+     A                                      COLHDG( +
+     A                                      'TOP' +
+     A                                      )
+     A            ARTOP5     00002A  B
+     A
+     A                                      TEXT('TOP')
+     A                                      COLHDG( +
+     A                                      'TOP' +
+     A                                      )
+     A            ARTOP6     00002A  B
+     A
+     A                                      TEXT('TOP')
+     A                                      COLHDG( +
+     A                                      'TOP' +
+     A                                      )
+     A            ARAAC      00002A  B
+     A
+     A                                      TEXT('ANNEE CREATION')
+     A                                      COLHDG( +
+     A                                      'AAC' +
+     A                                      )
+     A            ARMMC      00002A  B
+     A
+     A                                      TEXT('MOIS CREATION')
+     A                                      COLHDG( +
+     A                                      'MMC' +
+     A                                      )
+     A            ARJJC      00002A  B
+     A
+     A                                      TEXT('JOUR CREATION')
+     A                                      COLHDG( +
+     A                                      'JJC' +
+     A                                      )
+     A            ARAAM      00002A  B
+     A
+     A                                      TEXT('ANNEE MODIF')
+     A                                      COLHDG( +
+     A                                      'ANNEE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            ARMMM      00002A  B
+     A
+     A                                      TEXT('MOIS MODIF')
+     A                                      COLHDG( +
+     A                                      'MOIS' +
+     A                                      'MODIF' +
+     A                                      )
+     A            ARJJM      00002A  B
+     A
+     A                                      TEXT('JOUR MODIF')
+     A                                      COLHDG( +
+     A                                      'JOUR' +
+     A                                      'MODIF' +
+     A                                      )
+     A            ARHHM      00002A  B
+     A
+     A                                      TEXT('HEURE MODIF')
+     A                                      COLHDG( +
+     A                                      'HEURE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            ARMNM      00002A  B
+     A
+     A                                      TEXT('MINUTE MODIF')
+     A                                      COLHDG( +
+     A                                      'MINUTE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            ARSSM      00002A  B
+     A
+     A                                      TEXT('SECONDE MODIF')
+     A                                      COLHDG( +
+     A                                      'SECONDE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            ARAAS      00002A  B
+     A
+     A                                      TEXT('ANNEE SUPPRESS')
+     A                                      COLHDG( +
+     A                                      'AAS' +
+     A                                      )
+     A            ARMMS      00002A  B
+     A
+     A                                      TEXT('MOIS SUPPRESS')
+     A                                      COLHDG( +
+     A                                      'MMS' +
+     A                                      )
+     A            ARJJS      00002A  B
+     A
+     A                                      TEXT('JOUR SUPPRESS')
+     A                                      COLHDG( +
+     A                                      'JJS' +
+     A                                      )
+     A            ARCCHB     00001A  B
+     A
+     A                                      TEXT('1=OUI 0=NON CREAT.IMMED B')
+     A                                      COLHDG( +
+     A                                      '1=LE 2=LD' +
+     A                                      )
+     A            ARHYCH     00001A  B
+     A
+     A                                      TEXT('1=OUI 0=NON HYPER CHAINAGE')
+     A                                      COLHDG( +
+     A                                      '1=LE 2=LD' +
+     A                                      )
+     A            AREDCH     00001A  B
+     A
+     A                                      TEXT('1=OUI 0=NON EDITION CHAINA')
+     A                                      COLHDG( +
+     A                                      '1=LE 2=LD' +
+     A                                      )
+     A            ARXR       00006A  B
+     A
+     A                                      TEXT('SLIM BASE: RACINE')
+     A                                      COLHDG( +
+     A                                      'RAC' +
+     A                                      'BASE' +
+     A                                      )
+     A            ARXC       00001A  B
+     A
+     A                                      TEXT('SLIM BASE: CCC')
+     A                                      COLHDG( +
+     A                                      'CCC' +
+     A                                      'BASE' +
+     A                                      )
+     A            ARXV       00002A  B
+     A
+     A                                      TEXT('SLIM BASE: VPV')
+     A                                      COLHDG( +
+     A                                      'VPV' +
+     A                                      'BASE' +
+     A                                      )
+     A            ARXM       00001A  B
+     A
+     A                                      TEXT('SLIM BASE: MODULO')
+     A                                      COLHDG( +
+     A                                      'MOD' +
+     A                                      'BASE' +
+     A                                      )
+     A            ARXAR      00006A  B
+     A
+     A                                      TEXT('CHAINAGE A: RACINE')
+     A                                      COLHDG( +
+     A                                      'RAC A' +
+     A                                      'EN COURS' +
+     A                                      )
+     A            ARXAC      00001A  B
+     A
+     A                                      TEXT('CHAINAGE A: CCC')
+     A                                      COLHDG( +
+     A                                      'CCC A' +
+     A                                      'EN COURS' +
+     A                                      )
+     A            ARXAV      00002A  B
+     A
+     A                                      TEXT('CHAINAGE A: VPV')
+     A                                      COLHDG( +
+     A                                      'VPV A' +
+     A                                      'EN COURS' +
+     A                                      )
+     A            ARXAM      00001A  B
+     A
+     A                                      TEXT('CHAINAGE A: MODULO')
+     A                                      COLHDG( +
+     A                                      'MOD A' +
+     A                                      'EN COURS' +
+     A                                      )
+     A            ARXADA     00002A  B
+     A
+     A                                      TEXT('CHAINAGE A: AA DEBUT CHAIN')
+     A                                      COLHDG( +
+     A                                      'AA' +
+     A                                      'DEB' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXADM     00002A  B
+     A
+     A                                      TEXT('CHAINAGE A: MM DEBUT CHAIN')
+     A                                      COLHDG( +
+     A                                      'MM' +
+     A                                      'DEB' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXADJ     00002A  B
+     A
+     A                                      TEXT('CHAINAGE A: JJ DEBUT CHAIN')
+     A                                      COLHDG( +
+     A                                      'JJ' +
+     A                                      'DEB' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXAFA     00002A  B
+     A
+     A                                      TEXT('CHAINAGE A: AA FIN CHAINAG')
+     A                                      COLHDG( +
+     A                                      'AA' +
+     A                                      'FIN' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXAFM     00002A  B
+     A
+     A                                      TEXT('CHAINAGE A: MM FIN CHAINAG')
+     A                                      COLHDG( +
+     A                                      'MM' +
+     A                                      'FIN' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXAFJ     00002A  B
+     A
+     A                                      TEXT('CHAINAGE A: JJ FIN CHAINAG')
+     A                                      COLHDG( +
+     A                                      'JJ' +
+     A                                      'FIN' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXBR      00006A  B
+     A
+     A                                      TEXT('CHAINAGE B: RACINE')
+     A                                      COLHDG( +
+     A                                      'RAC B' +
+     A                                      'EN COURS' +
+     A                                      )
+     A            ARXBC      00001A  B
+     A
+     A                                      TEXT('CHAINAGE B: CCC')
+     A                                      COLHDG( +
+     A                                      'CCC B' +
+     A                                      'EN COURS' +
+     A                                      )
+     A            ARXBV      00002A  B
+     A
+     A                                      TEXT('CHAINAGE B: VPV')
+     A                                      COLHDG( +
+     A                                      'VPV B' +
+     A                                      'EN COURS' +
+     A                                      )
+     A            ARXBM      00001A  B
+     A
+     A                                      TEXT('CHAINAGE B: MODULO')
+     A                                      COLHDG( +
+     A                                      'MOD B' +
+     A                                      'EN COURS' +
+     A                                      )
+     A            ARXBDA     00002A  B
+     A
+     A                                      TEXT('CHAINAGE B: AA DEBUT CHAIN')
+     A                                      COLHDG( +
+     A                                      'AA' +
+     A                                      'DEB' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXBDM     00002A  B
+     A
+     A                                      TEXT('CHAINAGE B: MM DEBUT CHAIN')
+     A                                      COLHDG( +
+     A                                      'MM' +
+     A                                      'DEB' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXBDJ     00002A  B
+     A
+     A                                      TEXT('CHAINAGE B: JJ DEBUT CHAIN')
+     A                                      COLHDG( +
+     A                                      'JJ' +
+     A                                      'DEB' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXBFA     00002A  B
+     A
+     A                                      TEXT('CHAINAGE B: AA FIN CHAINAG')
+     A                                      COLHDG( +
+     A                                      'AA' +
+     A                                      'FIN' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXBFM     00002A  B
+     A
+     A                                      TEXT('CHAINAGE B: MM FIN CHAINAG')
+     A                                      COLHDG( +
+     A                                      'MM' +
+     A                                      'FIN' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXBFJ     00002A  B
+     A
+     A                                      TEXT('CHAINAGE B: JJ FIN CHAINAG')
+     A                                      COLHDG( +
+     A                                      'JJ' +
+     A                                      'FIN' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXCR      00006A  B
+     A
+     A                                      TEXT('CHAINAGE C: RACINE')
+     A                                      COLHDG( +
+     A                                      'RAC C' +
+     A                                      'FUTUR' +
+     A                                      )
+     A            ARXCC      00001A  B
+     A
+     A                                      TEXT('CHAINAGE C: CCC')
+     A                                      COLHDG( +
+     A                                      'CCC C' +
+     A                                      'FUTUR' +
+     A                                      )
+     A            ARXCV      00002A  B
+     A
+     A                                      TEXT('CHAINAGE C: VPV')
+     A                                      COLHDG( +
+     A                                      'VPV C' +
+     A                                      'FUTUR' +
+     A                                      )
+     A            ARXCM      00001A  B
+     A
+     A                                      TEXT('CHAINAGE C: MODULO')
+     A                                      COLHDG( +
+     A                                      'MOD C' +
+     A                                      'FUTUR' +
+     A                                      )
+     A            ARXCDA     00002A  B
+     A
+     A                                      TEXT('CHAINAGE C: AA DEBUT CHAIN')
+     A                                      COLHDG( +
+     A                                      'AA' +
+     A                                      'DEB' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXCDM     00002A  B
+     A
+     A                                      TEXT('CHAINAGE C: MM DEBUT CHAIN')
+     A                                      COLHDG( +
+     A                                      'MM' +
+     A                                      'DEB' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXCDJ     00002A  B
+     A
+     A                                      TEXT('CHAINAGE C: JJ DEBUT CHAIN')
+     A                                      COLHDG( +
+     A                                      'JJ' +
+     A                                      'DEB' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXCFA     00002A  B
+     A
+     A                                      TEXT('CHAINAGE C: AA FIN CHAINAG')
+     A                                      COLHDG( +
+     A                                      'AA' +
+     A                                      'FIN' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXCFM     00002A  B
+     A
+     A                                      TEXT('CHAINAGE C: MM FIN CHAINAG')
+     A                                      COLHDG( +
+     A                                      'MM' +
+     A                                      'FIN' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXCFJ     00002A  B
+     A
+     A                                      TEXT('CHAINAGE C: JJ FIN CHAINAG')
+     A                                      COLHDG( +
+     A                                      'JJ' +
+     A                                      'FIN' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXDR      00006A  B
+     A
+     A                                      TEXT('CHAINAGE D: RACINE')
+     A                                      COLHDG( +
+     A                                      'RAC D' +
+     A                                      'FUTUR' +
+     A                                      )
+     A            ARXDC      00001A  B
+     A
+     A                                      TEXT('CHAINAGE D: CCC')
+     A                                      COLHDG( +
+     A                                      'CCC D' +
+     A                                      'FUTUR' +
+     A                                      )
+     A            ARXDV      00002A  B
+     A
+     A                                      TEXT('CHAINAGE D: VPV')
+     A                                      COLHDG( +
+     A                                      'VPV D' +
+     A                                      'FUTUR' +
+     A                                      )
+     A            ARXDM      00001A  B
+     A
+     A                                      TEXT('CHAINAGE D: MODULO')
+     A                                      COLHDG( +
+     A                                      'MOD D' +
+     A                                      'FUTUR' +
+     A                                      )
+     A            ARXDDA     00002A  B
+     A
+     A                                      TEXT('CHAINAGE D: AA DEBUT CHAIN')
+     A                                      COLHDG( +
+     A                                      'AA' +
+     A                                      'DEB' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXDDM     00002A  B
+     A
+     A                                      TEXT('CHAINAGE D: MM DEBUT CHAIN')
+     A                                      COLHDG( +
+     A                                      'MM' +
+     A                                      'DEB' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXDDJ     00002A  B
+     A
+     A                                      TEXT('CHAINAGE D: JJ DEBUT CHAIN')
+     A                                      COLHDG( +
+     A                                      'JJ' +
+     A                                      'DEB' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXDFA     00002A  B
+     A
+     A                                      TEXT('CHAINAGE D: AA FIN CHAINAG')
+     A                                      COLHDG( +
+     A                                      'AA' +
+     A                                      'FIN' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXDFM     00002A  B
+     A
+     A                                      TEXT('CHAINAGE D: MM FIN CHAINAG')
+     A                                      COLHDG( +
+     A                                      'MM' +
+     A                                      'FIN' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXDFJ     00002A  B
+     A
+     A                                      TEXT('CHAINAGE D: JJ FIN CHAINAG')
+     A                                      COLHDG( +
+     A                                      'JJ' +
+     A                                      'FIN' +
+     A                                      'CHAIN' +
+     A                                      )
+     A            ARXETQ     00001A  B
+     A
+     A                                      TEXT('ETIQUETTE REMPLACEMENT ?')
+     A                                      COLHDG( +
+     A                                      'ETIQUETTE REMPL ?' +
+     A                                      )
+     A            ARMESS     00030A  B
+     A
+     A                                      TEXT('MESSAGE POUR MAGASIN')
+     A                                      COLHDG( +
+     A                                      'MESSAGE' +
+     A                                      'POUR' +
+     A                                      'MAGASIN' +
+     A                                      )
+     A            ARMDA      00002A  B
+     A
+     A                                      TEXT('AA DEB MESSG')
+     A                                      COLHDG( +
+     A                                      'AA' +
+     A                                      'DEB' +
+     A                                      'MESSG' +
+     A                                      )
+     A            ARMDM      00002A  B
+     A
+     A                                      TEXT('MM DEB MESSG')
+     A                                      COLHDG( +
+     A                                      'MM' +
+     A                                      'DEB' +
+     A                                      'MESSG' +
+     A                                      )
+     A            ARMDJ      00002A  B
+     A
+     A                                      TEXT('JJ DEB MESSG')
+     A                                      COLHDG( +
+     A                                      'JJ' +
+     A                                      'DEB' +
+     A                                      'MESSG' +
+     A                                      )
+     A            ARMFA      00002A  B
+     A
+     A                                      TEXT('AA FIN MESSG')
+     A                                      COLHDG( +
+     A                                      'AA' +
+     A                                      'FIN' +
+     A                                      'MESSG' +
+     A                                      )
+     A            ARMFM      00002A  B
+     A
+     A                                      TEXT('MM FIN MESSG')
+     A                                      COLHDG( +
+     A                                      'MM' +
+     A                                      'FIN' +
+     A                                      'MESSG' +
+     A                                      )
+     A            ARMFJ      00002A  B
+     A
+     A                                      TEXT('JJ FIN MESSG')
+     A                                      COLHDG( +
+     A                                      'JJ' +
+     A                                      'FIN' +
+     A                                      'MESSG' +
+     A                                      )
+     A            ARBLQI     00001A  B
+     A
+     A                                      TEXT('1=OUI 0=NON')
+     A                                      COLHDG( +
+     A                                      'BLOQUAGE' +
+     A                                      'INFO' +
+     A                                      )
+     A            ARHYAA     00002A  B
+     A
+     A                                      TEXT('AA DEPART MAJ EN HYPER')
+     A                                      COLHDG( +
+     A                                      'AA' +
+     A                                      'HYPER' +
+     A                                      )
+     A            ARHYMM     00002A  B
+     A
+     A                                      TEXT('MM DEPART MAJ EN HYPER')
+     A                                      COLHDG( +
+     A                                      'MM' +
+     A                                      'HYPER' +
+     A                                      )
+     A            ARHYJJ     00002A  B
+     A
+     A                                      TEXT('JJ DEPART MAJ EN HYPER')
+     A                                      COLHDG( +
+     A                                      'JJ' +
+     A                                      'HYPER' +
+     A                                      )
+     A            ARETAA     00002A  B
+     A
+     A                                      TEXT('AA DEBUT EDITION ETIQUETTE')
+     A                                      COLHDG( +
+     A                                      'AA' +
+     A                                      'ETIQ' +
+     A                                      )
+     A            ARETMM     00002A  B
+     A
+     A                                      TEXT('MM DEBUT EDITION ETIQUETTE')
+     A                                      COLHDG( +
+     A                                      'MM' +
+     A                                      'ETIQ' +
+     A                                      )
+     A            ARETJJ     00002A  B
+     A
+     A                                      TEXT('JJ DEBUT EDITION ETIQUETTE')
+     A                                      COLHDG( +
+     A                                      'JJ' +
+     A                                      'ETIQ' +
+     A                                      )
+     A            ARQMIN     00009P03B
+     A                                      TEXT('QTE MINIMUM CMDE CHEZ LE F')
+     A                                      COLHDG( +
+     A                                      'QMIN' +
+     A                                      )
+     A            ARNBPT     00007P03B
+     A                                      TEXT('NOMBRE POINTS')
+     A                                      COLHDG( +
+     A                                      'NOMBRE' +
+     A                                      'POINTS' +
+     A                                      )
+     A            ARNTPT     00002A  B
+     A
+     A                                      TEXT('NATURE POINTS')
+     A                                      COLHDG( +
+     A                                      'NATURE' +
+     A                                      'POINTS' +
+     A                                      )
+     A            ARETQC     00007P03B
+     A                                      TEXT('COUT ETIQ FOURN')
+     A                                      COLHDG( +
+     A                                      'COUT' +
+     A                                      'ETIQ' +
+     A                                      'FOURN' +
+     A                                      )
+     A            ARCETQ     00001A  B
+     A
+     A                                      TEXT('COUT ETIQ: SPACE=%, 1=FRAN')
+     A                                      COLHDG( +
+     A                                      'CETQ' +
+     A                                      )
+     A            ARACCE     00007P03B
+     A                                      TEXT('REVENUS ACCESSOIRES')
+     A                                      COLHDG( +
+     A                                      'ACCE' +
+     A                                      )
+     A            ARCACC     00001A  B
+     A
+     A                                      TEXT('REVENU ACC: SPACE=%, 1=FRA')
+     A                                      COLHDG( +
+     A                                      'CACC' +
+     A                                      )
+     A            ARPAI      00007P03B
+     A                                      TEXT('CONDITION PAIEMENT')
+     A                                      COLHDG( +
+     A                                      'CONDITION' +
+     A                                      'PAIEMENT' +
+     A                                      )
+     A            ARCPAI     00001A  B
+     A
+     A                                      TEXT('COND PAIEM: SPACE=%, 1=FRA')
+     A                                      COLHDG( +
+     A                                      'CREM' +
+     A                                      )
+     A            ARECC      00003P00B
+     A                                      TEXT('ENTR: NB COLIS PAR COUCHE')
+     A                                      COLHDG( +
+     A                                      'CC' +
+     A                                      )
+     A            ARECP      00003P00B
+     A                                      TEXT('ENTR: NB COUCHES PAR PALET')
+     A                                      COLHDG( +
+     A                                      'CP' +
+     A                                      )
+     A            AREHHT     00005P03B
+     A                                      TEXT('ENTR: HAUTEUR HORS TOUT')
+     A                                      COLHDG( +
+     A                                      'HHT' +
+     A                                      )
+     A            ARELON     00005P03B
+     A                                      TEXT('ENTR: LONGUEUR DU PCB')
+     A                                      COLHDG( +
+     A                                      'LON' +
+     A                                      )
+     A            ARELAR     00005P03B
+     A                                      TEXT('ENTR: LARGEUR DU PCB')
+     A                                      COLHDG( +
+     A                                      'LAR' +
+     A                                      )
+     A            AREHAU     00005P03B
+     A                                      TEXT('ENTR: HAUTEUR DU PCB')
+     A                                      COLHDG( +
+     A                                      'HAU' +
+     A                                      )
+     A            AREPLQ     00007P00B
+     A                                      TEXT('ENTR: QUANTITE PAR PALETTE')
+     A                                      COLHDG( +
+     A                                      'PLQT' +
+     A                                      )
+     A            AREVOL     00007P05B
+     A                                      TEXT('ENTR: VOLUME DU PCB')
+     A                                      COLHDG( +
+     A                                      'VOLP' +
+     A                                      )
+     A            AREPOI     00009P04B
+     A                                      TEXT('ENTR: POIDS DU PCB')
+     A                                      COLHDG( +
+     A                                      'POIP' +
+     A                                      )
+     A            AREPLT     00002A  B
+     A
+     A                                      TEXT('ENTR: TYPE DE PALETTE')
+     A                                      COLHDG( +
+     A                                      'PLT' +
+     A                                      )
+     A            AREPAE     00001A  B
+     A
+     A                                      TEXT('ENTR: PALETTE EMPILABLE 0=')
+     A                                      COLHDG( +
+     A                                      'PAEM' +
+     A                                      )
+     A            AREDST     00005P00B
+     A                                      TEXT('ENTR: DELAI STOCKAGE')
+     A                                      COLHDG( +
+     A                                      'DSTK' +
+     A                                      )
+     A            AREPAC     00001A  B
+     A
+     A                                      TEXT('ENTR: PALETTE COMPLETE 0=N')
+     A                                      COLHDG( +
+     A                                      'PACO' +
+     A                                      )
+     A            ARFCC      00003P00B
+     A                                      TEXT('FOUR: NB COLIS PAR COUCHE')
+     A                                      COLHDG( +
+     A                                      'CC' +
+     A                                      )
+     A            ARFCP      00003P00B
+     A                                      TEXT('FOUR: NB COUCHES PAR PALET')
+     A                                      COLHDG( +
+     A                                      'CP' +
+     A                                      )
+     A            ARFHHT     00005P03B
+     A                                      TEXT('FOUR: HAUTEUR HORS TOUT')
+     A                                      COLHDG( +
+     A                                      'HHT' +
+     A                                      )
+     A            ARFLON     00005P03B
+     A                                      TEXT('FOUR: LONGUEUR DU PCB')
+     A                                      COLHDG( +
+     A                                      'LON' +
+     A                                      )
+     A            ARFLAR     00005P03B
+     A                                      TEXT('FOUR: LARGEUR DU PCB')
+     A                                      COLHDG( +
+     A                                      'LAR' +
+     A                                      )
+     A            ARFHAU     00005P03B
+     A                                      TEXT('FOUR: HAUTEUR DU PCB')
+     A                                      COLHDG( +
+     A                                      'HAU' +
+     A                                      )
+     A            ARFPLQ     00007P00B
+     A                                      TEXT('FOUR: QUANTITE PAR PALETTE')
+     A                                      COLHDG( +
+     A                                      'PLQT' +
+     A                                      )
+     A            ARFVOL     00007P05B
+     A                                      TEXT('FOUR: VOLUME DU PCB')
+     A                                      COLHDG( +
+     A                                      'VOLP' +
+     A                                      )
+     A            ARFPOI     00009P04B
+     A                                      TEXT('FOUR: POIDS DU PCB')
+     A                                      COLHDG( +
+     A                                      'POIP' +
+     A                                      )
+     A            ARFPLT     00002A  B
+     A
+     A                                      TEXT('FOUR: TYPE DE PALETTE')
+     A                                      COLHDG( +
+     A                                      'PLT' +
+     A                                      )
+     A            ARFPAE     00001A  B
+     A
+     A                                      TEXT('FOUR: PALETTE EMPILABLE 0=')
+     A                                      COLHDG( +
+     A                                      'PAEM' +
+     A                                      )
+     A            ARFDST     00005P00B
+     A                                      TEXT('FOUR: DELAI STOCKAGE')
+     A                                      COLHDG( +
+     A                                      'DSTK' +
+     A                                      )
+     A            ARFPAC     00001A  B
+     A
+     A                                      TEXT('FOUR: PALETTE COMPLETE 0=N')
+     A                                      COLHDG( +
+     A                                      'PACO' +
+     A                                      )
+     A            ARSLIS     00007A  B
+     A
+     A                                      TEXT('SLIM STAM')
+     A                                      COLHDG( +
+     A                                      'SLIS' +
+     A                                      )
+     A            ARMODS     00001A  B
+     A
+     A                                      TEXT('MODULO STAM')
+     A                                      COLHDG( +
+     A                                      'MODS' +
+     A                                      )
+     A            ARAASS     00002A  B
+     A
+     A                                      TEXT('AA MAJ STAM')
+     A                                      COLHDG( +
+     A                                      'AA' +
+     A                                      'MAJ' +
+     A                                      'STAM' +
+     A                                      )
+     A            ARMMSS     00002A  B
+     A
+     A                                      TEXT('MM MAJ STAM')
+     A                                      COLHDG( +
+     A                                      'MM' +
+     A                                      'MAJ' +
+     A                                      'STAM' +
+     A                                      )
+     A            ARJJSS     00002A  B
+     A
+     A                                      TEXT('JJ MAJ STAM')
+     A                                      COLHDG( +
+     A                                      'JJ' +
+     A                                      'MAJ' +
+     A                                      'STAM' +
+     A                                      )
+     A            ARPAB      00009P03B
+     A                                      TEXT('PRIX ACHAT BASE')
+     A                                      COLHDG( +
+     A                                      'PRIX' +
+     A                                      'ACHAT' +
+     A                                      'BASE' +
+     A                                      )
+     A            ARPAT      00009P03B
+     A                                      TEXT('PRIX ACHAT TARIF')
+     A                                      COLHDG( +
+     A                                      'PRIX' +
+     A                                      'ACHAT' +
+     A                                      'TARIF' +
+     A                                      )
+     A            ARPAR      00009P03B
+     A                                      TEXT('PRIX ACHAT REEL')
+     A                                      COLHDG( +
+     A                                      'PRIX' +
+     A                                      'ACHAT' +
+     A                                      'REEL' +
+     A                                      )
+     A            ARPA       00009P03B
+     A                                      TEXT('PRIX ACHAT FACTURE')
+     A                                      COLHDG( +
+     A                                      'PRIX' +
+     A                                      'ACHAT' +
+     A                                      'FACTURE' +
+     A                                      )
+     A            ARPRB      00009P03B
+     A                                      TEXT('PRIX REVIENT BASE')
+     A                                      COLHDG( +
+     A                                      'PRIX' +
+     A                                      'REVIENT' +
+     A                                      'BASE' +
+     A                                      )
+     A            ARPR       00009P03B
+     A                                      TEXT('PRIX REVIENT REEL')
+     A                                      COLHDG( +
+     A                                      'PRIX' +
+     A                                      'REVIENT' +
+     A                                      'REEL' +
+     A                                      )
+     A            ARPF       00009P03B
+     A                                      TEXT('PRIX FACTURATION')
+     A                                      COLHDG( +
+     A                                      'PRIX' +
+     A                                      'FACTURATION' +
+     A                                      )
+     A            ARPRX      00009P03B
+     A                                      TEXT('PRX: PRIX DE REVIENT MOYEN')
+     A                                      COLHDG( +
+     A                                      'PRX' +
+     A                                      )
+     A            ARPVZ      00009P02B
+     A                                      TEXT('P.V.Z.')
+     A                                      COLHDG( +
+     A                                      'PVZ' +
+     A                                      )
+     A            ARPVZH     00009P02B
+     A                                      TEXT('PVZ HORS HPVZ')
+     A                                      COLHDG( +
+     A                                      'PVZ' +
+     A                                      'HORS HPVZ' +
+     A                                      )
+     A            ARREMI     00007P02B
+     A                                      TEXT('REMISE IMMEDIATE')
+     A                                      COLHDG( +
+     A                                      'REMI' +
+     A                                      )
+     A            ARCREI     00001A  B
+     A
+     A                                      TEXT('REMI IMMED: SPACE=%, 1=FRA')
+     A                                      COLHDG( +
+     A                                      'CREMI' +
+     A                                      )
+     A            ARTRS      00007P03B
+     A                                      TEXT('TRANSPORT')
+     A                                      COLHDG( +
+     A                                      'TRS' +
+     A                                      )
+     A            ARCTRS     00001A  B
+     A
+     A                                      TEXT('TRANSPORT: SPACE=%, 1=FRAN')
+     A                                      COLHDG( +
+     A                                      'CTRS' +
+     A                                      )
+     A            ARFEM      00007P03B
+     A                                      TEXT('EMBALLAGE FOURNIS')
+     A                                      COLHDG( +
+     A                                      'EMBALLAGE' +
+     A                                      'FOURNIS' +
+     A                                      )
+     A            ARCFEM     00001A  B
+     A
+     A                                      TEXT('EMBAL FOU: SPACE=%, 1=FRAN')
+     A                                      COLHDG( +
+     A                                      'CODE' +
+     A                                      'EMBAL' +
+     A                                      'FOURN' +
+     A                                      )
+     A            ARPANT     00001A  B
+     A
+     A                                      TEXT('PA NET: 0=NON 1=OUI(SANS A')
+     A                                      COLHDG( +
+     A                                      'PANT' +
+     A                                      )
+     A            ARCAVD     00003A  B
+     A
+     A                                      TEXT('TYPE CONTRAT AVD')
+     A                                      COLHDG( +
+     A                                      'TYPE' +
+     A                                      'CONTRAT' +
+     A                                      'AVD' +
+     A                                      )
+     A            ARRIST     00007P03B
+     A                                      TEXT('RISTOURNE')
+     A                                      COLHDG( +
+     A                                      'RIS' +
+     A                                      )
+     A            ARCRIS     00001A  B
+     A
+     A                                      TEXT('RIST: SPACE=%, 1=FRANCS')
+     A                                      COLHDG( +
+     A                                      'CRIS' +
+     A                                      )
+     A            ARCOOP     00007P03B
+     A                                      TEXT('COOPERATION')
+     A                                      COLHDG( +
+     A                                      'COO' +
+     A                                      )
+     A            ARCCOO     00001A  B
+     A
+     A                                      TEXT('COOP: SPACE=%, 1=FRANCS')
+     A                                      COLHDG( +
+     A                                      'CCOO' +
+     A                                      )
+     A            ARHPVZ     00007P03B
+     A                                      TEXT('HORS. PVZ')
+     A                                      COLHDG( +
+     A                                      'HPVZ' +
+     A                                      )
+     A            ARCHPV     00001A  B
+     A
+     A                                      TEXT('RIST: SPACE=%, 1=FRANCS')
+     A                                      COLHDG( +
+     A                                      'COD' +
+     A                                      'HPVZ' +
+     A                                      )
+     A            ARRFNT     00001A  B
+     A
+     A                                      TEXT('RF NET')
+     A                                      COLHDG( +
+     A                                      'RFNT' +
+     A                                      )
+     A            ARRF       00007P03B
+     A                                      TEXT('REM FCT')
+     A                                      COLHDG( +
+     A                                      'RF' +
+     A                                      )
+     A            ARCRF      00001A  B
+     A
+     A                                      TEXT('REM FONCT: SPACE=%, 1=FRAN')
+     A                                      COLHDG( +
+     A                                      'CRF' +
+     A                                      )
+     A            ARREM1     00009P03B
+     A                                      TEXT('REMISE')
+     A                                      COLHDG( +
+     A                                      'REM' +
+     A                                      )
+     A            ARCRE1     00001A  B
+     A
+     A                                      TEXT('REMISE: SPACE=%, 1=FRANCS')
+     A                                      COLHDG( +
+     A                                      'CREM' +
+     A                                      )
+     A            ARTR12     00001A  B
+     A
+     A                                      TEXT('TYPE REMISE: 1=CUMULE 2=CA')
+     A                                      COLHDG( +
+     A                                      'TYPE' +
+     A                                      'REMISE' +
+     A                                      )
+     A            ARREM2     00009P03B
+     A                                      TEXT('REMISE')
+     A                                      COLHDG( +
+     A                                      'REM' +
+     A                                      )
+     A            ARCRE2     00001A  B
+     A
+     A                                      TEXT('REMISE: SPACE=%, 1=FRANCS')
+     A                                      COLHDG( +
+     A                                      'CREM' +
+     A                                      )
+     A            ARTR23     00001A  B
+     A
+     A                                      TEXT('TYPE REMISE: 1=CUMULE 2=CA')
+     A                                      COLHDG( +
+     A                                      'TYPE' +
+     A                                      'REMISE' +
+     A                                      )
+     A            ARREM3     00009P03B
+     A                                      TEXT('REMISE')
+     A                                      COLHDG( +
+     A                                      'REM' +
+     A                                      )
+     A            ARCRE3     00001A  B
+     A
+     A                                      TEXT('REMISE: SPACE=%, 1=FRANCS')
+     A                                      COLHDG( +
+     A                                      'CREM' +
+     A                                      )
+     A            ARSTK      00011P03B
+     A                                      TEXT('STOCK DISPONIBLE')
+     A                                      COLHDG( +
+     A                                      'STOCK' +
+     A                                      'DISPONIBLE' +
+     A                                      )
+     A            ARSTKE     00001A  B
+     A
+     A                                      TEXT('ETAT STOCK')
+     A                                      COLHDG( +
+     A                                      'STKE' +
+     A                                      )
+     A            ARSTKD     00002A  B
+     A
+     A                                      TEXT('TYPE DESTOCKAGE')
+     A                                      COLHDG( +
+     A                                      'STKD' +
+     A                                      )
+     A            ARSTKR     00011P03B
+     A                                      TEXT('STOCK RESERVE POUR LA PREP')
+     A                                      COLHDG( +
+     A                                      'STOCK' +
+     A                                      'RESERVE' +
+     A                                      'PREPA' +
+     A                                      )
+     A            ARSTKP     00011P03B
+     A                                      TEXT('STOCK PREPARE EN ATTENTE F')
+     A                                      COLHDG( +
+     A                                      'STOCK' +
+     A                                      'PREPARE' +
+     A                                      '->FACT' +
+     A                                      )
+     A            ARSTPP     00011P03B
+     A                                      TEXT('STOCK POUR PROMO PALETTE')
+     A                                      COLHDG( +
+     A                                      'STOCK' +
+     A                                      'PROMO' +
+     A                                      'PALETTE' +
+     A                                      )
+     A            ARPPAA     00002A  B
+     A
+     A                                      TEXT('ANNEE PROMO')
+     A                                      COLHDG( +
+     A                                      'ANNEE' +
+     A                                      'PROMO' +
+     A                                      )
+     A            ARPPSM     00002A  B
+     A
+     A                                      TEXT('SEMAINE PROMO')
+     A                                      COLHDG( +
+     A                                      'SEMAINE' +
+     A                                      'PROMO1' +
+     A                                      )
+     A            ARPPJN     00004A  B
+     A
+     A                                      TEXT('N° JOURNAL PROMOS PALETTES')
+     A                                      COLHDG( +
+     A                                      'JOURNAL' +
+     A                                      'PROMO' +
+     A                                      'PALETTE' +
+     A                                      )
+     A            ARSTKB     00011P03B
+     A                                      TEXT('STOCK BLOQUE PAR APPRO')
+     A                                      COLHDG( +
+     A                                      'STOCK' +
+     A                                      'BLOQUE' +
+     A                                      )
+     A            ARMOTB     00002A  B
+     A
+     A                                      TEXT('MOTIF BLOQUAGE')
+     A                                      COLHDG( +
+     A                                      'MOTB' +
+     A                                      )
+     A            ARSKAA     00002A  B
+     A
+     A                                      TEXT('AA  RECTIF STOCK')
+     A                                      COLHDG( +
+     A                                      'AA' +
+     A                                      'STOCK' +
+     A                                      )
+     A            ARSKMM     00002A  B
+     A
+     A                                      TEXT('MM  RECTIF STOCK')
+     A                                      COLHDG( +
+     A                                      'MM' +
+     A                                      'STOCK' +
+     A                                      )
+     A            ARSKJJ     00002A  B
+     A
+     A                                      TEXT('JJ  RECTIF STOCK')
+     A                                      COLHDG( +
+     A                                      'JJ' +
+     A                                      'STOCK' +
+     A                                      )
+     A            ARRCAA     00002A  B
+     A
+     A                                      TEXT('AA DERN ENTREE')
+     A                                      COLHDG( +
+     A                                      'AA' +
+     A                                      'DERN' +
+     A                                      'ENTREE' +
+     A                                      )
+     A            ARRCMM     00002A  B
+     A
+     A                                      TEXT('MM DERN ENTREE')
+     A                                      COLHDG( +
+     A                                      'MM' +
+     A                                      'DERN' +
+     A                                      'ENTREE' +
+     A                                      )
+     A            ARRCJJ     00002A  B
+     A
+     A                                      TEXT('JJ DERN ENTREE')
+     A                                      COLHDG( +
+     A                                      'JJ' +
+     A                                      'DERN' +
+     A                                      'ENTREE' +
+     A                                      )
+     A            ARRCQT     00011P03B
+     A                                      TEXT('DERNIERE QUANTITE RECUE')
+     A                                      COLHDG( +
+     A                                      'QTE' +
+     A                                      'RECUE' +
+     A                                      )
+     A            ARRCDF     00011P03B
+     A                                      TEXT('QUANTITE RECUE DIFFEREE')
+     A                                      COLHDG( +
+     A                                      'QTE' +
+     A                                      'RECUE' +
+     A                                      'DIFFEREE' +
+     A                                      )
+     A            ARSOAA     00002A  B
+     A
+     A                                      TEXT('AA DERN SORTIE')
+     A                                      COLHDG( +
+     A                                      'AA' +
+     A                                      'DERN' +
+     A                                      'SORTIE' +
+     A                                      )
+     A            ARSOMM     00002A  B
+     A
+     A                                      TEXT('MM DERN SORTIE')
+     A                                      COLHDG( +
+     A                                      'MM' +
+     A                                      'DERN' +
+     A                                      'SORTIE' +
+     A                                      )
+     A            ARSOJJ     00002A  B
+     A
+     A                                      TEXT('JJ DERN SORTIE')
+     A                                      COLHDG( +
+     A                                      'JJ' +
+     A                                      'DERN' +
+     A                                      'SORTIE' +
+     A                                      )
+     A            ARDOCU     00005A  B
+     A
+     A                                      TEXT('DERNIERE DOCUMENTATION FAC')
+     A                                      COLHDG( +
+     A                                      'DERN' +
+     A                                      'DOCU' +
+     A                                      'FACT' +
+     A                                      )
+     A            ARDOK      00011P03B
+     A                                      TEXT('VARIATION STOCK DISPONIBLE')
+     A                                      COLHDG( +
+     A                                      'VARIATION' +
+     A                                      'STOCK' +
+     A                                      'DISPONIBLE' +
+     A                                      )
+     A            ARDOKE     00001A  B
+     A
+     A                                      TEXT('SAUVEGARDE ETAT STOCK')
+     A                                      COLHDG( +
+     A                                      'STKE' +
+     A                                      )
+     A            ARDOKD     00002A  B
+     A
+     A                                      TEXT('SAUVEGARDE TYPE DESTOCKAGE')
+     A                                      COLHDG( +
+     A                                      'STKD' +
+     A                                      )
+     A            ARDOKR     00011P03B
+     A                                      TEXT('VARIATION STOCK RESERVE PR')
+     A                                      COLHDG( +
+     A                                      'VARIATION' +
+     A                                      'STOCK' +
+     A                                      'PREPA' +
+     A                                      )
+     A            ARDOKP     00011P03B
+     A                                      TEXT('VARIATION STOCK ATTENTE FA')
+     A                                      COLHDG( +
+     A                                      'VARIATION' +
+     A                                      'STOCK' +
+     A                                      'FACTUR' +
+     A                                      )
+     A            ARDOPP     00011P03B
+     A                                      TEXT('VARIATION STOCK PROMO PALE')
+     A                                      COLHDG( +
+     A                                      'VARIATION' +
+     A                                      'STOCK' +
+     A                                      'PROMO' +
+     A                                      )
+     A            ARTTSK     00011P00B
+     A                                      TEXT('STOC DEBUT MOIS')
+     A                                      COLHDG( +
+     A                                      'STOC' +
+     A                                      'DEBUT' +
+     A                                      'MOIS' +
+     A                                      )
+     A            ARTTRC     00011P00B
+     A                                      TEXT('RECEPTIONS DU MOIS')
+     A                                      COLHDG( +
+     A                                      'RECEPTIONS' +
+     A                                      'DU MOIS' +
+     A                                      )
+     A            ARTTRS     00011P00B
+     A                                      TEXT('RECTIF STOC MOIS')
+     A                                      COLHDG( +
+     A                                      'RECTIF' +
+     A                                      'STOC' +
+     A                                      'MOIS' +
+     A                                      )
+     A            ARTTRL     00011P00B
+     A                                      TEXT('RECTIF LITIGE MOIS')
+     A                                      COLHDG( +
+     A                                      'RECTIF' +
+     A                                      'LITIGE' +
+     A                                      'MOIS' +
+     A                                      )
+     A            ARTTFT     00011P00B
+     A                                      TEXT('FACTURATION MOIS')
+     A                                      COLHDG( +
+     A                                      'FACTURATION' +
+     A                                      'MOIS' +
+     A                                      )
+     A            ARZEMP     00002A  B
+     A
+     A                                      TEXT('ZONE ENTREPOT')
+     A                                      COLHDG( +
+     A                                      'ZEMP' +
+     A                                      )
+     A            AREMPL     00006A  B
+     A
+     A                                      TEXT('CODE EMPLACEMENT')
+     A                                      COLHDG( +
+     A                                      'EMPL' +
+     A                                      )
+     A            AREMPO     00002A  B
+     A
+     A                                      TEXT('ORDRE EMPLACEMENT')
+     A                                      COLHDG( +
+     A                                      'EMPO' +
+     A                                      )
+     A            ARRAYO     00002A  B
+     A
+     A                                      TEXT('RAYONNAGE')
+     A                                      COLHDG( +
+     A                                      'RAYONNAGE' +
+     A                                      )
+     A            ARZOST     00002A  B
+     A
+     A                                      TEXT('ZONE DE STOCKAGE')
+     A                                      COLHDG( +
+     A                                      'ZOST' +
+     A                                      )
+     A            ARPREP     00002A  B
+     A
+     A                                      TEXT('DROIT PREPARATION DETAIL/C')
+     A                                      COLHDG( +
+     A                                      'PREP' +
+     A                                      )
+     A            ARTLIV     00001A  B
+     A
+     A                                      TEXT('TYPE LIVR: PALETTE, ROLLS.')
+     A                                      COLHDG( +
+     A                                      'TLIV' +
+     A                                      )
+     A          K ARRAC
+     A          K ARCCC
+     A          K ARVPV

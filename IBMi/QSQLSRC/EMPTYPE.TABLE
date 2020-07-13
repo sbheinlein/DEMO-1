@@ -1,0 +1,41 @@
+     --%CSTD===========================================================*
+     --* Application. : RWB Ray's Demo Application                     *
+     --* Component. . : EMPTYPE                       Type: TABLE      *
+     --*===============================================================*
+     --* Sub-system . :                                                *
+     --* Function . . :                                                *
+     --* Sub-function :                                                *
+     --*%S=============================================================*
+     --* Description of functions:                                     *
+     --*                                                               *
+     --*                                                               *
+     --*                                                               *
+     --*%E=============================================================*
+     --* AUTHOR:                          00:00                        *
+     --* MODIFS: ** RBERNARDI  12/09/2009   :    V 8.09.O    # 00/     *
+     --*         03 RBERNARDI  10/13/2009 07:20  V 8.09.J MR # 09/0059 *
+     --*           Short desc of the issue                             *
+     --*         ** RBERNARDI  12/09/2009   :    V 8.07.Y    # 00/     *
+     --*         ** RBERNARDI  12/09/2009   :    V 8.06.W    # 00/     *
+     --*         02 RBERNARDI  08/27/2008 16:16  V 8.06.O MR # 08/0098 *
+     --*           SQL demo                                            *
+     --*         ** RBERNARDI  12/09/2009   :    V 8.06.N    # 00/     *
+     --*         01 RBERNARDI  08/27/2008 10:42  V 8.06.M    # 00/     *
+     --%ECSTD==========================================================*
+--  Generate SQL
+--  Version:                   V5R4M0 060210
+--  Generated on:              12/09/09 15:26:52
+--  Relational Database:       S654330E
+--  Standards Option:          DB2 UDB iSeries
+ 
+CREATE TABLE EMPTYPE (
+  TYPCDE CHAR(1) CCSID 37 NOT NULL DEFAULT '' ,
+  TYPDSC CHAR(20) CCSID 37 NOT NULL DEFAULT '' ,
+  EMPRAY CHAR(5) CCSID 37 NOT NULL DEFAULT '' ,
+  CONSTRAINT Q_DEMO_SQL_EMPTYPE_TYPCDE_00001 PRIMARY KEY( TYPCDE ) )
+ 
+  NOT VOLATILE ;
+ 
+LABEL ON TABLE EMPTYPE
+  IS 'EMPTYPE' ;
+ 

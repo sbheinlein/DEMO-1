@@ -1,0 +1,12 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLODELA                                    *
+      *                                                            *
+      *  Description:  Sales Order Delivery Address by Order No.   *
+      *                                                            *
+      *  Date       :  January 1999                                *
+      *                                                            *
+      **************************************************************
+     A          R HSFODEL                   PFILE(HSPODEL)
+      *
+     A          K VSORD

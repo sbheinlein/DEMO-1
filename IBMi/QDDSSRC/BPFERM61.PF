@@ -1,0 +1,602 @@
+     A                                      UNIQUE
+     A          R BPRER
+     A                                      TEXT('Fic. entêtes réception')
+     A            ERTYRC     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('TYPE RECEP')
+     A                                      COLHDG( +
+     A                                      'TYPE' +
+     A                                      'RECEP' +
+     A                                      )
+     A            ERCIDR     00005A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CID RATTACHEMENT')
+     A                                      COLHDG( +
+     A                                      'CID' +
+     A                                      'RATTACHEMENT' +
+     A                                      )
+     A            ERKAPP     00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('APPRO')
+     A                                      COLHDG( +
+     A                                      'APPRO' +
+     A                                      )
+     A            ERKDEP     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('DEP')
+     A                                      COLHDG( +
+     A                                      'DEP' +
+     A                                      )
+     A            ERKRAY     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('RAY')
+     A                                      COLHDG( +
+     A                                      'RAY' +
+     A                                      )
+     A            ERKSEC     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('SECT')
+     A                                      COLHDG( +
+     A                                      'SECT' +
+     A                                      )
+     A            ERCNUL     00006A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CNUL')
+     A                                      COLHDG( +
+     A                                      'CNUL' +
+     A                                      )
+     A            ERNENT     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('NO ENT SEC')
+     A                                      COLHDG( +
+     A                                      'NO' +
+     A                                      'ENT' +
+     A                                      'SEC' +
+     A                                      )
+     A            ERCID      00005A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CID')
+     A                                      COLHDG( +
+     A                                      'CID' +
+     A                                      )
+     A            ERAARC     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('ANNEE RECEPTION')
+     A                                      COLHDG( +
+     A                                      'ANNEE' +
+     A                                      'RECEPTION' +
+     A                                      )
+     A            ERMMRC     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('MOIS RECEPTION')
+     A                                      COLHDG( +
+     A                                      'MOIS' +
+     A                                      'RECEPTION' +
+     A                                      )
+     A            ERJJRC     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('JOUR RECEPTION')
+     A                                      COLHDG( +
+     A                                      'JOUR' +
+     A                                      'RECEPTION' +
+     A                                      )
+     A            ERNORD     00005A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('NUMERO ORDRE')
+     A                                      COLHDG( +
+     A                                      'NUMERO' +
+     A                                      'ORDRE' +
+     A                                      )
+     A            ERNCMD     00008A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('NUMERO COMMANDE')
+     A                                      COLHDG( +
+     A                                      'NUMERO' +
+     A                                      'COMMANDE' +
+     A                                      )
+     A            ERCIFR     00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF REGL')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'REGL' +
+     A                                      )
+     A            ERCIFC     00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF CMDE')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'CMDE' +
+     A                                      )
+     A            ERNSL      00012A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('NOM SIMP LIV')
+     A                                      COLHDG( +
+     A                                      'NOM SIMP LIV' +
+     A                                      )
+     A            ERNTRT     00003P00B
+     A                                      TEXT('NB FOIS TRAITE')
+     A                                      COLHDG( +
+     A                                      'NB FOIS' +
+     A                                      'TRAITE' +
+     A                                      )
+     A            ERTME      00005P02B
+     A                                      TEXT('TAUX MARQUE')
+     A                                      COLHDG( +
+     A                                      'TAUX' +
+     A                                      'MARQUE' +
+     A                                      )
+     A            ERTMG      00005P02B
+     A                                      TEXT('TAUX MARQUE GENERAL')
+     A                                      COLHDG( +
+     A                                      'TAUX' +
+     A                                      'MARQUE' +
+     A                                      'GENERAL' +
+     A                                      )
+     A            ERNTRC     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('NATURE RECEPTION')
+     A                                      COLHDG( +
+     A                                      'NATURE' +
+     A                                      'RECEPTION' +
+     A                                      )
+     A            ERCNUD     00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CNUD')
+     A                                      COLHDG( +
+     A                                      'CNUD' +
+     A                                      )
+     A            ERSTE      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('STE')
+     A                                      COLHDG( +
+     A                                      'STE' +
+     A                                      )
+     A            ERCATR     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CATEGORIE MAGASIN')
+     A                                      COLHDG( +
+     A                                      'CAT' +
+     A                                      'MAG' +
+     A                                      )
+     A            ERCATM     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CATEGORIE MAGASIN')
+     A                                      COLHDG( +
+     A                                      'CAT' +
+     A                                      'MAG' +
+     A                                      )
+     A            ERTRIS     00005P02B
+     A                                      TEXT('TAUX RIST')
+     A                                      COLHDG( +
+     A                                      'TAUX' +
+     A                                      'RIST' +
+     A                                      )
+     A            ERTCOO     00005P02B
+     A                                      TEXT('TAUX COOP')
+     A                                      COLHDG( +
+     A                                      'TAUX' +
+     A                                      'COOP' +
+     A                                      )
+     A            ERTREM     00005P02B
+     A                                      TEXT('TAUX REMISE')
+     A                                      COLHDG( +
+     A                                      'TAUX' +
+     A                                      'REMISE' +
+     A                                      )
+     A            ERTRF      00005P02B
+     A                                      TEXT('TAUX R.F.')
+     A                                      COLHDG( +
+     A                                      'TAUX' +
+     A                                      'R.F.' +
+     A                                      )
+     A            ERDEP      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('DEP')
+     A                                      COLHDG( +
+     A                                      'DEP' +
+     A                                      )
+     A            ERRAY      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('RAY')
+     A                                      COLHDG( +
+     A                                      'RAY' +
+     A                                      )
+     A            ERSEC      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('SECT')
+     A                                      COLHDG( +
+     A                                      'SECT' +
+     A                                      )
+     A            ERAAC      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('ANNEE CREATION')
+     A                                      COLHDG( +
+     A                                      'ANNEE' +
+     A                                      'CREATION' +
+     A                                      )
+     A            ERMMC      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('MOIS CREATION')
+     A                                      COLHDG( +
+     A                                      'MOIS' +
+     A                                      'CREATION' +
+     A                                      )
+     A            ERJJC      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('JOUR CREATION')
+     A                                      COLHDG( +
+     A                                      'JOUR' +
+     A                                      'CREATION' +
+     A                                      )
+     A            ERAAM      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('ANNEE MODIF')
+     A                                      COLHDG( +
+     A                                      'ANNEE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            ERMMM      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('MOIS MODIF')
+     A                                      COLHDG( +
+     A                                      'MOIS' +
+     A                                      'MODIF' +
+     A                                      )
+     A            ERJJM      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('JOUR MODIF')
+     A                                      COLHDG( +
+     A                                      'JOUR' +
+     A                                      'MODIF' +
+     A                                      )
+     A            ERAAS      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('ANNEE SUPPRESS')
+     A                                      COLHDG( +
+     A                                      'ANNEE' +
+     A                                      'SUPPRESS' +
+     A                                      )
+     A            ERMMS      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('MOIS SUPPRESS')
+     A                                      COLHDG( +
+     A                                      'MOIS' +
+     A                                      'SUPPRESS' +
+     A                                      )
+     A            ERJJS      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('JOUR SUPPRESS')
+     A                                      COLHDG( +
+     A                                      'JOUR' +
+     A                                      'SUPPRESS' +
+     A                                      )
+     A            ERTOP1     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('TOP')
+     A                                      COLHDG( +
+     A                                      'TOP' +
+     A                                      )
+     A            ERTOP2     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('TOP')
+     A                                      COLHDG( +
+     A                                      'TOP' +
+     A                                      )
+     A            ERTOP3     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('TOP')
+     A                                      COLHDG( +
+     A                                      'TOP' +
+     A                                      )
+     A            ERTOP4     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('TOP')
+     A                                      COLHDG( +
+     A                                      'TOP' +
+     A                                      )
+     A            ERTOP5     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('TOP')
+     A                                      COLHDG( +
+     A                                      'TOP' +
+     A                                      )
+     A            ERNFAC     00008A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('NUMERO FACTURE')
+     A                                      COLHDG( +
+     A                                      'NUMERO' +
+     A                                      'FACTURE' +
+     A                                      )
+     A            ERREGR     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CODE FACT REGROUPEE')
+     A                                      COLHDG( +
+     A                                      'CODE' +
+     A                                      'FACT' +
+     A                                      'REGROUPEE' +
+     A                                      )
+     A            ERFPA      00011P03B
+     A                                      TEXT('MONTANT PA')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'PA' +
+     A                                      )
+     A            ERFPV      00011P02B
+     A                                      TEXT('MONTANT PV')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'PV' +
+     A                                      )
+     A            ERFTVA     00011P03B
+     A                                      TEXT('MONTANT TVA/ACH')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'TVA/ACH' +
+     A                                      )
+     A            ERFVIG     00011P02B
+     A                                      TEXT('MONTANT VIGNETTE')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'VIGNETTE' +
+     A                                      )
+     A            ERFTRS     00011P03B
+     A                                      TEXT('MONTANT TRANSPORT')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'TRANSPORT' +
+     A                                      )
+     A            ERFTVT     00011P03B
+     A                                      TEXT('MONTANT TAXE TRANSP')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'TAXE' +
+     A                                      'TRANSP' +
+     A                                      )
+     A            ERFPAR     00011P03B
+     A                                      TEXT('MONTANT TAXE PARA')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'TAXE' +
+     A                                      'PARA' +
+     A                                      )
+     A            ERFTX1     00011P03B
+     A                                      TEXT('MONTANT TAXE 1')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'TAXE 1' +
+     A                                      )
+     A            ERFTX2     00011P03B
+     A                                      TEXT('MONTANT TAXE 2')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'TAXE 2' +
+     A                                      )
+     A            ERREGL     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CODE REGLT')
+     A                                      COLHDG( +
+     A                                      'CODE' +
+     A                                      'REGLT' +
+     A                                      )
+     A            ERRET      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('SIGNE')
+     A                                      COLHDG( +
+     A                                      'SIGNE' +
+     A                                      )
+     A            ERAAEC     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('ANNEE ECHEANCE')
+     A                                      COLHDG( +
+     A                                      'ANNEE' +
+     A                                      'ECHEANCE' +
+     A                                      )
+     A            ERMMEC     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('MOIS ECHEANCE')
+     A                                      COLHDG( +
+     A                                      'MOIS' +
+     A                                      'ECHEANCE' +
+     A                                      )
+     A            ERJJEC     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('JOUR ECHEANCE')
+     A                                      COLHDG( +
+     A                                      'JOUR' +
+     A                                      'ECHEANCE' +
+     A                                      )
+     A            ERARPA     00011P03B
+     A                                      TEXT('MONTANT PA')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'PA' +
+     A                                      )
+     A            ERARTV     00011P03B
+     A                                      TEXT('MONTANT TVA/ACH')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'TVA/ACH' +
+     A                                      )
+     A            ERDIFF     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('P1 DIFF')
+     A                                      COLHDG( +
+     A                                      'P1' +
+     A                                      'DIFF' +
+     A                                      )
+     A            ERAAFT     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('ANNEE')
+     A                                      COLHDG( +
+     A                                      'ANNEE' +
+     A                                      )
+     A            ERMMFT     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('MOIS')
+     A                                      COLHDG( +
+     A                                      'MOIS' +
+     A                                      )
+     A            ERJJFT     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('JOUR')
+     A                                      COLHDG( +
+     A                                      'JOUR' +
+     A                                      )
+     A            ERNORF     00005A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('NUMERO ORDRE FACT')
+     A                                      COLHDG( +
+     A                                      'NUMERO' +
+     A                                      'ORDRE' +
+     A                                      'FACT' +
+     A                                      )
+     A            ERAACH     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('ANNEE')
+     A                                      COLHDG( +
+     A                                      'ANNEE' +
+     A                                      )
+     A            ERMMCH     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('MOIS')
+     A                                      COLHDG( +
+     A                                      'MOIS' +
+     A                                      )
+     A            ERJJCH     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('JOUR')
+     A                                      COLHDG( +
+     A                                      'JOUR' +
+     A                                      )
+     A            ERNORC     00005A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('NUMERO ORDRE CHAINE')
+     A                                      COLHDG( +
+     A                                      'NUMERO' +
+     A                                      'ORDRE' +
+     A                                      'CHAINE' +
+     A                                      )
+     A            ERMPA      00011P03B
+     A                                      TEXT('MONTANT PA')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'PA' +
+     A                                      )
+     A            ERMPV      00011P02B
+     A                                      TEXT('MONTANT PV')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'PV' +
+     A                                      )
+     A            ERMTVA     00011P03B
+     A                                      TEXT('MONTANT TVA/ACH')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'TVA/ACH' +
+     A                                      )
+     A            ERMVIG     00011P02B
+     A                                      TEXT('MONTANT VIGNETTE')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'VIGNETTE' +
+     A                                      )
+     A            ERNLIG     00005P00B
+     A                                      TEXT('NOMBRE LIGNES DETAIL')
+     A                                      COLHDG( +
+     A                                      'NOMBRE' +
+     A                                      'LIGNES' +
+     A                                      'DETAIL' +
+     A                                      )
+     A            ERGRET     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('SIGNE')
+     A                                      COLHDG( +
+     A                                      'SIGNE' +
+     A                                      )
+     A            ERMTVV     00011P02B
+     A                                      TEXT('MONTANT TVA/VTE')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'TVA/VTE' +
+     A                                      )
+     A            ERMAVD     00011P03B
+     A                                      TEXT('MONTANT AVD')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'AVD' +
+     A                                      )
+     A            ERMRIS     00011P03B
+     A                                      TEXT('MONTANT AVD')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'AVD' +
+     A                                      )
+     A            ERMCOO     00011P03B
+     A                                      TEXT('MONTANT AVD')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'AVD' +
+     A                                      )
+     A            ERMNEG     00011P03B
+     A                                      TEXT('MONTANT AVD')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'AVD' +
+     A                                      )
+     A            ERMRGD     00011P03B
+     A                                      TEXT('MONTANT REGIE')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'REGIE' +
+     A                                      )
+     A            ERMEMB     00011P03B
+     A                                      TEXT('MONTANT EMBAL')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'EMBAL' +
+     A                                      )
+     A            ERMRF      00011P03B
+     A                                      TEXT('MONTANT R.F.')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'R.F.' +
+     A                                      )
+     A            ERMTRS     00011P03B
+     A                                      TEXT('MONTANT TRANSPORT')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'TRANSPORT' +
+     A                                      )
+     A            ERMTVT     00011P03B
+     A                                      TEXT('MONTANT TAXE TRANSP')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'TAXE' +
+     A                                      'TRANSP' +
+     A                                      )
+     A            ERMTX1     00011P03B
+     A                                      TEXT('MONTANT TAXE 1')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'TAXE 1' +
+     A                                      )
+     A            ERMTX2     00011P03B
+     A                                      TEXT('MONTANT TAXE 2')
+     A                                      COLHDG( +
+     A                                      'MONTANT' +
+     A                                      'TAXE 2' +
+     A                                      )
+     A          K ERTYRC
+     A          K ERCIDR
+     A          K ERKAPP
+     A          K ERKDEP
+     A          K ERKRAY
+     A          K ERKSEC
+     A          K ERCNUL
+     A          K ERNENT
+     A          K ERCID
+     A          K ERAARC
+     A          K ERMMRC
+     A          K ERJJRC
+     A          K ERNORD

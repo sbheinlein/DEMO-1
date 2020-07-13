@@ -1,0 +1,51 @@
+      *%LOC: SRC=*OBJ OBJ=*OBJ
+      *%CSTD==========================================================*
+      * Application. : SAM Arcad Sample application                   *
+      * Component. . : HSPODEL                       Type: PF         *
+      *===============================================================*
+      * Sub-system . : TRD   Trade                                    *
+      * Function . . : SAL   Sales                                    *
+      * Sub-function :                                                *
+      *%S=============================================================*
+      * Description of functionalities :                              *
+      *                                                               *
+      *                                                               *
+      *                                                               *
+      *%E=============================================================*
+      * AUTHOR:                           00:00                       *
+      * MODIFS: ** MARY      28/07/2000   12:01 V 1.00.B MR N°00/0506 *
+      *           CR 00/0122 Sales Order Delivery Details             *
+      *%ECSTD=========================================================*
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSPODEL                                     *
+      *                                                            *
+      *  Description:  Sales Order Delivery Details                *
+      *                                                            *
+      *  Date       :  December 1998                               *
+      *                                                            *
+      **************************************************************
+     A                                      REF(*LIBL/HSPREF)
+     A          R HSFODEL
+      *  Description:  Sales Order Delivery Details
+     A            VCOMP     R               REFFLD(COMP)
+     A            VTYPE     R               REFFLD(TYPE)
+     A                                      COLHDG('Sales Order Type')
+     A            VSORD     R               REFFLD(SORD)
+     A            VNAM1     R               REFFLD(NAME)
+     A                                      COLHDG('Delivery Name')
+     A            VADR1     R               REFFLD(ADR1)
+     A                                      COLHDG('Delivery Addr 1')
+     A            VADR2     R               REFFLD(ADR1)
+     A                                      COLHDG('Delivery Addr 2')
+     A            VADR3     R               REFFLD(ADR1)
+     A                                      COLHDG('Delivery Addr 3')
+     A            VPCDE     R               REFFLD(PCDE)
+     A            VDIN1     R               REFFLD(ADR1)
+     A                                      COLHDG('Delivery Instr.1')
+     A            VDIN2     R               REFFLD(ADR1)
+     A                                      COLHDG('Delivery Instr.2')
+     A            VDIN3     R               REFFLD(ADR1)
+     A                                      COLHDG('Delivery Instr.3')
+     A            VDELT     R               REFFLD(A1)
+     A                                      COLHDG('Deletion Flag')

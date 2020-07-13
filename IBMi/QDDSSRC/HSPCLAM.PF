@@ -1,0 +1,19 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSPCLAM                                     *
+      *                                                            *
+      *  Description:  Claims Input                                *
+      *                                                            *
+      *  Date       :  December 1998                               *
+      *                                                            *
+      **************************************************************
+     A                                      REF(*LIBL/HSPREF)
+     A          R HSFCLAM
+      *  Description:  Claims Input
+     A            KATYPE    R               REFFLD(TYPE)
+     A                                      COLHDG('Sales Order Type')
+     A            KACUST    R               REFFLD(CUST)
+     A            KAPROD    R               REFFLD(PROD)
+     A            KAQTYN    R               REFFLD(QTYN)
+     A            KADELT    R               REFFLD(A1)
+     A                                      COLHDG('Deletion Flag')

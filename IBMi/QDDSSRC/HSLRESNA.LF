@@ -1,0 +1,13 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLRESNB                                    *
+      *                                                            *
+      *  Description:  Stock Reason codes by Stock reason code     *
+      *                                                            *
+      *  Date       :  January 1999                                *
+      *                                                            *
+      **************************************************************
+     A          R HSFRESN                   PFILE(HSPRESN)
+      *
+     A          K OREAS
+     A          O ODELT                     VALUES('D')

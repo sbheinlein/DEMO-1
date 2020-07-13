@@ -1,0 +1,462 @@
+     A                                      UNIQUE
+     A          R ZPRFR
+     A                                      TEXT('aaaa')
+     A            FRECRA     00010A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('VEROUILLAGE ECRAN')
+     A                                      COLHDG( +
+     A                                      'NOM ECRAN' +
+     A                                      )
+     A            FRSTTS     00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('STATUS ENREG 0 = INACTIF')
+     A                                      COLHDG( +
+     A                                      'ST' +
+     A                                      )
+     A            FRCNUF     00006A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CNUF')
+     A                                      COLHDG( +
+     A                                      'CNUF' +
+     A                                      )
+     A            FRCNUA     00006A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('ANCIEN CNUF')
+     A                                      COLHDG( +
+     A                                      'ANCIEN' +
+     A                                      'CNUF' +
+     A                                      )
+     A            FRCNUN     00006A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('NOUVEAU CNUF')
+     A                                      COLHDG( +
+     A                                      'NOUVEAU' +
+     A                                      'CNUF' +
+     A                                      )
+     A            FRAAAP     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('ANNEE APPLICAT')
+     A                                      COLHDG( +
+     A                                      'ANNEE' +
+     A                                      'APPLICAT' +
+     A                                      )
+     A            FRMMAP     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('MOIS APPLICAT')
+     A                                      COLHDG( +
+     A                                      'MOIS' +
+     A                                      'APPLICAT' +
+     A                                      )
+     A            FRJJAP     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('JOUR APPLICAT')
+     A                                      COLHDG( +
+     A                                      'JOUR' +
+     A                                      'APPLICAT' +
+     A                                      )
+     A            FRCDIN     00006A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CODE FOURNISSEUR INTERNE')
+     A                                      COLHDG( +
+     A                                      'CODE' +
+     A                                      'INTERNE' +
+     A                                      )
+     A            FRNSF      00012A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('NOM SIMPLIFIE')
+     A                                      COLHDG( +
+     A                                      'NOM SIMPLIF.' +
+     A                                      )
+     A            FRINEX     00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('INTERNE EXTERNE')
+     A                                      COLHDG( +
+     A                                      'INTERNE' +
+     A                                      'EXTERNE' +
+     A                                      )
+     A            FRLVFB     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('TYPE DE CNUF   (INF: XXCNU')
+     A                                      COLHDG( +
+     A                                      'TYPE' +
+     A                                      'CNUF' +
+     A                                      )
+     A            FRNALO     00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('NAT LOC')
+     A                                      COLHDG( +
+     A                                      'NAT' +
+     A                                      'LOC' +
+     A                                      )
+     A            FRRIST     00005P03B
+     A                                      TEXT('RIST')
+     A                                      COLHDG( +
+     A                                      'RIST' +
+     A                                      )
+     A            FRCOOP     00005P03B
+     A                                      TEXT('COOP')
+     A                                      COLHDG( +
+     A                                      'COOP' +
+     A                                      )
+     A            FRCODR     00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('TYPE R.F.: 0=NON 1=ART 2=F')
+     A                                      COLHDG( +
+     A                                      'TYPE' +
+     A                                      'RF' +
+     A                                      )
+     A            FRFONC     00005P03B
+     A                                      TEXT('REMISE FONC')
+     A                                      COLHDG( +
+     A                                      'REMISE' +
+     A                                      'FONC' +
+     A                                      )
+     A            FRRAY1     00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('RAY 1: 0=NON 1=OUI')
+     A                                      COLHDG( +
+     A                                      'RAY 1' +
+     A                                      )
+     A            FRRAY2     00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('RAY 2: 0=NON 1=OUI')
+     A                                      COLHDG( +
+     A                                      'RAY 2' +
+     A                                      )
+     A            FRRAY3     00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('RAY 3: 0=NON 1=OUI')
+     A                                      COLHDG( +
+     A                                      'RAY 3' +
+     A                                      )
+     A            FRRAY4     00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('RAY 4: 0=NON 1=OUI')
+     A                                      COLHDG( +
+     A                                      'RAY 4' +
+     A                                      )
+     A            FRRAY5     00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('RAY 5: 0=NON 1=OUI')
+     A                                      COLHDG( +
+     A                                      'RAY 5' +
+     A                                      )
+     A            FRRAY6     00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('RAY 6: 0=NON 1=OUI')
+     A                                      COLHDG( +
+     A                                      'RAY 6' +
+     A                                      )
+     A            FRRAY7     00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('RAY 7: 0=NON 1=OUI')
+     A                                      COLHDG( +
+     A                                      'RAY 7' +
+     A                                      )
+     A            FRRAY8     00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('RAY 8: 0=NON 1=OUI')
+     A                                      COLHDG( +
+     A                                      'RAY 8' +
+     A                                      )
+     A            FRRAY9     00001A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('RAY 9: 0=NON 1=OUI')
+     A                                      COLHDG( +
+     A                                      'RAY 9' +
+     A                                      )
+     A            FRAAC      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('ANNEE CREATION')
+     A                                      COLHDG( +
+     A                                      'ANNEE' +
+     A                                      'CREATION' +
+     A                                      )
+     A            FRMMC      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('MOIS CREATION')
+     A                                      COLHDG( +
+     A                                      'MOIS' +
+     A                                      'CREATION' +
+     A                                      )
+     A            FRJJC      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('JOUR CREATION')
+     A                                      COLHDG( +
+     A                                      'JOUR' +
+     A                                      'CREATION' +
+     A                                      )
+     A            FRAAM      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('ANNEE MODIF')
+     A                                      COLHDG( +
+     A                                      'ANNEE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            FRMMM      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('MOIS MODIF')
+     A                                      COLHDG( +
+     A                                      'MOIS' +
+     A                                      'MODIF' +
+     A                                      )
+     A            FRJJM      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('JOUR MODIF')
+     A                                      COLHDG( +
+     A                                      'JOUR' +
+     A                                      'MODIF' +
+     A                                      )
+     A            FRHHM      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('HEURE MODIF')
+     A                                      COLHDG( +
+     A                                      'HEURE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            FRMNM      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('MINUTE MODIF')
+     A                                      COLHDG( +
+     A                                      'MINUTE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            FRSSM      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('SECONDE MODIF')
+     A                                      COLHDG( +
+     A                                      'SECONDE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            FRAAS      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('ANNEE SUPPRESS')
+     A                                      COLHDG( +
+     A                                      'ANNEE' +
+     A                                      'SUPPRESS' +
+     A                                      )
+     A            FRMMS      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('MOIS SUPPRESS')
+     A                                      COLHDG( +
+     A                                      'MOIS' +
+     A                                      'SUPPRESS' +
+     A                                      )
+     A            FRJJS      00002A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('JOUR SUPPRESS')
+     A                                      COLHDG( +
+     A                                      'JOUR' +
+     A                                      'SUPPRESS' +
+     A                                      )
+     A            FRCC1      00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF CDE 1')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'CDE 1' +
+     A                                      )
+     A            FRCR1      00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF REG 1')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'REG 1' +
+     A                                      )
+     A            FRCC2      00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF CDE 2')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'CDE 2' +
+     A                                      )
+     A            FRCR2      00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF REG 2')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'REG 2' +
+     A                                      )
+     A            FRCC3      00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF CDE 3')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'CDE 3' +
+     A                                      )
+     A            FRCR3      00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF REG 3')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'REG 3' +
+     A                                      )
+     A            FRCC4      00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF CDE 4')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'CDE 4' +
+     A                                      )
+     A            FRCR4      00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF REG 4')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'REG 4' +
+     A                                      )
+     A            FRCC5      00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF CDE 5')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'CDE 5' +
+     A                                      )
+     A            FRCR5      00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF REG 5')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'REG 5' +
+     A                                      )
+     A            FRCC6      00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF CDE 6')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'CDE 6' +
+     A                                      )
+     A            FRCR6      00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF REG 6')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'REG 6' +
+     A                                      )
+     A            FRCC7      00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF CDE 7')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'CDE 7' +
+     A                                      )
+     A            FRCR7      00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF REG 7')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'REG 7' +
+     A                                      )
+     A            FRCC8      00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF CDE 8')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'CDE 8' +
+     A                                      )
+     A            FRCR8      00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF REG 8')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'REG 8' +
+     A                                      )
+     A            FRCC9      00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF CDE 9')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'CDE 9' +
+     A                                      )
+     A            FRCR9      00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF REG 9')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'REG 9' +
+     A                                      )
+     A            FRCC10     00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF CDE 10')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'CDE 10' +
+     A                                      )
+     A            FRCR10     00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF REG 10')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'REG 10' +
+     A                                      )
+     A            FRCC11     00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF CDE 11')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'CDE 11' +
+     A                                      )
+     A            FRCR11     00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF REG 11')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'REG 11' +
+     A                                      )
+     A            FRCC12     00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF CDE 12')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'CDE 12' +
+     A                                      )
+     A            FRCR12     00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF REG 12')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'REG 12' +
+     A                                      )
+     A            FRCC13     00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF CDE 13')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'CDE 13' +
+     A                                      )
+     A            FRCR13     00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF REG 13')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'REG 13' +
+     A                                      )
+     A            FRCC14     00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF CDE 14')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'CDE 14' +
+     A                                      )
+     A            FRCR14     00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF REG 14')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'REG 14' +
+     A                                      )
+     A            FRCC15     00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF CDE 15')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'CDE 15' +
+     A                                      )
+     A            FRCR15     00003A  B
+     A                                      CCSID(00297)
+     A                                      TEXT('CIF REG 15')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'REG 15' +
+     A                                      )
+     A          K FRCNUF

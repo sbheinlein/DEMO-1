@@ -1,0 +1,91 @@
+     A*****************************************************************
+     A*                                                               *
+     A*  Display File  : HSS342                                       *
+     A*                                                               *
+     A*  Description . : Window for Allocations                       *
+     A*                                                               *
+     A*  System  . . . : HSV Control & Tracking                       *
+     A*                                                               *
+     A*  Author  . . . : Bob Lee                                      *
+     A*                                                               *
+     A*  Date Written  : March 1999                                   *
+     A*                                                               *
+     A*****************************************************************
+     A                                      DSPSIZ(24 80 *DS3)
+     A                                      REF(*LIBL/HSPREF)
+     A                                      PRINT(*LIBL/QSYSPRT)
+     A          R FMTA
+     A                                      ASSUME
+     A                                  1  2' '
+     A          R SFLB                      SFL
+     A*           SELC           1A  B  6  2COLOR(BLU)
+     A*                                     DSPATR(UL)
+     A*                                     COMP(EQ '1')
+     A*                                     CHECK(ER)
+     A*           NAM           40A  O  6 20
+     A*           NBR           15A  O  6  4
+     A*           ID             3  0H
+     A            XPROD     R        O  2  4REFFLD(PROD)
+     A            XSERCC    R        O  2 18REFFLD(SERC)
+     A            XSERNS    R        O  2 22REFFLD(SERN)
+     A            XSERNE    R        O  2 34REFFLD(SERN)
+     A          R SFLCB                     SFLCTL(SFLB)
+     A                                      SFLSIZ(0005)
+     A                                      SFLPAG(0004)
+     A                                      WINDOW(FMTC)
+     A                                      CA12(12 'Previous')
+     A                                      ROLLUP(27)
+     A                                      BLINK
+     A                                      OVERLAY
+     A N74                                  ERASE(SFLB)
+     A                                      PUTOVR
+     A  74                                  SFLDSP
+     A  73                                  SFLDSPCTL
+     A N73                                  SFLCLR
+     A  75                                  SFLEND(*MORE)
+     A            RECNO          4S 0H      SFLRCDNBR
+     A*                                 2  8'Search value:'
+     A*                                     COLOR(WHT)
+     A*           DFNAME        15A  B  2 22OVRDTA
+     A*                                     COLOR(BLU)
+     A                                  1  4'Product'
+     A                                      COLOR(WHT)
+     A                                      DSPATR(UL)
+     A                                  1 18'Srs'
+     A                                      COLOR(WHT)
+     A                                      DSPATR(UL)
+     A                                  1 22'Start Ser.'
+     A                                      COLOR(WHT)
+     A                                      DSPATR(UL)
+     A                                  1 34'End Serial'
+     A                                      COLOR(WHT)
+     A                                      DSPATR(UL)
+     A*                                 4  2'1=Select'
+     A*                                     COLOR(WHT)
+     A          R FMTC
+     A                                      WINDOW(&YLIN &YCOL 07 48 *MSGLIN)
+     A                                      CLRL(*NO)
+     A                                      OVERLAY
+     A                                      PROTECT
+     A                                      PUTOVR
+     A                                      WDWBORDER((*COLOR BLU) (*DSPATR RI)-
+     A                                       (*CHAR '        ')        )
+     A            YLIN           3S 0P
+     A            YCOL           3S 0P
+     A                                  6 35'F12-Return'
+     A                                      COLOR(WHT)
+     A*****************************************************************
+     A          R MSGSFL                    TEXT('Program messages')
+     A                                      SFL SFLMSGRCD(06)
+     A            MSGKEY                    SFLMSGKEY
+     A            XPGMID                    SFLPGMQ
+     A*****************************************************************
+     A          R MSGCTL                    SFLCTL(MSGSFL)
+     A                                      TEXT('Program messages')
+     A  79                                  SFLDSP
+     A  79                                  SFLDSPCTL
+     A  79                                  SFLINZ
+     A  79                                  SFLEND
+     A                                      SFLSIZ(0010)
+     A                                      SFLPAG(0001)
+     A            XPGMID                    SFLPGMQ

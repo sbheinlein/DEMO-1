@@ -1,0 +1,559 @@
+     A*%%TS  SD  19990302  120457  SARLLO      REL-V3R7M0  5716-PW1
+     A*****************************************************************
+     A*                                                               *
+     A*  Display File  : HSS200                                       *
+     A*                                                               *
+     A*  Description . : Sales Order Entry / Maintenance / Inquiry    *
+     A*                                                               *
+     A*  System  . . . : HSV Control & Tracking                       *
+     A*                                                               *
+     A*  Date Written  : January 1999                                 *
+     A*                                                               *
+     A*****************************************************************
+     A*                                                               *
+     A*%%EC
+     A                                      DSPSIZ(24 80 *DS3)
+     A                                      REF(*LIBL/HSPREF)
+     A                                      PRINT
+     A                                      HELP
+     A*****************************************************************
+     A          R HSS200A
+     A*%%TS  SD  19990224  170800  SARLLO      REL-V3R7M0  5716-PW1
+     A                                      CA03
+     A  76                                  CF04
+     A  75 20                               CF07
+     A  61N75                               CF10
+     A                                      RTNCSRLOC(&CSRRCD &CSRFLD)
+     A                                      BLINK
+     A                                      OVERLAY
+     A            CSRRCD        10A  H
+     A            CSRFLD        10A  H
+     A            XJCOMP         6A  H
+     A            XJWHSE         3A  H
+     A            XPGMID        10A  O  1  2COLOR(WHT)
+     A                                  1 28'HIGH STREET VOUCHERS'
+     A                                      DSPATR(HI)
+     A                                      COLOR(WHT)
+     A  78                              1 54' MAINTENANCE '
+     A                                      DSPATR(RI)
+     A  77                              1 56' INQUIRY '
+     A                                      DSPATR(RI)
+     A  76                              1 57' ENTRY '
+     A                                      DSPATR(RI)
+     A  75                              1 56' DISPATCH '
+     A                                      DSPATR(RI)
+     A                                  1 72SYSNAME
+     A                                      COLOR(WHT)
+     A            XUSRID        10A  O  2  2COLOR(WHT)
+     A                                  2 27'Sales Order Processing'
+     A                                      COLOR(WHT)
+     A                                  2 72DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A            XJOBNO        10A  O  3  2COLOR(WHT)
+     A            XXTME          6Y 0O  3 72EDTWRD('  :  :  ')
+     A                                      COLOR(WHT)
+     A  75
+     AO 77
+     AO 78                              5 10'Order No.'
+     A            XJSORD    R        B  5 30REFFLD(JSORD)
+     A                                      EDTCDE(4)
+     A  75                                  CHECK(ER)
+     A N75N77N78                            DSPATR(ND)
+     A  76
+     AO 78                                  DSPATR(PR)
+     A                                      DSPATR(UL)
+     A                                      COLOR(BLU)
+     A  75        XENAM1    R        O  5 40REFFLD(ENAM1)
+     A  75                              6 10'Number of Vouchers'
+     A  75        XVQTY     R        O  6 30REFFLD(QTYN)
+     A                                      EDTCDE(J)
+     A                                  7 15'Order Type'
+     A            XJTYPE    R        B  7 35REFFLD(JTYPE)
+     A  30                                  DSPATR(RI)
+     A  30                                  DSPATR(PC)
+     A                                      DSPATR(UL)
+     A  75                                  DSPATR(PR)
+     A                                      COLOR(BLU)
+     A                                 10 15'Customer Post Code'
+     A            XJPCDE    R        B 10 35REFFLD(PCDE)
+     A  33                                  DSPATR(RI)
+     A  33                                  DSPATR(PC)
+     A                                      DSPATR(UL)
+     A  75                                  DSPATR(PR)
+     A                                      COLOR(BLU)
+     A                                 11 15'Customer No.'
+     A            XJCUST    R        B 11 35REFFLD(JCUST)
+     A  34                                  DSPATR(RI)
+     A  34                                  DSPATR(PC)
+     A                                      DSPATR(UL)
+     A  75                                  DSPATR(PR)
+     A                                      COLOR(BLU)
+     A                                 12 15'Discount %'
+     A            XJDISP    R        B 12 35REFFLD(KDISP)
+     A                                      EDTCDE(L)
+     A  36                                  DSPATR(RI)
+     A  36                                  DSPATR(PC)
+     A                                      DSPATR(UL)
+     A  75                                  DSPATR(PR)
+     A                                      COLOR(BLU)
+     A                                 14 15'Order Date'
+     A            XJORDD    R        B 14 35REFFLD(JORDD)
+     A  35                                  DSPATR(RI)
+     A  35                                  DSPATR(PC)
+     A                                      DSPATR(UL)
+     A  75                                  DSPATR(PR)
+     A                                      COLOR(BLU)
+     A                                      EDTWRD('  /  /    ')
+     A                                 17 15'Customer Order Ref.'
+     A            XJORDR    R        B 17 35REFFLD(JORDR)
+     A                                      COLOR(BLU)
+     A  75                                  DSPATR(PR)
+     A                                 23  3'F3-Exit'
+     A                                      COLOR(WHT)
+     A  76                             23 12'F4-Search'
+     A                                      COLOR(WHT)
+     A  61N75                          23 23'F10-Confirm'
+     A                                      COLOR(WHT)
+     A  75 20                          23 38'F7-Confirm Dispatch'
+     A                                      COLOR(WHT)
+     A  75        XXNAM1        30A  B  9 49
+     A  75        XXNAM2        30A  B 10 49
+     A  75        XXADR1        30A  B 11 49
+     A  75        XXADR2        30A  B 12 49
+     A  75                              7 56'Delivery Address'
+     A*****************************************************************
+     A          R HSS200C                   SFL
+     A                                      SFLNXTCHG
+     A            XOLIN          4S 0H
+     A            XKVATA         5  2H
+     A            XXQTYN         9  0H
+     A            XSELC     R        B 12  2REFFLD(A1)
+     A  36                                  DSPATR(RI)
+     A  36                                  DSPATR(PC)
+     A  77                                  DSPATR(PR)
+     A                                      DSPATR(UL)
+     A                                      COLOR(BLU)
+     A            XKPROD    R        B 12  4REFFLD(KPROD)
+     A  37                                  DSPATR(RI)
+     A  37                                  DSPATR(PC)
+     A  77                                  DSPATR(PR)
+     A                                      DSPATR(UL)
+     A                                      COLOR(BLU)
+     A            XNDESC        19   B 12 18
+     A  38                                  DSPATR(RI)
+     A  38                                  DSPATR(PC)
+     A  77                                  DSPATR(PR)
+     A                                      DSPATR(UL)
+     A                                      COLOR(BLU)
+     A            XKPRIC    R        B 12 38REFFLD(DENO)
+     A                                      EDTCDE(L)
+     A  39                                  DSPATR(RI)
+     A  39                                  DSPATR(PC)
+     A  77                                  DSPATR(PR)
+     A                                      DSPATR(UL)
+     A                                      COLOR(BLU)
+     A            XKQTYN    R        B 12 50REFFLD(LAST)
+     A                                      EDTCDE(3)
+     A  40                                  DSPATR(RI)
+     A  40                                  DSPATR(PC)
+     A  77 50                               DSPATR(PR)
+     A                                      DSPATR(UL)
+     A                                      COLOR(BLU)
+     A                                      CHECK(ER)
+     A            XKVALU    R        O 12 62REFFLD(DENO)
+     A                                      EDTCDE(L)
+     A                                      COLOR(GRN)
+     A                                 13  2'Series'
+     A            XKSERC    R        B 13  9REFFLD(KSERC)
+     A  41                                  DSPATR(RI)
+     A  41                                  DSPATR(PC)
+     A                                      DSPATR(UL)
+     A N50N75                               DSPATR(PR)
+     A                                      COLOR(BLU)
+     A            XKSERF    R        B 13 13REFFLD(KSERNF)
+     A  42                                  DSPATR(RI)
+     A  42                                  DSPATR(PC)
+     A                                      EDTCDE(3)
+     A                                      DSPATR(UL)
+     A N75N50                               DSPATR(PR)
+     A                                      COLOR(BLU)
+     A                                 13 25'-'
+     A            XKSERT    R        B 13 27REFFLD(KSERNT)
+     A  43                                  DSPATR(RI)
+     A  43                                  DSPATR(PC)
+     A                                      EDTCDE(3)
+     A                                      DSPATR(UL)
+     A N75N50                               DSPATR(PR)
+     A                                      COLOR(BLU)
+     A*****************************************************************
+     A          R HSS200B                   SFLCTL(HSS200C)
+     A                                      SFLSIZ(0100)
+     A                                      SFLPAG(0005)
+     A                                      CA03
+     A N77                                  CF04
+     A  86                                  CF08
+     A  61                                  CF10
+     A                                      CA12
+     A                                      PAGEDOWN
+     A                                      OVERLAY
+     A                                      BLINK
+     A  72                                  SFLDSP
+     A  71                                  SFLDSPCTL
+     A  73                                  SFLINZ
+     A  70                                  SFLCLR
+     A  90                                  SFLEND(*MORE)
+     A                                      SFLCSRRRN(&CSRRRN)
+     A                                      RTNCSRLOC(&CSRRCD &CSRFLD &CSRPOS)
+     A                                      CSRLOC(CSRROW     CSRCOL)
+     A            CSRROW         3S 0H
+     A            CSRCOL         3S 0H
+     A            CSRPOS         4S 0H
+     A            RCDNBR         4S 0H      SFLRCDNBR(CURSOR)
+     A            CSRRRN         5S 0H
+     A            CSRRCD        10A  H
+     A            CSRFLD        10A  H
+     A            XJWHSE         3A  H
+     A            XPGMID        10A  O  1  2COLOR(WHT)
+     A                                  1 28'HIGH STREET VOUCHERS'
+     A                                      DSPATR(HI)
+     A                                      COLOR(WHT)
+     A                                  1 72SYSNAME
+     A                                      COLOR(WHT)
+     A            XUSRID        10A  O  2  2COLOR(WHT)
+     A  78                              1 54' MAINTENANCE '
+     A                                      DSPATR(RI)
+     A  77                              1 56' INQUIRY '
+     A                                      DSPATR(RI)
+     A  76                              1 57' ENTRY '
+     A                                      DSPATR(RI)
+     A  75                              1 56' DISPATCH '
+     A                                      DSPATR(RI)
+     A                                  2 27'Sales Order Processing'
+     A                                      COLOR(WHT)
+     A                                  2 72DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A            XJOBNO        10A  O  3  2COLOR(WHT)
+     A            XMODES    R           3 20REFFLD(MODES)
+     A            XXTME          6Y 0O  3 72EDTWRD('  :  :  ')
+     A                                      COLOR(WHT)
+     A*
+     A                                  5  2'Customer No.'
+     A            XJCUST    R        O  5 15REFFLD(JCUST)
+     A                                  5 44'Order No.'
+     A            XJSORD    R        O  5 58REFFLD(JSORD)
+     A*
+     A            XJNAM1    R        O  6  2REFFLD(NAME)
+     A                                  6 44'Customer Ref.'
+     A            XJORDR    R        O  6 58REFFLD(JORDR)
+     A            XJNAM2    R        O  7  2REFFLD(ADR1)
+     A                                  7 44'Order Date'
+     A            XJORDD    R        O  7 58REFFLD(JORDD)
+     A                                      EDTWRD('  /  /    ')
+     A            XJADR1    R        O  8  2REFFLD(ADR1)
+     A                                  8 44'Discount %'
+     A            XJDISP    R        O  8 58REFFLD(DISP)
+     A                                      EDTCDE(L)
+     A            XJADR2    R        O  9  2REFFLD(ADR1)
+     A*                                 9 44'Warehouse'
+     A*           #JWHSE    R        O  9 58REFFLD(WHSE)
+     A                                 10  2'S=Stock  N=Non-stock  T=Text'
+     A                                      COLOR(WHT)
+     A                                 11  4'Product'
+     A                                      COLOR(WHT)
+     A                                 11 18'Description'
+     A                                      COLOR(WHT)
+     A                                 11 40'Unit Price'
+     A                                      COLOR(WHT)
+     A                                 11 52'Quantity'
+     A                                      COLOR(WHT)
+     A                                 11 67'Value'
+     A                                      COLOR(WHT)
+     A*                                11 74'V.A.T.'
+     A*                                     COLOR(WHT)
+     A*****************************************************************
+     A          R HSS200H                   SFL
+     A*%%TS  SD  19990226  124826  SARLLO      REL-V3R7M0  5716-PW1
+     A                                      SFLNXTCHG
+     A            XOLIN          4S 0H
+     A            XKVATA         5S 2H
+     A            XXQTYN         9S 0H
+     A            XSELC     R        B 12  2REFFLD(A1)
+     A  36                                  DSPATR(RI)
+     A  36                                  DSPATR(PC)
+     A  77                                  DSPATR(PR)
+     A                                      DSPATR(UL)
+     A                                      COLOR(BLU)
+     A                                      CHECK(AB)
+     A                                      RANGE('A' '9')
+     A            XKPROD    R        B 12  4REFFLD(KPROD)
+     A  37                                  DSPATR(RI)
+     A  37                                  DSPATR(PC)
+     A  77                                  DSPATR(PR)
+     A                                      DSPATR(UL)
+     A                                      COLOR(BLU)
+     A                                      CHECK(AB)
+     A                                      RANGE('AAAAAAAAAAAAA' '999999999999-
+     A                                      9')
+     A            XNDESC        19A  B 12 18
+     A  38                                  DSPATR(RI)
+     A  38                                  DSPATR(PC)
+     A  77                                  DSPATR(PR)
+     A                                      DSPATR(UL)
+     A                                      COLOR(BLU)
+     A                                      CHECK(AB)
+     A                                      RANGE('AAAAAAAAAAAAAAAAAAA' '999999-
+     A                                      9999999999999')
+     A            XKPRIC    R        B 12 38REFFLD(DENO)
+     A                                      EDTCDE(L)
+     A  39                                  DSPATR(RI)
+     A  39                                  DSPATR(PC)
+     A  77                                  DSPATR(PR)
+     A                                      DSPATR(UL)
+     A                                      COLOR(BLU)
+     A            XKQTYN    R        B 12 50REFFLD(LAST)
+     A                                      EDTCDE(3)
+     A  40                                  DSPATR(RI)
+     A  40                                  DSPATR(PC)
+     A  77 50                               DSPATR(PR)
+     A                                      DSPATR(UL)
+     A                                      COLOR(BLU)
+     A                                      RANGE(0 999999999)
+     A                                      CHECK(AB)
+     A            XKVALU    R        O 12 62REFFLD(DENO)
+     A                                      EDTCDE(L)
+     A                                      COLOR(GRN)
+     A                                 13  2'Series'
+     A            XKSERC    R        B 13  9REFFLD(KSERC)
+     A  41                                  DSPATR(RI)
+     A  41                                  DSPATR(PC)
+     A                                      DSPATR(UL)
+     A N75 50                               DSPATR(PR)
+     A                                      COLOR(BLU)
+     A                                      RANGE('AA' '99')
+     A                                      CHECK(AB)
+     A            XKSERF    R        B 13 13REFFLD(KSERNF)
+     A  42                                  DSPATR(RI)
+     A  42                                  DSPATR(PC)
+     A                                      EDTCDE(3)
+     A                                      DSPATR(UL)
+     A N75 50                               DSPATR(PR)
+     A                                      COLOR(BLU)
+     A                                      RANGE(0 999999999)
+     A                                      CHECK(AB)
+     A                                 13 25'-'
+     A            XKSERT    R        B 13 27REFFLD(KSERNT)
+     A  43                                  DSPATR(RI)
+     A  43                                  DSPATR(PC)
+     A                                      EDTCDE(3)
+     A                                      DSPATR(UL)
+     A N75 50                               DSPATR(PR)
+     A                                      COLOR(BLU)
+     A                                      RANGE(0 999999999)
+     A                                      CHECK(AB)
+     A*****************************************************************
+     A          R HSS200G                   SFLCTL(HSS200H)
+     A                                      SFLSIZ(0100)
+     A                                      SFLPAG(0005)
+     A                                      CA03
+     A N77                                  CF04
+     A*                                     CF06
+     A  61                                  CF10
+     A                                      CA12
+     A                                      PAGEDOWN
+     A                                      OVERLAY
+     A                                      BLINK
+     A  72                                  SFLDSP
+     A  71                                  SFLDSPCTL
+     A  73                                  SFLINZ
+     A  70                                  SFLCLR
+     A  90                                  SFLEND(*MORE)
+     A                                      SFLCSRRRN(&CSRRRN)
+     A                                      RTNCSRLOC(&CSRRCD &CSRFLD &CSRPOS)
+     A                                      CSRLOC(CSRROW     CSRCOL)
+     A            CSRROW         3S 0H
+     A            CSRCOL         3S 0H
+     A            CSRPOS         4S 0H
+     A            RCDNBR         4S 0H      SFLRCDNBR(CURSOR)
+     A            CSRRRN         5S 0H
+     A            CSRRCD        10A  H
+     A            CSRFLD        10A  H
+     A            XJWHSE         3A  H
+     A            XPGMID        10A  O  1  2COLOR(WHT)
+     A                                  1 28'HIGH STREET VOUCHERS'
+     A                                      DSPATR(HI)
+     A                                      COLOR(WHT)
+     A                                  1 72SYSNAME
+     A                                      COLOR(WHT)
+     A            XUSRID        10A  O  2  2COLOR(WHT)
+     A  78                              1 54' MAINTENANCE '
+     A                                      DSPATR(RI)
+     A  77                              1 56' INQUIRY '
+     A                                      DSPATR(RI)
+     A  76                              1 57' ENTRY '
+     A                                      DSPATR(RI)
+     A  75                              1 56' DISPATCH '
+     A                                      DSPATR(RI)
+     A                                  2 27'Sales Order Processing'
+     A                                      COLOR(WHT)
+     A                                  2 72DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A            XJOBNO        10A  O  3  2COLOR(WHT)
+     A            XMODES    R           3 20REFFLD(MODES)
+     A            XXTME          6Y 0O  3 72EDTWRD('  :  :  ')
+     A                                      COLOR(WHT)
+     A*
+     A                                  5  2'Customer No.'
+     A            XJCUST    R        O  5 15REFFLD(JCUST)
+     A                                  5 44'Order No.'
+     A            XJSORD    R        O  5 58REFFLD(JSORD)
+     A*
+     A            XJNAM1    R        O  6  2REFFLD(NAME)
+     A                                  6 44'Customer Ref.'
+     A            XJORDR    R        O  6 58REFFLD(JORDR)
+     A            XJNAM2    R        O  7  2REFFLD(ADR1)
+     A                                  7 44'Order Date'
+     A            XJORDD    R        O  7 58REFFLD(JORDD)
+     A                                      EDTWRD('  /  /    ')
+     A            XJADR1    R        O  8  2REFFLD(ADR1)
+     A                                  8 44'Discount %'
+     A            XJDISP    R        O  8 58REFFLD(DISP)
+     A                                      EDTCDE(L)
+     A            XJADR2    R        O  9  2REFFLD(ADR1)
+     A*                                 9 44'Warehouse'
+     A*           #JWHSE    R        O  9 58REFFLD(WHSE)
+     A                                 10  2'S=Stock  N=Non-stock  T=Text'
+     A                                      COLOR(WHT)
+     A                                 11  4'Product'
+     A                                      COLOR(WHT)
+     A                                 11 18'Description'
+     A                                      COLOR(WHT)
+     A                                 11 40'Unit Price'
+     A                                      COLOR(WHT)
+     A                                 11 52'Quantity'
+     A                                      COLOR(WHT)
+     A                                 11 67'Value'
+     A                                      COLOR(WHT)
+     A*                                11 74'V.A.T.'
+     A*                                     COLOR(WHT)
+     A*****************************************************************
+     A          R HSS200D
+     A                                      CA03
+     A*                                     CF04
+     A*                                     CF06
+     A  61                                  CF10
+     A                                      CA12
+     A                                      RTNCSRLOC(&CSRRCD &CSRFLD)
+     A                                      OVERLAY
+     A            CSRRCD        10A  H
+     A            CSRFLD        10A  H
+     A            XPGMID        10A  O  1  2COLOR(WHT)
+     A                                  1 28'HIGH STREET VOUCHERS'
+     A                                      DSPATR(HI)
+     A                                      COLOR(WHT)
+     A                                  1 72SYSNAME
+     A                                      COLOR(WHT)
+     A            XUSRID        10A  O  2  2COLOR(WHT)
+     A  78                              1 54' MAINTENANCE '
+     A                                      DSPATR(RI)
+     A  77                              1 56' INQUIRY '
+     A                                      DSPATR(RI)
+     A  76                              1 57' ENTRY '
+     A                                      DSPATR(RI)
+     A  75                              1 56' DISPATCH '
+     A                                      DSPATR(RI)
+     A                                  2 30'Delivery Details'
+     A                                      COLOR(WHT)
+     A                                  2 72DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A            XJOBNO        10A  O  3  2COLOR(WHT)
+     A            XXTME          6Y 0O  3 72EDTWRD('  :  :  ')
+     A                                      COLOR(WHT)
+     A                                  5  2'Customer No.'
+     A            XJCUST    R        O  5 15REFFLD(JCUST)
+     A                                  5 44'Order No.'
+     A            XJSORD    R        O  5 58REFFLD(JSORD)
+     A*
+     A            XJNAM1    R        O  6  2REFFLD(NAME)
+     A                                  6 44'Customer Ref.'
+     A            XJORDR    R        O  6 58REFFLD(JORDR)
+     A            XJNAM2    R        O  7  2REFFLD(ADR1)
+     A                                 10  2'Delivery Name'
+     A            XVNAM1    R        B 10 20REFFLD(VNAM1)
+     A                                      COLOR(BLU)
+     A  77                                  DSPATR(PR)
+     A            XVADR1    R        B 11 20REFFLD(VADR1)
+     A                                      COLOR(BLU)
+     A  77                                  DSPATR(PR)
+     A            XVADR2    R        B 12 20REFFLD(VADR2)
+     A                                      COLOR(BLU)
+     A  77                                  DSPATR(PR)
+     A            XVADR3    R        B 13 20REFFLD(VADR3)
+     A                                      COLOR(BLU)
+     A  77                                  DSPATR(PR)
+     A            XVPCDE    R        B 14 20REFFLD(VPCDE)
+     A                                      COLOR(BLU)
+     A  77                                  DSPATR(PR)
+     A                                 17  2'Delivery Instructions'
+     A            XVDIN1    R        B 18 20REFFLD(VDIN1)
+     A                                      COLOR(BLU)
+     A  77                                  DSPATR(PR)
+     A            XVDIN2    R        B 19 20REFFLD(VDIN2)
+     A                                      COLOR(BLU)
+     A  77                                  DSPATR(PR)
+     A            XVDIN3    R        B 20 20REFFLD(VDIN3)
+     A                                      COLOR(BLU)
+     A  77                                  DSPATR(PR)
+     A*****************************************************************
+     A          R HSS200E
+     A*%%TS  SD  19990302  120457  SARLLO      REL-V3R7M0  5716-PW1
+     A                                      TEXT('F key footer')
+     A N77                                  CF04
+     A  86                                  CF08
+     A  61                                  CF10
+     A                                      CA12
+     A                                      OVERLAY
+     A N77                             23  2'F4-Search'
+     A                                      COLOR(WHT)
+     A  61                             23 22'F10-Update'
+     A                                      COLOR(WHT)
+     A                                 23 34'F12-Cancel'
+     A                                      COLOR(WHT)
+     A                                 23 49'Order Value'
+     A            XKTVAL    R        B 23 62REFFLD(DENO)
+     A                                      EDTCDE(L)
+     A                                      DSPATR(PR)
+     A  86                             23 13'F8-Band'
+     A                                      COLOR(WHT)
+     A*****************************************************************
+     A          R HSS200F                   TEXT('F key footer')
+     A  61                                  CF10
+     A                                      CA12
+     A                                      OVERLAY
+     A  61                             23 14'F10-Update'
+     A                                      COLOR(WHT)
+     A                                 23 26'F12-Cancel'
+     A                                      COLOR(WHT)
+     A                                 23 49'Order Value'
+     A            XKTVAL    R        B 23 62REFFLD(DENO)
+     A                                      EDTCDE(L)
+     A                                      DSPATR(PR)
+     A  46                                  DSPATR(RI)
+     A*****************************************************************
+     A          R MSGSFL                    TEXT('Program messages')
+     A                                      SFL SFLMSGRCD(24)
+     A            MSGKEY                    SFLMSGKEY
+     A            XPGMID                    SFLPGMQ
+     A*****************************************************************
+     A          R MSGCTL                    SFLCTL(MSGSFL)
+     A                                      TEXT('Program messages')
+     A  79                                  SFLDSP
+     A  79                                  SFLDSPCTL
+     A  79                                  SFLINZ
+     A  79                                  SFLEND
+     A                                      SFLSIZ(0010)
+     A                                      SFLPAG(0001)
+     A            XPGMID                    SFLPGMQ

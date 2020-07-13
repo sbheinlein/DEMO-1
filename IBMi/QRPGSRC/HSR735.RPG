@@ -1,0 +1,69 @@
+      */TITLE Voucher Control Report Generator               *
+      * CRTRPGPGM                                            *
+      *                                                      *
+      * System : High Street Vouchers Control and Tracking   *
+      * Author : Owen Sarll  (Intec Systems Ltd)             *
+      * Date   : January 1999.                               *
+      *==============================================================
+      *
+      * Indicator Usage:
+      *
+      * 65 - Overflow Indicator.
+      * 90 - Read the Open Query File.
+      *===============================================================
+      *
+     FHSLVCTLAIF  E           K        DISK
+      * Open query file.
+     FHSW735  O   E             65     PRINTER
+      *
+      *
+     C           *ENTRY    PLIST
+     C                     PARM           XPROD  13
+     C                     PARM           XPROD1 13
+     C                     PARM           XPGMID 10
+     C                     PARM           XUSRID 10
+     C                     PARM           XJOBNO 10
+      *
+     C                     Z-ADD0         COUN    80
+     C                     WRITEHEADER1
+     C                     WRITEHEADER2
+     C                     READ HSLVCTLA                 90
+      *
+     C           *IN90     DOWEQ*OFF
+      *
+     C                     EXSR YMOV
+      *
+     C           *IN65     IFEQ *ON
+     C                     WRITEHEADER2
+     C                     MOVE *OFF      *IN65
+     C                     ENDIF
+      *
+     C                     WRITEDETL
+     C                     ADD  1         COUN
+     C                     READ HSLVCTLA                 90
+     C                     ENDDO
+      *
+     C                     WRITEFOOTER
+      *
+     C                     SETON                         LR
+     C                     RETRN
+      *
+      *------------------------------------------------------------
+      *                  SUBROUTINES
+      *------------------------------------------------------------
+      *************************************************************
+      *
+      *
+      *-------------------------------------------------------------
+      * @MOV - Manipulate the fields
+      *-------------------------------------------------------------
+      *
+     C           YMOV      BEGSR
+     C                     MOVE BPROD     RPROD
+     C*                    MOVE BSERNS    RSERNS
+     C*                    MOVE BSERNE    RSERNE
+     C                     MOVE BSERNN    RSERNN
+     C                     MOVE BSERCC    RSERCC
+     C*                    MOVE BSERCN    RSERCN
+     C                     MOVE BELEM     RELEM
+     C                     ENDSR

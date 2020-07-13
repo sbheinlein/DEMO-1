@@ -1,0 +1,12 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLSINTA                                    *
+      *                                                            *
+      *  Description:  Sales Ledger Interface file by Invoice No.  *
+      *                                                            *
+      *  Date       :  February 1999                               *
+      *                                                            *
+      **************************************************************
+     A          R HSFSINT                   PFILE(HSPSINT)
+      *
+     A          K TINVN

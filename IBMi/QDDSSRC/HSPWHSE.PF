@@ -1,0 +1,17 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSPWHSE                                     *
+      *                                                            *
+      *  Description:  Warehouse Codes                             *
+      *                                                            *
+      *  Date       :  December 1998                               *
+      *                                                            *
+      **************************************************************
+     A                                      REF(*LIBL/HSPREF)
+     A          R HSFWHSE
+      *  Description:  Warehouse Codes
+     A            PWHSE     R               REFFLD(WHSE)
+     A            PODES     R               REFFLD(DESC)
+     A                                      COLHDG('Warehouse Text')
+     A            PDELT     R               REFFLD(A1)
+     A                                      COLHDG('Deletion Flag')

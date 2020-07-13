@@ -1,0 +1,12 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLSUBCB                                    *
+      *                                                            *
+      *  Description:  Product Sub-codes                           *
+      *                                                            *
+      *  Date       :  January 1999                                *
+      *                                                            *
+      **************************************************************
+     A          R HSFSUBC                   PFILE(HSPSUBC)
+      *  Description:  Product Sub-codes
+     A          K NASUBC

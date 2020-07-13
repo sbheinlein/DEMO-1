@@ -1,0 +1,13 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLINVMA                                    *
+      *                                                            *
+      *  Description:  Inventory Masterfile by Product/Prod.SubCode*
+      *                                                            *
+      *  Date       :  January 1999                                *
+      *                                                            *
+      **************************************************************
+     A          R HSFINVM                   PFILE(HSPINVM)
+      *
+     A          K DPROD
+     A          K DSUBC

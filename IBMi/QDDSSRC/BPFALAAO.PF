@@ -1,0 +1,248 @@
+     A          R BPRAAO
+     A            AACNFE     00006A  B
+     A
+     A                                      TEXT('GENCOD: CNUF MANUFACT')
+     A                                      COLHDG( +
+     A                                      'CNUF' +
+     A                                      )
+     A            AACIFE     00003A  B
+     A
+     A                                      TEXT('INTERNAL SUPPL CODE')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      )
+     A            AANCMD     00008A  B
+     A
+     A                                      TEXT('COMMAND NUMBER')
+     A                                      COLHDG( +
+     A                                      'NCMD' +
+     A                                      )
+     A            AANORD     00005A  B
+     A
+     A                                      TEXT('ORDER NUMBER')
+     A                                      COLHDG( +
+     A                                      'DRNORD' +
+     A                                      )
+     A            AACNDD     00003A  B
+     A
+     A                                      TEXT('CNUD   (INF:XXCNUD  )')
+     A                                      COLHDG( +
+     A                                      'CNUD' +
+     A                                      )
+     A            AACIDD     00005A  B
+     A
+     A                                      TEXT('ACTIVITY CENTER')
+     A                                      COLHDG( +
+     A                                      'CID' +
+     A                                      )
+     A            AACNDL     00003A  B
+     A
+     A                                      TEXT('CNUD   (INF:XXCNUD  )')
+     A                                      COLHDG( +
+     A                                      'CNUD' +
+     A                                      )
+     A            AACIDL     00005A  B
+     A
+     A                                      TEXT('ACTIVITY CENTER')
+     A                                      COLHDG( +
+     A                                      'CID' +
+     A                                      )
+     A            AAAAE      00002A  B
+     A
+     A                                      TEXT('INVOICING YR.')
+     A                                      COLHDG( +
+     A                                      'ANNEE' +
+     A                                      'FACT.' +
+     A                                      )
+     A            AAMME      00002A  B
+     A
+     A                                      TEXT('INVOICING MONTH.')
+     A                                      COLHDG( +
+     A                                      'MOIS' +
+     A                                      'FACT.' +
+     A                                      )
+     A            AAJJE      00002A  B
+     A
+     A                                      TEXT('INVOICING DAY.')
+     A                                      COLHDG( +
+     A                                      'JOUR' +
+     A                                      'FACT.' +
+     A                                      )
+     A            AAAAL      00002A  B
+     A
+     A                                      TEXT('INVOICING YR.')
+     A                                      COLHDG( +
+     A                                      'ANNEE' +
+     A                                      'FACT.' +
+     A                                      )
+     A            AAMML      00002A  B
+     A
+     A                                      TEXT('INVOICING MONTH.')
+     A                                      COLHDG( +
+     A                                      'MOIS' +
+     A                                      'FACT.' +
+     A                                      )
+     A            AAJJL      00002A  B
+     A
+     A                                      TEXT('INVOICING DAY.')
+     A                                      COLHDG( +
+     A                                      'JOUR' +
+     A                                      'FACT.' +
+     A                                      )
+     A            AAHHL      00002A  B
+     A
+     A                                      TEXT('HOUR CHANGE')
+     A                                      COLHDG( +
+     A                                      'HEURE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            AAMNL      00002A  B
+     A
+     A                                      TEXT('MINUTE CHANGE')
+     A                                      COLHDG( +
+     A                                      'MINUTE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            AASPCB     00004S00B
+     A                                      TEXT('SUB-CONDITIONS SUPPL')
+     A                                      COLHDG( +
+     A                                      'SPCB' +
+     A                                      )
+     A            AAPCB      00004S00B
+     A                                      TEXT('GENCOD: CONDITIONS SUPPL')
+     A                                      COLHDG( +
+     A                                      'PCB' +
+     A                                      )
+     A            AAEAN      00012A  B
+     A
+     A                                      TEXT('E.A.N.')
+     A                                      COLHDG( +
+     A                                      'EAN' +
+     A                                      )
+     A            AAKEAN     00001A  B
+     A
+     A                                      TEXT('EAN KEY')
+     A                                      COLHDG( +
+     A                                      'KEAN' +
+     A                                      )
+     A            AAVL       00002A  B
+     A
+     A                                      TEXT('VARIANT LOGISTICS')
+     A                                      COLHDG( +
+     A                                      'VL' +
+     A                                      )
+     A            AAVA       00002A  B
+     A
+     A                                      TEXT('GENCOD: VARIANT PROMO')
+     A                                      COLHDG( +
+     A                                      'VA' +
+     A                                      )
+     A            AAQT       00009P03B
+     A                                      TEXT('QUANTITY')
+     A                                      COLHDG( +
+     A                                      'QTE' +
+     A                                      )
+     A            AAPA       00008P03B
+     A                                      TEXT('BUYING PRICE')
+     A                                      COLHDG( +
+     A                                      'PRIX' +
+     A                                      'ACHAT' +
+     A                                      )
+     A            AAPVM      00008P03B
+     A                                      TEXT('SELLING PRICE MK')
+     A                                      COLHDG( +
+     A                                      'PRIX' +
+     A                                      'VTE' +
+     A                                      'MRQ' +
+     A                                      )
+     A            AARAC      00006A  B
+     A
+     A                                      TEXT('ART COMMAND: ROOT')
+     A                                      COLHDG( +
+     A                                      'RACINE' +
+     A                                      )
+     A            AACCC      00001A  B
+     A
+     A                                      TEXT('ART COMMANDE: CONDT CMD M')
+     A                                      COLHDG( +
+     A                                      'COND' +
+     A                                      'CMDE' +
+     A                                      'MAG' +
+     A                                      )
+     A            AAVPV      00002A  B
+     A
+     A                                      TEXT('ART COMMAND: LOT PROMO')
+     A                                      COLHDG( +
+     A                                      'LOT' +
+     A                                      'PROMO' +
+     A                                      )
+     A            AAMOD      00001A  B
+     A
+     A                                      TEXT('MODULE')
+     A                                      COLHDG( +
+     A                                      'MOD' +
+     A                                      )
+     A            AADES      00030A  B
+     A
+     A                                      TEXT('DESIGNATION')
+     A                                      COLHDG( +
+     A                                      'DES' +
+     A                                      )
+     A            AAEMPL     00006A  B
+     A
+     A                                      TEXT('SITE CODE')
+     A                                      COLHDG( +
+     A                                      'EMPL' +
+     A                                      )
+     A            AAAAC      00002A  B
+     A
+     A                                      TEXT('CREATION YEAR')
+     A                                      COLHDG( +
+     A                                      'AAC' +
+     A                                      )
+     A            AAMMC      00002A  B
+     A
+     A                                      TEXT('CREATION MONTH')
+     A                                      COLHDG( +
+     A                                      'MMC' +
+     A                                      )
+     A            AAJJC      00002A  B
+     A
+     A                                      TEXT('CREATION DAY')
+     A                                      COLHDG( +
+     A                                      'JJC' +
+     A                                      )
+     A            AAHHC      00002A  B
+     A
+     A                                      TEXT('HOUR CHANGE')
+     A                                      COLHDG( +
+     A                                      'HEURE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            AAMNC      00002A  B
+     A
+     A                                      TEXT('MINUTE CHANGE')
+     A                                      COLHDG( +
+     A                                      'MINUTE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            AASSC      00002A  B
+     A
+     A                                      TEXT('SECONDE CHANGE')
+     A                                      COLHDG( +
+     A                                      'SECONDE' +
+     A                                      'MODIF' +
+     A                                      )
+     A            AAANO      00002A  B
+     A
+     A                                      TEXT('ANOMALY TYPE')
+     A                                      COLHDG( +
+     A                                      'TYPE' +
+     A                                      'ANO' +
+     A                                      )
+     A            AALANO     00050A  B
+     A
+     A                                      TEXT('ANOMALY LABEL')
+     A                                      COLHDG( +
+     A                                      'LIBELLE ANOMALIE' +
+     A                                      )

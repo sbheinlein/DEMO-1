@@ -1,0 +1,14 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLPRODC                                    *
+      *                                                            *
+      *  Description:  Product Master by Item Code (Booklets only) *
+      *                                                            *
+      *  Date       :  Fberuary 1999                               *
+      *                                                            *
+      **************************************************************
+     A          R HSFPROD                   PFILE(HSPPROD)
+      *
+     A          K NPROD
+     A          O NBOOK                     VALUES(' ')
+     A          O NDELT                     VALUES('D')

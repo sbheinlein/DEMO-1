@@ -1,0 +1,12 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSLVXRFA                                    *
+      *                                                            *
+      *  Description:  Voucher Cross-reference by Agent Product    *
+      *                                                            *
+      *  Date       :  January 1999                                *
+      *                                                            *
+      **************************************************************
+     A          R HSFVXRF                   PFILE(HSPVXRF)
+      *
+     A          K HAGPR

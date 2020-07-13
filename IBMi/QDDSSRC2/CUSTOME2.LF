@@ -1,0 +1,5 @@
+                                            UNIQUE
+                R FCUST                     PFILE(CUSTOMER)
+                K CUSTNM
+                K CUSTA1
+                K CUZIP

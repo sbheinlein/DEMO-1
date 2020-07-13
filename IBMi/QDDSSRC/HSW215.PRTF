@@ -1,0 +1,45 @@
+      ********************************************************
+      *                                                      *
+      *                                                      *
+      *      File Name:   HSW215                             *
+      *                                                      *
+      *      Description: AGENCY Batch Error report          *
+      *                                                      *
+      *      Date:        January 1999                       *
+      *                                                      *
+      ********************************************************
+      *
+     A          R HEADER1
+     A            XPGMID        10         2
+     A                                    31'HIGH STREET VOUCHERS'
+     A            XSYSNM         8        72SPACEA(01)
+     A            XUSRID        10         2
+     A                                   110'Date:'
+     A                                   116DATE EDTCDE(Y) SPACEA(01)
+     A                                   110'Page:'
+     A                                   116PAGNBR EDTCDE(Z) SPACEA(02)
+     A                                    26'Agency Sales in Error Report'
+     A            XJOBNO        10         2
+     A                                   110'Time:'
+     A                                   116TIME SPACEA(02)
+      *------------------------------------------------------------
+     A          R HEADER2
+     A                                     1'Sales Type'
+     A                                    12'Customer No.'
+     A                                    25'Product'
+     A                                    55'Quantity' SPACEA(02)
+      *---------------------------------------------------------------
+     A          R DETL
+     A  91                                74 '*** Invalid Customer No.      ***'
+     A  92                                74 '*** Invalid Product Code.     ***'
+     A            AATYPE         3A        2
+     A            AACUST         8A       12
+     A            AAPROD        13        28
+     A            AAQTYN        15  0     40EDTCDE(J) SPACEA(01)
+      *---------------------------------------------------------------
+     A          R FOOTER                    SPACEB(02)
+     A                                    10'Agency Batch No.:'
+     A            BATCH          5  0     28SPACEA(01) EDTWRD('   0 ')
+     A                                    10'Number of Records Printed:'
+     A            COUN           5  0     37SPACEA(02) EDTWRD('   0 ')
+     A                                    10'*** END OF REPORT ***'

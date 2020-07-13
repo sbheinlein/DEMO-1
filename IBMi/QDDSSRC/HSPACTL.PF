@@ -1,0 +1,32 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSPACTL                                     *
+      *                                                            *
+      *  Description:  Agent Voucher Control                       *
+      *                                                            *
+      *  Date       :  February 1999                               *
+      *                                                            *
+      **************************************************************
+     A                                      REF(*LIBL/HSPREF)
+     A          R HSFACTL
+      *  Description:  Agent Voucher Control
+     A            BCOMP     R               REFFLD(COMP)
+     A            BWHSE     R               REFFLD(WHSE)
+     A            BCUST     R               REFFLD(CUST)
+     A                                      COLHDG('Agent Code')
+     A            BPROD     R               REFFLD(PROD)
+     A            BVTYP     R               REFFLD(VTYP)
+     A            BSERCC    R               REFFLD(SERC)
+     A                                      COLHDG('Curr.Series Code')
+     A            BSERNS    R               REFFLD(SERN)
+     A                                      COLHDG('Start Serial No.')
+     A            BSERNE    R               REFFLD(SERN)
+     A                                      COLHDG('End Serial No.')
+     A*           BSERNN    R               REFFLD(SERN)
+     A*                                     COLHDG('Next Serial No.')
+     A*           BSERCN    R               REFFLD(SERC)
+     A*                                     COLHDG('Next Series Code')
+     A*           BELEM     R               REFFLD(ELEM)
+     A*                                     COLHDG('No. of Elements')
+     A            BDELT     R               REFFLD(A1)
+     A                                      COLHDG('Deletion Flag')

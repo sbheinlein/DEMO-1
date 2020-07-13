@@ -1,0 +1,6 @@
+                                            UNIQUE
+                                            REF(SMPREF)
+                R FCOUN
+                  COUNID         3
+                  COUNDE        30
+                K COUNID

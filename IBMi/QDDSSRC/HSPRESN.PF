@@ -1,0 +1,19 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSPRESN                                     *
+      *                                                            *
+      *  Description:  Reason Codes                                *
+      *                                                            *
+      *  Date       :  December 1998                               *
+      *                                                            *
+      **************************************************************
+     A                                      REF(*LIBL/HSPREF)
+     A          R HSFRESN
+      *  Description:  Reason Codes
+     A            OREAS     R               REFFLD(REAS)
+     A            OODES     R               REFFLD(DESC)
+     A                                      COLHDG('Reason Text')
+     A            OMOVT     R               REFFLD(A1)
+     A                                      COLHDG('Stock Movement')
+     A            ODELT     R               REFFLD(A1)
+     A                                      COLHDG('Deletion Flag')

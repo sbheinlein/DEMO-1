@@ -1,0 +1,27 @@
+      **************************************************************
+      *                                                            *
+      *  File Name  :  HSPSINT                                     *
+      *                                                            *
+      *  Description:  Sales Ledger Interface                      *
+      *                                                            *
+      *  Date       :  December 1998                               *
+      *                                                            *
+      **************************************************************
+     A                                      REF(*LIBL/HSPREF)
+     A          R HSFSINT
+      *  Description:  Sales Ledger Interface
+     A            TCOMP     R               REFFLD(COMP)
+     A            TCUST     R               REFFLD(CUST)
+     A            TCUSB     R               REFFLD(REDR)
+     A                                      COLHDG('Customer Branch')
+     A            TINVN     R               REFFLD(INVN)
+     A            TINVD     R               REFFLD(DATE)
+     A                                      COLHDG('Invoice Date')
+     A            TVALU     R               REFFLD(PRIC)
+     A                                      COLHDG('Invoice Value')
+     A            TVATA     R               REFFLD(PRIC)
+     A                                      COLHDG('VAT Value')
+     A            TDISP     R               REFFLD(DISP)
+     A                                      COLHDG('Discount %')
+     A            TBATC     R               REFFLD(DSPB)
+     A                                      COLHDG('Invoice Batch No.')

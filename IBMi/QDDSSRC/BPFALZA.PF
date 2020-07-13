@@ -1,0 +1,281 @@
+     A          R BPRALZA
+     A                                      TEXT('FILE. ALL. WRK. APPRO. AZ.')
+     A            AZCNFE     00006A  B
+     A
+     A                                      TEXT('CNUL ISSUER')
+     A                                      COLHDG( +
+     A                                      'CNUL' +
+     A                                      'Emett' +
+     A                                      )
+     A            AZCIFE     00003A  B
+     A
+     A                                      TEXT('CIF ISSUER')
+     A                                      COLHDG( +
+     A                                      'CIF' +
+     A                                      'Emett' +
+     A                                      )
+     A            AZNCMD     00008A  B
+     A
+     A                                      TEXT('COMMAND NUMBER')
+     A                                      COLHDG( +
+     A                                      'Num' +
+     A                                      'Cde' +
+     A                                      )
+     A            AZNORD     00005A  B
+     A
+     A                                      TEXT('ORDER NUMBER')
+     A                                      COLHDG( +
+     A                                      'Num' +
+     A                                      'Ordre' +
+     A                                      )
+     A            AZCNDD     00003A  B
+     A
+     A                                      TEXT('CNUD DESTINATION')
+     A                                      COLHDG( +
+     A                                      'CNUD' +
+     A                                      'Desti' +
+     A                                      )
+     A            AZCIDD     00005A  B
+     A
+     A                                      TEXT('SHOP Destination')
+     A                                      COLHDG( +
+     A                                      'Mag' +
+     A                                      'Desti' +
+     A                                      )
+     A            AZCNDL     00003A  B
+     A
+     A                                      TEXT('CNUD DRIVER')
+     A                                      COLHDG( +
+     A                                      'CNUD' +
+     A                                      'Liv.' +
+     A                                      )
+     A            AZCIDL     00005A  B
+     A
+     A                                      TEXT('WAREHOUSE CODE')
+     A                                      COLHDG( +
+     A                                      'Ent' +
+     A                                      'Liv' +
+     A                                      )
+     A            AZAAEM     00002A  B
+     A
+     A                                      TEXT('ISSUING YEAR')
+     A                                      COLHDG( +
+     A                                      'Ann' +
+     A                                      'Emi' +
+     A                                      )
+     A            AZMMEM     00002A  B
+     A
+     A                                      TEXT('ISSUING MONTH')
+     A                                      COLHDG( +
+     A                                      'Moi' +
+     A                                      'Emi' +
+     A                                      )
+     A            AZJJEM     00002A  B
+     A
+     A                                      TEXT('ISSUING DAY')
+     A                                      COLHDG( +
+     A                                      'Jou' +
+     A                                      'Emi' +
+     A                                      )
+     A            AZAALV     00002A  B
+     A
+     A                                      TEXT('PLANNED DELIVERY YEAR')
+     A                                      COLHDG( +
+     A                                      'Ann' +
+     A                                      'Liv' +
+     A                                      'Prév' +
+     A                                      )
+     A            AZMMLV     00002A  B
+     A
+     A                                      TEXT('PLANNED DELIVERY MONTH')
+     A                                      COLHDG( +
+     A                                      'Moi' +
+     A                                      'Liv' +
+     A                                      'Prév' +
+     A                                      )
+     A            AZJJLV     00002A  B
+     A
+     A                                      TEXT('PLANNED DELIVERY DAY')
+     A                                      COLHDG( +
+     A                                      'Jou' +
+     A                                      'Liv' +
+     A                                      'Prév' +
+     A                                      )
+     A            AZHHLV     00002A  B
+     A
+     A                                      TEXT('PLANNED DELIVERY HOUR')
+     A                                      COLHDG( +
+     A                                      'Heu' +
+     A                                      'Liv' +
+     A                                      'Prév' +
+     A                                      )
+     A            AZMNLV     00002A  B
+     A
+     A                                      TEXT('PLANNED DELIVERY MINUTE')
+     A                                      COLHDG( +
+     A                                      'Min' +
+     A                                      'Liv' +
+     A                                      'Prév' +
+     A                                      )
+     A            AZSPCB     00004S00B
+     A                                      TEXT('SUB-CONDITIONING SUPPL')
+     A                                      COLHDG( +
+     A                                      'SPCB' +
+     A                                      )
+     A            AZPCB      00004S00B
+     A                                      TEXT('SUPPLIER CONDITIONING')
+     A                                      COLHDG( +
+     A                                      'PCB' +
+     A                                      )
+     A            AZEAN      00012A  B
+     A
+     A                                      TEXT('EAN CODE')
+     A                                      COLHDG( +
+     A                                      'EAN' +
+     A                                      )
+     A            AZKEAN     00001A  B
+     A
+     A                                      TEXT('EAN KEY')
+     A                                      COLHDG( +
+     A                                      'Clé' +
+     A                                      'EAN' +
+     A                                      )
+     A            AZVL       00002A  B
+     A
+     A                                      TEXT('VARIANT LOGISTICS')
+     A                                      COLHDG( +
+     A                                      'VL' +
+     A                                      )
+     A            AZVA       00002A  B
+     A
+     A                                      TEXT('VARIANT PROMO')
+     A                                      COLHDG( +
+     A                                      'VA' +
+     A                                      )
+     A            AZQT       00009P03B
+     A                                      TEXT('QUANTITY')
+     A                                      COLHDG( +
+     A                                      'QTE' +
+     A                                      )
+     A            AZPA       00008P03B
+     A                                      TEXT('BUYING PRICE')
+     A                                      COLHDG( +
+     A                                      'Prix' +
+     A                                      'Achat' +
+     A                                      )
+     A            AZPVM      00008P03B
+     A                                      TEXT('MARKED SELLING PRICE')
+     A                                      COLHDG( +
+     A                                      'Prix' +
+     A                                      'Vente' +
+     A                                      'Marqué' +
+     A                                      )
+     A            AZRAC      00006A  B
+     A
+     A                                      TEXT('ROOT OF ARTICLE ORDERED')
+     A                                      COLHDG( +
+     A                                      'Racine' +
+     A                                      'Article' +
+     A                                      'Commandé' +
+     A                                      )
+     A            AZCCC      00001A  B
+     A
+     A                                      TEXT('Condition ORDER SHOP. Ar')
+     A                                      COLHDG( +
+     A                                      'COND' +
+     A                                      'CMDE' +
+     A                                      'MAG' +
+     A                                      )
+     A            AZVPV      00002A  B
+     A
+     A                                      TEXT('ART ORDER: LOT PROMO')
+     A                                      COLHDG( +
+     A                                      'LOT' +
+     A                                      'PROMO' +
+     A                                      )
+     A            AZMOD      00001A  B
+     A
+     A                                      TEXT('ORDERED ARTICLE MODULE')
+     A                                      COLHDG( +
+     A                                      'Modulo' +
+     A                                      'Article' +
+     A                                      'Commandé' +
+     A                                      )
+     A            AZDES      00030A  B
+     A
+     A                                      TEXT('DESIGNATION ORDERED ARTICLE')
+     A                                      COLHDG( +
+     A                                      'Désig.' +
+     A                                      'Article' +
+     A                                      'Commandé' +
+     A                                      )
+     A            AZEMPL     00006A  B
+     A
+     A                                      TEXT('LOCATION CODE')
+     A                                      COLHDG( +
+     A                                      'Code' +
+     A                                      'Emplacement' +
+     A                                      )
+     A            AZAACR     00002A  B
+     A
+     A                                      TEXT('CREATION YEAR')
+     A                                      COLHDG( +
+     A                                      'Année' +
+     A                                      'Création' +
+     A                                      )
+     A            AZMMCR     00002A  B
+     A
+     A                                      TEXT('CREATION MONTH')
+     A                                      COLHDG( +
+     A                                      'Mois' +
+     A                                      'Création' +
+     A                                      )
+     A            AZJJCR     00002A  B
+     A
+     A                                      TEXT('CREATION DAY')
+     A                                      COLHDG( +
+     A                                      'Jour' +
+     A                                      'Création' +
+     A                                      )
+     A            AZHHCR     00002A  B
+     A
+     A                                      TEXT('CREATION HOUR')
+     A                                      COLHDG( +
+     A                                      'Heure' +
+     A                                      'Création' +
+     A                                      )
+     A            AZMNCR     00002A  B
+     A
+     A                                      TEXT('CREATION MINUTE')
+     A                                      COLHDG( +
+     A                                      'Minute' +
+     A                                      'Création' +
+     A                                      )
+     A            AZSSCR     00002A  B
+     A
+     A                                      TEXT('CREATION SECOND')
+     A                                      COLHDG( +
+     A                                      'Seconde' +
+     A                                      'Création' +
+     A                                      )
+     A            AZRVAL     00001A  B
+     A
+     A                                      TEXT('VALID RETURN (Y=YES;'' ''')
+     A                                      COLHDG( +
+     A                                      'Top' +
+     A                                      'Ret' +
+     A                                      'Valide' +
+     A                                      )
+     A            AZCAPP     00003A  B
+     A
+     A                                      TEXT('SUPPLIER CODE')
+     A                                      COLHDG( +
+     A                                      'Code' +
+     A                                      'Approvisionneur' +
+     A                                      )
+     A            AZDATA     00046A  B
+     A
+     A                                      TEXT('Filler 01')
+     A                                      COLHDG( +
+     A                                      'Filler 01' +
+     A                                      )

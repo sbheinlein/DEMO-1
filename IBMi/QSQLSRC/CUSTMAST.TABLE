@@ -1,0 +1,30 @@
+     --%CSTD===========================================================*
+     --* Application. : RWB Ray's Demo Application                     *
+     --* Composant. . : CUSTMAST                      Type: TABLE      *
+     --*===============================================================*
+     --* Sous-système :                                                *
+     --* Fonction . . :                                                *
+     --* Sous-fonction:                                                *
+     --*%S=============================================================*
+     --* Description des fonctionnalités:                              *
+     --*                                                               *
+     --*                                                               *
+     --*                                                               *
+     --*%E=============================================================*
+     --* AUTEUR:                          00:00                        *
+     --* MODIFS: 01 RBERNARDI  08/27/2008 10:27  V 8.06.M    N°00/     *
+     --%ECSTD==========================================================*
+--  Generate SQL
+--  Version:                   V5R4M0 060210
+--  Generated on:              08/07/08 11:02:20
+--  Relational Database:       S654330E
+--  Standards Option:          DB2 UDB iSeries
+ 
+CREATE TABLE CUSTMAST (
+  CUID CHAR(5) CCSID 37 NOT NULL DEFAULT '' ,
+  CUNAME CHAR(10) CCSID 37 NOT NULL DEFAULT '' )
+  NOT VOLATILE ;
+ 
+LABEL ON TABLE CUSTMAST
+  IS 'CUSTMAST' ;
+ 
